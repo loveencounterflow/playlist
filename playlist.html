@@ -3,18 +3,21 @@
 <style>
 @font-face { font-family: 'anton-regular';  src: url( './Anton-Regular.ttf' ); }
 @font-face { font-family: 'futura-heavy';  src: url( './Futura Heavy.otf' ); }
+@font-face { font-family: 'bilbo-swash';  src: url( './BilboSwashCaps-Regular.ttf' ); }
 
 /* thx to https://developer.mozilla.org/en-US/docs/Web/CSS/line-height-step */
 :root {
   --root-font-family:     futura-heavy;
   --artist-font-family:   futura-heavy;
   --title-font-family:    anton-regular;
-  --root-font-size:       6mm;
+  --jonas-font-family:    bilbo-swash;
+  --root-font-size:       4mm;
   --td-padding:           calc( 0.25 * var(--root-font-size) );
   --artist-font-size:     calc( 1.0 * var(--root-font-size) );
   --title-font-size:      calc( 1.2 * var(--root-font-size) );
-  --grid-size:            8mm;
-  --root-text-color:      #555;
+  --jonas-font-size:      calc( 5 * var(--root-font-size) );
+  --grid-size:            3mm;
+  --root-text-color:      #333;
   --link-color:           #f55;
   font-family:            var(--root-font-family);
   font-size:              var(--root-font-size);
@@ -97,21 +100,28 @@ td:nth-child( 2 ) em {
   font-style:             normal;
   font-size:              var(--root-font-size); }
 
-td a          { text-decoration: none; color:  var(--link-color); }
-td a:link     { text-decoration: none; color:  var(--link-color); }
-td a:visited  { text-decoration: none; color:  var(--link-color); }
-td a:focus    { text-decoration: none; color:  var(--link-color); }
-td a:hover    { text-decoration: none; color:  var(--link-color); }
-td a:active   { text-decoration: none; color:  var(--link-color); }
+td a          { text-decoration: none; color:  var(--root-color); }
+td a:link     { text-decoration: none; color:  var(--root-color); }
+td a:visited  { text-decoration: none; color:  var(--root-color); }
+td a:focus    { text-decoration: none; color:  var(--root-color); }
+td a:hover    { text-decoration: none; color:  var(--root-color); }
+td a:active   { text-decoration: none; color:  var(--root-color); }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight:            normal;
   font-family:            var(--title-font-family); }
 
+.jonas {
+  font-family:            var(--jonas-font-family);
+  font-size:              var(--jonas-font-size); }
+
 </style>
 </head>
 <article>
-<h2 id="jonas-playlist">Jonas Playlist</h2>
+<div class="jonas">
+Jonas
+</div>
+<h2 id="playlist">Playlist</h2>
 <table>
 <colgroup>
 <col style="width: 31%" />
@@ -257,22 +267,29 @@ href="https://www.youtube.com/watch?v=u0lg1LcfHBQ">Diese Welt
 </tr>
 <tr class="even">
 <td style="text-align: left;">Beatles</td>
-<td style="text-align: left;">Penny Lane</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=vfxQ1oDiEJM">Penny Lane</a></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Boy George</td>
-<td style="text-align: left;">Karma Chameleon</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=JmcA9LIIXWw">Karma
+Chameleon</a></td>
 <td></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Doris Day</td>
-<td style="text-align: left;">Que Será, Será</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=i9nWB5XifBI">Que Será,
+Será</a></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Nancy Sinatra + Lee Hazelwood</td>
-<td style="text-align: left;">Summer Wine</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=nbtKHrI-OAs">Summer Wine <em>(Ed
+Sullivan Show 1967)</em></a></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -283,7 +300,9 @@ href="https://www.youtube.com/watch?v=LT38CIgRse4">Lilac Wine</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Nancy Sinatra + Lee Hazelwood</td>
-<td style="text-align: left;">Fedora</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=670YMraVnyk">Some Velvet
+Morning</a></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -294,22 +313,30 @@ href="https://www.youtube.com/watch?v=zb47CstE7R4">Mahna Mahna</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Hilde Knef</td>
-<td style="text-align: left;">In dieser Stadt</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=zc2ZYOrhTV4">In dieser Stadt
+(1966)</a></td>
 <td></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Nancy Sinatra</td>
-<td style="text-align: left;">You Only Live Twice</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=Z6D6ObD9cMY">You Only Live
+Twice</a></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Nana Mouskouri</td>
-<td style="text-align: left;">Weiße Rosen aus Athen</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=ZpJiKL4N3V0">Weiße Rosen aus
+Athen</a></td>
 <td></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Nana Mouskouri</td>
-<td style="text-align: left;">Akropolis Adieu</td>
+<td style="text-align: left;">Mireille Mathieu</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=NeNs4UPoFTA">Akropolis Adieu
+<em>(ZDF Drehscheibe 1971)</em></a></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -366,8 +393,10 @@ Mersey</a></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">Robbie Williams + Nicole Kidman</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=f43nR8Wu_1Y">Something
+Stupid</a></td>
 <td></td>
 </tr>
 </tbody>

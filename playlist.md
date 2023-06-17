@@ -4,18 +4,21 @@
 <style>
 @font-face { font-family: 'anton-regular';  src: url( './Anton-Regular.ttf' ); }
 @font-face { font-family: 'futura-heavy';  src: url( './Futura Heavy.otf' ); }
+@font-face { font-family: 'bilbo-swash';  src: url( './BilboSwashCaps-Regular.ttf' ); }
 
 /* thx to https://developer.mozilla.org/en-US/docs/Web/CSS/line-height-step */
 :root {
   --root-font-family:     futura-heavy;
   --artist-font-family:   futura-heavy;
   --title-font-family:    anton-regular;
-  --root-font-size:       6mm;
+  --jonas-font-family:    bilbo-swash;
+  --root-font-size:       4mm;
   --td-padding:           calc( 0.25 * var(--root-font-size) );
   --artist-font-size:     calc( 1.0 * var(--root-font-size) );
   --title-font-size:      calc( 1.2 * var(--root-font-size) );
-  --grid-size:            8mm;
-  --root-text-color:      #555;
+  --jonas-font-size:      calc( 5 * var(--root-font-size) );
+  --grid-size:            3mm;
+  --root-text-color:      #333;
   --link-color:           #f55;
   font-family:            var(--root-font-family);
   font-size:              var(--root-font-size);
@@ -98,67 +101,72 @@ td:nth-child( 2 ) em {
   font-style:             normal;
   font-size:              var(--root-font-size); }
 
-td a          { text-decoration: none; color:  var(--link-color); }
-td a:link     { text-decoration: none; color:  var(--link-color); }
-td a:visited  { text-decoration: none; color:  var(--link-color); }
-td a:focus    { text-decoration: none; color:  var(--link-color); }
-td a:hover    { text-decoration: none; color:  var(--link-color); }
-td a:active   { text-decoration: none; color:  var(--link-color); }
+td a          { text-decoration: none; color:  var(--root-color); }
+td a:link     { text-decoration: none; color:  var(--root-color); }
+td a:visited  { text-decoration: none; color:  var(--root-color); }
+td a:focus    { text-decoration: none; color:  var(--root-color); }
+td a:hover    { text-decoration: none; color:  var(--root-color); }
+td a:active   { text-decoration: none; color:  var(--root-color); }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight:            normal;
   font-family:            var(--title-font-family); }
+
+.jonas {
+  font-family:            var(--jonas-font-family);
+  font-size:              var(--jonas-font-size); }
 
 </style>
 </head>
 
 <article>
 
+<div class=jonas>Jonas</div>
 
-## Jonas Playlist
+## Playlist
 
 
-| Artist                        | Titel                                                                                             | Vote      |
-| :------                       | :-----                                                                                            | --------- |
-| Men At Work                   | [Down Under](https://www.youtube.com/watch?v=XfR9iY5y94s)                                         |           |
-| Men At Work                   | [Who Can It Be Now](https://www.youtube.com/watch?v=SECVGN4Bsgg)                                  |           |
-| Reinhard Mai                  | [Über den Wolken](https://www.youtube.com/watch?v=fZMFF8QH3ew)                                    |           |
-| Peter Alexander               | [Die kleine Kneipe](https://www.youtube.com/watch?v=A10I_3e8B_I)                                  |           |
-| Udo Jürgens                   | [Griechischer Wein](https://www.youtube.com/watch?v=eKveb4BjK_c)                                  |           |
-| Udo Jürgens                   | [Und immer wieder geht die Sonne auf](https://www.youtube.com/watch?v=s06hmLSxNFM)                |           |
-| Vickie Leandros               | [Ich liebe das Leben](https://www.youtube.com/watch?v=7_FsW8RPCTc)                                |           |
-| Domenico Modugno              | [Amara terra mia](https://www.youtube.com/watch?v=oRa39T_O4yU)                                    |           |
-| Karel Gott                    | [Einmal um die ganze Welt](https://www.youtube.com/watch?v=gHEa2Oyo1bY)                           |           |
-| Daliah Lavi                   | [Jerusalem](https://www.youtube.com/watch?v=JqiFmIJSWaI)                                          |           |
-| Daliah Lavi                   | [Meine Art Liebe zu zeigen](https://www.youtube.com/watch?v=WvgyQmBxko0)                          |           |
-| Daliah Lavi                   | [Willst du mit mir gehen](https://www.youtube.com/watch?v=yIRKlvhDP_w)                            |           |
-| Peter Maffay                  | [Über sieben Brücken musst du gehen](https://www.youtube.com/watch?v=eKwl5HclBeQ)                 |           |
-| Joy Fleming                   | [Ein Lied kann eine Brücke sein *(Eurovision 1975)*](https://www.youtube.com/watch?v=pzDzm3gq530) |           |
-| Daisy Door                    | [Du lebst in deiner Welt *(Hitparade 1971)*](https://www.youtube.com/watch?v=2pM_FAkSVlM)         |           |
-| Rio Reiser                    | [Junimond](https://www.youtube.com/watch?v=X6VIYLmS6vM)                                           |           |
-| Laid Back                     | [Bakerman](https://www.youtube.com/watch?v=yByP88jUQH4)                                           |           |
-| Hot Butter                    | [Popcorn (1972)](https://www.youtube.com/watch?v=YK3ZP6frAMc)                                     |           |
-| Katja Ebstein                 | [Diese Welt *(Eurovision 1971)*](https://www.youtube.com/watch?v=u0lg1LcfHBQ)                     |           |
-| Beatles                       | Penny Lane                                                                                        |           |
-| Boy George                    | Karma Chameleon                                                                                   |           |
-| Doris Day                     | Que Será, Será                                                                                    |           |
-| Nancy Sinatra + Lee Hazelwood | Summer Wine                                                                                       |           |
-| Nina Simone                   | [Lilac Wine](https://www.youtube.com/watch?v=LT38CIgRse4)                                         |           |
-| Nancy Sinatra + Lee Hazelwood | Fedora                                                                                            |           |
-| The Muppets                   | [Mahna Mahna](https://www.youtube.com/watch?v=zb47CstE7R4)                                        |           |
-| Hilde Knef                    | In dieser Stadt                                                                                   |           |
-| Nancy Sinatra                 | You Only Live Twice                                                                               |           |
-| Nana Mouskouri                | Weiße Rosen aus Athen                                                                             |           |
-| Nana Mouskouri                | Akropolis Adieu                                                                                   |           |
-| Coldplay                      | [Yellow](https://www.youtube.com/watch?v=yKNxeF4KMsY)                                             |           |
-| Peggy March                   | [Memories Of Heidelberg](https://www.youtube.com/watch?v=4tB9FNZxB6g)                             |           |
-| Drafi Deutscher               | [Marmor, Stein und Eisen bricht](https://www.youtube.com/watch?v=BTmtOd4mpco)                     |           |
-| Charles Aznavour              | [Emmenez-moi](https://www.youtube.com/watch?v=0OrKMaeQUx0)                                        |           |
-| Edith Piaf                    | [Je Ne Regrette Rien](https://www.youtube.com/watch?v=fpHAsb2XQOY)                                |           |
-| Travis                        | [Sing](https://www.youtube.com/watch?v=eYO1-gGWJyo)                                               |           |
-| Peggy March                   | [Memories Of Heidelberg](https://www.youtube.com/watch?v=4tB9FNZxB6g)                             |           |
-| Gerry & The Pacemakers        | [Ferry Cross The Mersey](https://www.youtube.com/watch?v=08083BNaYcA)                             |           |
-|                               |                                                                                                   |           |
+| Artist                          | Titel                                                                                             | Vote      |
+| :------                         | :-----                                                                                            | --------- |
+| Men At Work                     | [Down Under](https://www.youtube.com/watch?v=XfR9iY5y94s)                                         |           |
+| Men At Work                     | [Who Can It Be Now](https://www.youtube.com/watch?v=SECVGN4Bsgg)                                  |           |
+| Reinhard Mai                    | [Über den Wolken](https://www.youtube.com/watch?v=fZMFF8QH3ew)                                    |           |
+| Peter Alexander                 | [Die kleine Kneipe](https://www.youtube.com/watch?v=A10I_3e8B_I)                                  |           |
+| Udo Jürgens                     | [Griechischer Wein](https://www.youtube.com/watch?v=eKveb4BjK_c)                                  |           |
+| Udo Jürgens                     | [Und immer wieder geht die Sonne auf](https://www.youtube.com/watch?v=s06hmLSxNFM)                |           |
+| Vickie Leandros                 | [Ich liebe das Leben](https://www.youtube.com/watch?v=7_FsW8RPCTc)                                |           |
+| Domenico Modugno                | [Amara terra mia](https://www.youtube.com/watch?v=oRa39T_O4yU)                                    |           |
+| Karel Gott                      | [Einmal um die ganze Welt](https://www.youtube.com/watch?v=gHEa2Oyo1bY)                           |           |
+| Daliah Lavi                     | [Jerusalem](https://www.youtube.com/watch?v=JqiFmIJSWaI)                                          |           |
+| Daliah Lavi                     | [Meine Art Liebe zu zeigen](https://www.youtube.com/watch?v=WvgyQmBxko0)                          |           |
+| Daliah Lavi                     | [Willst du mit mir gehen](https://www.youtube.com/watch?v=yIRKlvhDP_w)                            |           |
+| Peter Maffay                    | [Über sieben Brücken musst du gehen](https://www.youtube.com/watch?v=eKwl5HclBeQ)                 |           |
+| Joy Fleming                     | [Ein Lied kann eine Brücke sein *(Eurovision 1975)*](https://www.youtube.com/watch?v=pzDzm3gq530) |           |
+| Daisy Door                      | [Du lebst in deiner Welt *(Hitparade 1971)*](https://www.youtube.com/watch?v=2pM_FAkSVlM)         |           |
+| Rio Reiser                      | [Junimond](https://www.youtube.com/watch?v=X6VIYLmS6vM)                                           |           |
+| Laid Back                       | [Bakerman](https://www.youtube.com/watch?v=yByP88jUQH4)                                           |           |
+| Hot Butter                      | [Popcorn (1972)](https://www.youtube.com/watch?v=YK3ZP6frAMc)                                     |           |
+| Katja Ebstein                   | [Diese Welt *(Eurovision 1971)*](https://www.youtube.com/watch?v=u0lg1LcfHBQ)                     |           |
+| Beatles                         | [Penny Lane](https://www.youtube.com/watch?v=vfxQ1oDiEJM)                                         |           |
+| Boy George                      | [Karma Chameleon](https://www.youtube.com/watch?v=JmcA9LIIXWw)                                    |           |
+| Doris Day                       | [Que Será, Será](https://www.youtube.com/watch?v=i9nWB5XifBI)                                     |           |
+| Nancy Sinatra + Lee Hazelwood   | [Summer Wine *(Ed Sullivan Show 1967)*](https://www.youtube.com/watch?v=nbtKHrI-OAs)              |           |
+| Nina Simone                     | [Lilac Wine](https://www.youtube.com/watch?v=LT38CIgRse4)                                         |           |
+| Nancy Sinatra + Lee Hazelwood   | [Some Velvet Morning](https://www.youtube.com/watch?v=670YMraVnyk)                                |           |
+| The Muppets                     | [Mahna Mahna](https://www.youtube.com/watch?v=zb47CstE7R4)                                        |           |
+| Hilde Knef                      | [In dieser Stadt (1966)](https://www.youtube.com/watch?v=zc2ZYOrhTV4)                             |           |
+| Nancy Sinatra                   | [You Only Live Twice](https://www.youtube.com/watch?v=Z6D6ObD9cMY)                                |           |
+| Nana Mouskouri                  | [Weiße Rosen aus Athen](https://www.youtube.com/watch?v=ZpJiKL4N3V0)                              |           |
+| Mireille Mathieu                | [Akropolis Adieu *(ZDF Drehscheibe 1971)*](https://www.youtube.com/watch?v=NeNs4UPoFTA)           |           |
+| Coldplay                        | [Yellow](https://www.youtube.com/watch?v=yKNxeF4KMsY)                                             |           |
+| Peggy March                     | [Memories Of Heidelberg](https://www.youtube.com/watch?v=4tB9FNZxB6g)                             |           |
+| Drafi Deutscher                 | [Marmor, Stein und Eisen bricht](https://www.youtube.com/watch?v=BTmtOd4mpco)                     |           |
+| Charles Aznavour                | [Emmenez-moi](https://www.youtube.com/watch?v=0OrKMaeQUx0)                                        |           |
+| Edith Piaf                      | [Je Ne Regrette Rien](https://www.youtube.com/watch?v=fpHAsb2XQOY)                                |           |
+| Travis                          | [Sing](https://www.youtube.com/watch?v=eYO1-gGWJyo)                                               |           |
+| Peggy March                     | [Memories Of Heidelberg](https://www.youtube.com/watch?v=4tB9FNZxB6g)                             |           |
+| Gerry & The Pacemakers          | [Ferry Cross The Mersey](https://www.youtube.com/watch?v=08083BNaYcA)                             |           |
+| Robbie Williams + Nicole Kidman | [Something Stupid](https://www.youtube.com/watch?v=f43nR8Wu_1Y)                                   |           |
 
 </article>
 <spacer></spacer>
