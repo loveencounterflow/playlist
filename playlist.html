@@ -3,25 +3,31 @@
 <style>
 /*@font-face { font-family: 'egypt';  src: url( './AaronUMdCPhoneticAlpha100.ttf' ); unicode-range: U+13000-1342f; }*/
 @font-face { font-family: 'flow';  src: local( 'jizura3b'              ); /*url( './fonts/jizura3b.ttf'               );*/ unicode-range: U+0e000-0efff; }
+/*@font-face { font-family: 'bigshoulders';  src: url( './BigShouldersText-SemiBold.ttf' ); }*/
+@font-face { font-family: 'bigshoulders';  src: url( './Anton-Regular.ttf' ); }
+
+/* thx to https://developer.mozilla.org/en-US/docs/Web/CSS/line-height-step */
+:root {
+  --title-font:           bigshoulders;
+  --text-color:           #555;
+  --link-color:           #f55;
+  --mktw-font-size:       6mm;
+  --mktw-grid:            8mm;
+  font-size:              var(--mktw-font-size);
+  line-height-step:       var(--mktw-grid); }
 
 html, body {
-  background-color:       #9eaeb5;
+  /*background-color:       #9eaeb5;*/
   /*height:                 100vh;*/
   /*width:                  100vw;*/
   padding:                0mm;
   margin:                 0mm;
+  color:                  var(--text-color);
   /*position:               absolute;*/
   /*overflow:               hidden;*/
   /*font-size:              6mm;*/
   font-family:            'egypt';
 }
-
-/* thx to https://developer.mozilla.org/en-US/docs/Web/CSS/line-height-step */
-:root {
-  --mktw-font-size:       6mm;
-  --mktw-grid:            8mm;
-  font-size:              var(--mktw-font-size);
-  line-height-step:       var(--mktw-grid); }
 
 
 jzr {
@@ -79,10 +85,26 @@ col:nth-child( 3 ) {
   max-width:              10mm !important;
   width:                  10mm !important; }
 
+td:nth-child( 2 ) {
+  font-family:            var(--title-font);
+  /*font-family:            'bigshoulders';*/
+  font-size:              8mm; }
+
+td a          { text-decoration: none; color:  var(--link-color); }
+td a:link     { text-decoration: none; color:  var(--link-color); }
+td a:visited  { text-decoration: none; color:  var(--link-color); }
+td a:focus    { text-decoration: none; color:  var(--link-color); }
+td a:hover    { text-decoration: none; color:  var(--link-color); }
+td a:active   { text-decoration: none; color:  var(--link-color); }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight:            normal;
+  font-family:            var(--title-font); }
+
 </style>
 </head>
 <article>
-<h2 id="jonas-playlist">Jonas’ Playlist</h2>
+<h2 id="jonas-playlist">Jonas Playlist</h2>
 <table>
 <colgroup>
 <col style="width: 31%" />
@@ -181,116 +203,109 @@ gehen</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Peter Maffay</td>
-<td style="text-align: left;">Über sieben Brücken</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=eKwl5HclBeQ">Über sieben Brücken
+musst du gehen</a></td>
 <td></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Joy Fleming</td>
-<td style="text-align: left;">Ein Lied kann eine Brücke sein</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=pzDzm3gq530">Ein Lied kann eine
+Brücke sein (Eurovision 1975)</a></td>
 <td></td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">Daisy Door</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=2pM_FAkSVlM">Du lebst in deiner
+Welt (Hitparade 1971)</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rio Reiser</td>
+<td style="text-align: left;">Junimond</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Laid Back</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=yByP88jUQH4">Bakerman</a></td>
+<td></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">Hot Butter</td>
 <td style="text-align: left;"><a
 href="https://www.youtube.com/watch?v=YK3ZP6frAMc">Popcorn
 (1972)</a></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Katja Ebstein</td>
 <td style="text-align: left;">Diese Welt</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Beatles</td>
 <td style="text-align: left;">Penny Lane</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Boy George</td>
 <td style="text-align: left;">Karma Chameleon</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Doris Day</td>
-<td style="text-align: left;">Que Sera, Sera</td>
+<td style="text-align: left;">Que Será, Será</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Nancy Sinatra + Lee Hazelwood</td>
 <td style="text-align: left;">Summer Wine</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Nina Simone</td>
 <td style="text-align: left;"><a
 href="https://www.youtube.com/watch?v=LT38CIgRse4">Lilac Wine</a></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Nancy Sinatra + Lee Hazelwood</td>
 <td style="text-align: left;">Fedora</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">The Muppets</td>
 <td style="text-align: left;"><a
 href="https://www.youtube.com/watch?v=zb47CstE7R4">Mahna Mahna</a></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Hilde Knef</td>
 <td style="text-align: left;">In dieser Stadt</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Nancy Sinatra</td>
 <td style="text-align: left;">You Only Live Twice</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Nana Mouskouri</td>
 <td style="text-align: left;">Weiße Rosen aus Athen</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Nana Mouskouri</td>
 <td style="text-align: left;">Akropolis Adieu</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Coldplay</td>
 <td style="text-align: left;"><a
 href="https://www.youtube.com/watch?v=yKNxeF4KMsY">Yellow</a></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Peggy March</td>
-<td style="text-align: left;">Memories Of Heidelberg</td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Drafi Deutscher</td>
-<td style="text-align: left;">Marmor, Stein und Eisen bricht</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Charles Aznavour</td>
-<td style="text-align: left;"><a
-href="https://www.youtube.com/watch?v=0OrKMaeQUx0">Emmenez-moi</a></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Edith Piaf</td>
-<td style="text-align: left;"><a
-href="https://www.youtube.com/watch?v=fpHAsb2XQOY">Je Ne Regrette
-Rien</a></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Travis</td>
-<td style="text-align: left;"><a
-href="https://www.youtube.com/watch?v=eYO1-gGWJyo">Sing</a></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -301,13 +316,46 @@ Heidelberg</a></td>
 <td></td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">Drafi Deutscher</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=BTmtOd4mpco">Marmor, Stein und
+Eisen bricht</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Charles Aznavour</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=0OrKMaeQUx0">Emmenez-moi</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Edith Piaf</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=fpHAsb2XQOY">Je Ne Regrette
+Rien</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Travis</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=eYO1-gGWJyo">Sing</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Peggy March</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=4tB9FNZxB6g">Memories Of
+Heidelberg</a></td>
+<td></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">Gerry &amp; The Pacemakers</td>
 <td style="text-align: left;"><a
 href="https://www.youtube.com/watch?v=08083BNaYcA">Ferry Cross The
 Mersey</a></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 <td></td>
