@@ -134,6 +134,9 @@ td:nth-child( 3 )::before       { content:  '('; }
 td:nth-child( 3 )::after        { content:  ')'; }
 td:nth-child( 3 ):empty::before { content:  ''; }
 td:nth-child( 3 ):empty::after  { content:  ''; }
+td:nth-child( 3 ) { position:  relative; top: calc( 0.2 * var(--root-font-size ) ); }
+
+tr { break-inside: avoid; }
 
 </style>
 </head>
