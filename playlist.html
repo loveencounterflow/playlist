@@ -124,8 +124,16 @@ h1, h2, h3, h4, h5, h6 {
   font-size:              var(--jonas-font-size); }
 
 td {
-  display: block;
-}
+  display:                block; }
+
+td:nth-child( 2 ),
+td:nth-child( 3 ) {
+  display:                inline; }
+
+td:nth-child( 3 )::before       { content:  '('; }
+td:nth-child( 3 )::after        { content:  ')'; }
+td:nth-child( 3 ):empty::before { content:  ''; }
+td:nth-child( 3 ):empty::after  { content:  ''; }
 
 </style>
 </head>
@@ -143,7 +151,7 @@ Jonas
 <tr class="header">
 <th style="text-align: left;">Artist</th>
 <th style="text-align: left;">Titel</th>
-<th>Vote</th>
+<th>Anmerkungen</th>
 </tr>
 </thead>
 <tbody>
@@ -176,8 +184,8 @@ href="https://www.youtube.com/watch?v=yKNxeF4KMsY">Yellow</a></td>
 <td style="text-align: left;">Daisy Door</td>
 <td style="text-align: left;"><a
 href="https://www.youtube.com/watch?v=2pM_FAkSVlM">Du lebst in deiner
-Welt <em>(Hitparade 1971)</em></a></td>
-<td></td>
+Welt</a></td>
+<td>Hitparade 1971</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Daliah Lavi</td>
@@ -237,23 +245,22 @@ Mersey</a></td>
 <tr class="even">
 <td style="text-align: left;">Hilde Knef</td>
 <td style="text-align: left;"><a
-href="https://www.youtube.com/watch?v=zc2ZYOrhTV4">In dieser Stadt
-<em>(1966)</em></a></td>
-<td></td>
+href="https://www.youtube.com/watch?v=zc2ZYOrhTV4">In dieser
+Stadt</a></td>
+<td>1966</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Hot Butter</td>
 <td style="text-align: left;"><a
-href="https://www.youtube.com/watch?v=YK3ZP6frAMc">Popcorn
-<em>(1972)</em></a></td>
-<td></td>
+href="https://www.youtube.com/watch?v=YK3ZP6frAMc">Popcorn</a></td>
+<td>1972</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Joy Fleming</td>
 <td style="text-align: left;"><a
 href="https://www.youtube.com/watch?v=pzDzm3gq530">Ein Lied kann eine
-Brücke sein <em>(Eurovision 1975)</em></a></td>
-<td></td>
+Brücke sein</a></td>
+<td>Eurovision 1975</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Karel Gott</td>
@@ -265,9 +272,8 @@ Welt</a></td>
 <tr class="even">
 <td style="text-align: left;">Katja Ebstein</td>
 <td style="text-align: left;"><a
-href="https://www.youtube.com/watch?v=u0lg1LcfHBQ">Diese Welt
-<em>(Eurovision 1971)</em></a></td>
-<td></td>
+href="https://www.youtube.com/watch?v=u0lg1LcfHBQ">Diese Welt</a></td>
+<td>Eurovision 1971</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Laid Back</td>
@@ -291,9 +297,9 @@ Now</a></td>
 <tr class="even">
 <td style="text-align: left;">Mireille Mathieu</td>
 <td style="text-align: left;"><a
-href="https://www.youtube.com/watch?v=NeNs4UPoFTA">Akropolis Adieu
-<em>(ZDF Drehscheibe 1971)</em></a></td>
-<td></td>
+href="https://www.youtube.com/watch?v=NeNs4UPoFTA">Akropolis
+Adieu</a></td>
+<td>ZDF Drehscheibe 1971</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Nana Mouskouri</td>
@@ -319,9 +325,8 @@ Morning</a></td>
 <tr class="even">
 <td style="text-align: left;">Nancy Sinatra + Lee Hazelwood</td>
 <td style="text-align: left;"><a
-href="https://www.youtube.com/watch?v=nbtKHrI-OAs">Summer Wine <em>(Ed
-Sullivan Show 1967)</em></a></td>
-<td></td>
+href="https://www.youtube.com/watch?v=nbtKHrI-OAs">Summer Wine</a></td>
+<td>Ed Sullivan Show 1967</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Nina Simone</td>
