@@ -221,96 +221,52 @@ td:nth-child( 2 ):not( :has( a ) ) {
   </div>
 
 
-| Artist                          | Titel                                                                              | Anmerkungen           |
-| :------                         | :-----                                                                             | ---------             |
-| Beatles                         | [Penny Lane](https://www.youtube.com/watch?v=vfxQ1oDiEJM)                          |                       |
-| Boy George                      | [Karma Chameleon](https://www.youtube.com/watch?v=JmcA9LIIXWw)                     |                       |
-| Charles Aznavour                | [Emmenez-moi](https://www.youtube.com/watch?v=0OrKMaeQUx0)                         |                       |
-| Coldplay                        | [Yellow](https://www.youtube.com/watch?v=yKNxeF4KMsY)                              |                       |
-| Daisy Door                      | [Du lebst in deiner Welt](https://www.youtube.com/watch?v=2pM_FAkSVlM)             | Hitparade 1971        |
-| Daliah Lavi                     | [Jerusalem](https://www.youtube.com/watch?v=JqiFmIJSWaI)                           |                       |
-| Daliah Lavi                     | [Meine Art Liebe zu zeigen](https://www.youtube.com/watch?v=WvgyQmBxko0)           |                       |
-| Daliah Lavi                     | [Willst du mit mir gehen](https://www.youtube.com/watch?v=yIRKlvhDP_w)             |                       |
-| Domenico Modugno                | [Amara terra mia](https://www.youtube.com/watch?v=oRa39T_O4yU)                     |                       |
-| Doris Day                       | [Que Será, Será](https://www.youtube.com/watch?v=i9nWB5XifBI)                      |                       |
-| Drafi Deutscher                 | [Marmor, Stein und Eisen bricht](https://www.youtube.com/watch?v=BTmtOd4mpco)      |                       |
-| Edith Piaf                      | [Je Ne Regrette Rien](https://www.youtube.com/watch?v=fpHAsb2XQOY)                 |                       |
-| Gerry & The Pacemakers          | [Ferry Cross The Mersey](https://www.youtube.com/watch?v=08083BNaYcA)              |                       |
-| Hilde Knef                      | [In dieser Stadt](https://www.youtube.com/watch?v=zc2ZYOrhTV4)                     | 1966                  |
-| Hot Butter                      | [Popcorn](https://www.youtube.com/watch?v=YK3ZP6frAMc)                             | 1972                  |
-| Joy Fleming                     | [Ein Lied kann eine Brücke sein](https://www.youtube.com/watch?v=pzDzm3gq530)      | Eurovision 1975       |
-| Karel Gott                      | [Einmal um die ganze Welt](https://www.youtube.com/watch?v=gHEa2Oyo1bY)            |                       |
-| Katja Ebstein                   | [Diese Welt](https://www.youtube.com/watch?v=u0lg1LcfHBQ)                          | Eurovision 1971       |
-| Laid Back                       | [Bakerman](https://www.youtube.com/watch?v=yByP88jUQH4)                            |                       |
-| Men At Work                     | [Down Under](https://www.youtube.com/watch?v=XfR9iY5y94s)                          |                       |
-| Men At Work                     | [Who Can It Be Now](https://www.youtube.com/watch?v=SECVGN4Bsgg)                   |                       |
-| Mireille Mathieu                | [Akropolis Adieu](https://www.youtube.com/watch?v=NeNs4UPoFTA)                     | ZDF Drehscheibe 1971  |
-| Nana Mouskouri                  | [Weiße Rosen aus Athen](https://www.youtube.com/watch?v=ZpJiKL4N3V0)               |                       |
-| Nancy Sinatra                   | [You Only Live Twice](https://www.youtube.com/watch?v=Z6D6ObD9cMY)                 |                       |
-| Nancy Sinatra + Lee Hazelwood   | [Some Velvet Morning](https://www.youtube.com/watch?v=670YMraVnyk)                 |                       |
-| Nancy Sinatra + Lee Hazelwood   | [Summer Wine](https://www.youtube.com/watch?v=nbtKHrI-OAs)                         | Ed Sullivan Show 1967 |
-| Nina Simone                     | [Lilac Wine](https://www.youtube.com/watch?v=LT38CIgRse4)                          |                       |
-| Peggy March                     | [Memories Of Heidelberg](https://www.youtube.com/watch?v=4tB9FNZxB6g)              |                       |
-| Peter Alexander                 | [Die kleine Kneipe](https://www.youtube.com/watch?v=A10I_3e8B_I)                   |                       |
-| Peter Maffay                    | [Über sieben Brücken musst du gehen](https://www.youtube.com/watch?v=eKwl5HclBeQ)  |                       |
-| Reinhard Mai                    | [Über den Wolken](https://www.youtube.com/watch?v=fZMFF8QH3ew)                     |                       |
-| Rio Reiser                      | [Junimond](https://www.youtube.com/watch?v=X6VIYLmS6vM)                            |                       |
-| Robbie Williams + Nicole Kidman | [Something Stupid](https://www.youtube.com/watch?v=f43nR8Wu_1Y)                    |                       |
-| The Muppets                     | [Mahna Mahna](https://www.youtube.com/watch?v=zb47CstE7R4)                         |                       |
-| Travis                          | [Sing](https://www.youtube.com/watch?v=eYO1-gGWJyo)                                |                       |
-| Udo Jürgens                     | [Griechischer Wein](https://www.youtube.com/watch?v=eKveb4BjK_c)                   |                       |
-| Udo Jürgens                     | [Und immer wieder geht die Sonne auf](https://www.youtube.com/watch?v=s06hmLSxNFM) |                       |
-| Vickie Leandros                 | [Ich liebe das Leben](https://www.youtube.com/watch?v=7_FsW8RPCTc)                 |                       |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
-| XXX                             | XXX                                                                                | XXX                      |
+| Artist                          | Titel                                                                              | Anmerkungen                   |
+| :------                         | :-----                                                                             | ---------                     |
+| Beatles                         | [Penny Lane](https://www.youtube.com/watch?v=vfxQ1oDiEJM)                          |                               |
+| Boy George                      | [Karma Chameleon](https://www.youtube.com/watch?v=JmcA9LIIXWw)                     |                               |
+| Charles Aznavour                | [Emmenez-moi](https://www.youtube.com/watch?v=0OrKMaeQUx0)                         |                               |
+| Coldplay                        | [Yellow](https://www.youtube.com/watch?v=yKNxeF4KMsY)                              |                               |
+| Daisy Door                      | [Du lebst in deiner Welt](https://www.youtube.com/watch?v=2pM_FAkSVlM)             | Hitparade 1971                |
+| Daliah Lavi                     | [Jerusalem](https://www.youtube.com/watch?v=JqiFmIJSWaI)                           |                               |
+| Daliah Lavi                     | [Meine Art Liebe zu zeigen](https://www.youtube.com/watch?v=WvgyQmBxko0)           |                               |
+| Daliah Lavi                     | [Willst du mit mir gehen](https://www.youtube.com/watch?v=yIRKlvhDP_w)             |                               |
+| Domenico Modugno                | [Amara terra mia](https://www.youtube.com/watch?v=oRa39T_O4yU)                     |                               |
+| Doris Day                       | [Que Será, Será](https://www.youtube.com/watch?v=i9nWB5XifBI)                      |                               |
+| Drafi Deutscher                 | [Marmor, Stein und Eisen bricht](https://www.youtube.com/watch?v=BTmtOd4mpco)      |                               |
+| Edith Piaf                      | [Je Ne Regrette Rien](https://www.youtube.com/watch?v=fpHAsb2XQOY)                 |                               |
+| Gerry & The Pacemakers          | [Ferry Cross The Mersey](https://www.youtube.com/watch?v=08083BNaYcA)              |                               |
+| Hilde Knef                      | [In dieser Stadt](https://www.youtube.com/watch?v=zc2ZYOrhTV4)                     | 1966                          |
+| Hot Butter                      | [Popcorn](https://www.youtube.com/watch?v=YK3ZP6frAMc)                             | 1972                          |
+| Joy Fleming                     | [Ein Lied kann eine Brücke sein](https://www.youtube.com/watch?v=pzDzm3gq530)      | Eurovision 1975               |
+| Karel Gott                      | [Einmal um die ganze Welt](https://www.youtube.com/watch?v=gHEa2Oyo1bY)            |                               |
+| Katja Ebstein                   | [Diese Welt](https://www.youtube.com/watch?v=u0lg1LcfHBQ)                          | Eurovision 1971               |
+| Laid Back                       | [Bakerman](https://www.youtube.com/watch?v=yByP88jUQH4)                            |                               |
+| Men At Work                     | [Down Under](https://www.youtube.com/watch?v=XfR9iY5y94s)                          |                               |
+| Men At Work                     | [Who Can It Be Now](https://www.youtube.com/watch?v=SECVGN4Bsgg)                   |                               |
+| Mireille Mathieu                | [Akropolis Adieu](https://www.youtube.com/watch?v=NeNs4UPoFTA)                     | ZDF Drehscheibe 1971          |
+| Nana Mouskouri                  | [Weiße Rosen aus Athen](https://www.youtube.com/watch?v=ZpJiKL4N3V0)               |                               |
+| Nancy Sinatra                   | [You Only Live Twice](https://www.youtube.com/watch?v=Z6D6ObD9cMY)                 |                               |
+| Nancy Sinatra + Lee Hazelwood   | [Some Velvet Morning](https://www.youtube.com/watch?v=670YMraVnyk)                 |                               |
+| Nancy Sinatra + Lee Hazelwood   | [Summer Wine](https://www.youtube.com/watch?v=nbtKHrI-OAs)                         | Ed Sullivan Show 1967         |
+| Nina Simone                     | [Lilac Wine](https://www.youtube.com/watch?v=LT38CIgRse4)                          |                               |
+| Peggy March                     | [Memories Of Heidelberg](https://www.youtube.com/watch?v=4tB9FNZxB6g)              |                               |
+| Peter Alexander                 | [Die kleine Kneipe](https://www.youtube.com/watch?v=A10I_3e8B_I)                   |                               |
+| Peter Maffay                    | [Über sieben Brücken musst du gehen](https://www.youtube.com/watch?v=eKwl5HclBeQ)  |                               |
+| Reinhard Mai                    | [Über den Wolken](https://www.youtube.com/watch?v=fZMFF8QH3ew)                     |                               |
+| Rio Reiser                      | [Junimond](https://www.youtube.com/watch?v=X6VIYLmS6vM)                            |                               |
+| Robbie Williams + Nicole Kidman | [Something Stupid](https://www.youtube.com/watch?v=f43nR8Wu_1Y)                    |                               |
+| The Muppets                     | [Mahna Mahna](https://www.youtube.com/watch?v=zb47CstE7R4)                         |                               |
+| Travis                          | [Sing](https://www.youtube.com/watch?v=eYO1-gGWJyo)                                |                               |
+| Udo Jürgens                     | [Griechischer Wein](https://www.youtube.com/watch?v=eKveb4BjK_c)                   |                               |
+| Udo Jürgens                     | [Und immer wieder geht die Sonne auf](https://www.youtube.com/watch?v=s06hmLSxNFM) |                               |
+| Vickie Leandros                 | [Ich liebe das Leben](https://www.youtube.com/watch?v=7_FsW8RPCTc)                 |                               |
+| Peter Schilling                 | [Major Tom (de)](https://www.youtube.com/watch?v=KQRaj1vcnrs)                      | Video 1982 by the man himself |
+| Peter Schilling                 | [Major Tom (en)](https://www.youtube.com/watch?v=wO0A0XcWy88)                      | Video 1983                    |
+| Soft Cell                       | [Tainted Love](https://www.youtube.com/watch?v=XZVpR3Pk-r8)                        | Official Video 1981           |
+| Fehlfarben                      | [Es geht voran](https://www.youtube.com/watch?v=Kvek60dvq50)                       | Video 1982                    |
+| Beatles                         | [Norwegian Wood](https://www.youtube.com/watch?v=Y_V6y1ZCg_8)                      | 1965                          |
+|                                 |                                                                                    |                               |
 
 </div>
 <spacer></spacer>
