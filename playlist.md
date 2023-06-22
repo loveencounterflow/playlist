@@ -134,7 +134,9 @@ h1, h2, h3, h4, h5, h6 {
 /*-------------------------------------------*/
 
 .hero {
-  height:                 calc( 5 * var(--root-font-size) );
+  transform:              translateX( calc( 1 * var(--root-font-size) ) )
+                          scale( 1.08 );
+  height:                 calc( 3 * var(--root-font-size) );
   width:                  var(--column-width);
   display:                grid;
   justify-items:          start;
