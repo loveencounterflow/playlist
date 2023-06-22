@@ -32,6 +32,7 @@
   --slogan-color:         var(--marker-color);
   --link-color:           var(--marker-color);
   --warn-color:           hotpink;
+  --column-width:         100mm; /* ### TAINT calculate from page size */
   font-family:            var(--root-font-family);
   font-size:              var(--root-font-size);
   line-height-step:       var(--grid-size); }
@@ -130,30 +131,44 @@ h1, h2, h3, h4, h5, h6 {
   font-weight:            normal;
   font-family:            var(--title-font-family); }
 
-.hero-outer {
-  display:                flex;
-  flex-direction:         row;
-}
+/*-------------------------------------------*/
+
+.hero {
+  height:                 calc( 5 * var(--root-font-size) );
+  width:                  var(--column-width);
+  display:                grid;
+  justify-items:          start;
+  justify-content:        center;
+  align-items:            center;
+  grid-template-columns:  1fr 1fr;
+  grid-template-rows:     1fr 1fr;
+  grid-template-areas:
+    "jonas slogan-top"
+    "jonas slogan-bottom"
+    ; }
 
 .jonas {
-  height:                 calc( 3 * var(--root-font-size) );
   position:               relative;
-  left:                   calc( 0.5 * var(--root-font-size) );
   top:                    calc( -1 * var(--root-font-size) );
+  grid-area:              jonas;
   font-family:            var(--jonas-font-family);
   font-size:              var(--jonas-font-size);
   color:                  var(--jonas-color); }
 
 .slogan {
-  display:                flex;
-  flex-direction:         column;
-  height:                 calc( 3 * var(--root-font-size) );
-/*  position:               relative;
-  left:                   calc( 0.5 * var(--root-font-size) );
-  top:                    calc( -1 * var(--root-font-size) );*/
   font-family:            var(--slogan-font-family);
   font-size:              var(--slogan-font-size);
   color:                  var(--slogan-color); }
+
+.slogan-top  {
+  transform:              translateX( calc( 2 * var(--root-font-size) ) )
+                          scale( 1.6, 1 );
+  grid-area:              slogan-top; }
+
+.slogan-bottom  {
+  grid-area:              slogan-bottom; }
+
+/*-------------------------------------------*/
 
 td {
   display:                block; }
@@ -174,8 +189,7 @@ td:nth-child( 3 ) {
 
 tr {
   display:                block;
-  width:                  100mm;
-  /*height:                 --var(--card-height);*/
+  width:                  var(--column-width);
   height:                 calc( 3 * var(--root-font-size) );
   break-inside:           avoid; }
 
@@ -185,6 +199,11 @@ td:nth-child( 2 ):not( :has( a ) ) {
 
 /*####################################################'*/
 /*td:nth-child( 3 ) { color:  red; }*/
+/*.hero           { outline: 1px solid blue; }*/
+/*.jonas          { outline: 2px solid green; }*/
+/*.slogan-top     { outline: 3px solid orange; }*/
+/*.slogan-bottom  { outline: 3px solid orange; }*/
+
 /*####################################################'*/
 
 </style>
@@ -193,10 +212,12 @@ td:nth-child( 2 ):not( :has( a ) ) {
 
 <div class=page>
 
-<div class=hero-outer>
-<div class=jonas>Jonas</div>
-<div class=slogan>KIEZ<br>KNEIPE</div>
-</div>
+<div class=hero>
+  <div class=jonas>Jonas</div>
+  <div class='slogan slogan-top'>KIEZ</div>
+  <div class='slogan slogan-bottom'>KNEIPE</div>
+  </div>
+
 
 | Artist                          | Titel                                                                              | Anmerkungen           |
 | :------                         | :-----                                                                             | ---------             |
