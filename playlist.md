@@ -7,6 +7,7 @@
 @font-face { font-family: 'futura-heavy';   src: url( './Futura Heavy.otf' ); }
 @font-face { font-family: 'bilbo-swash';    src: url( './BilboSwashCaps-Regular.ttf' ); }
 @font-face { font-family: 'script-92';      src: url( './Script 92 Normal.ttf' ); }
+@font-face { font-family: 'ccr';            src: url( './ClimateCrisis-Regular-VariableFont_YEAR.ttf' ); }
 
 /* thx to https://developer.mozilla.org/en-US/docs/Web/CSS/line-height-step */
 :root {
@@ -14,6 +15,7 @@
   --artist-font-family:   futura-heavy;
   --title-font-family:    anton-regular;
   --jonas-font-family:    script-92;
+  --slogan-font-family:   ccr;
   --root-font-size:       4mm;
   --td-padding-top:       calc( 0.5 * var(--root-font-size) );
   --td-shift-top:         calc( 0.5 * var(--root-font-size) );
@@ -21,11 +23,13 @@
   --note-font-size:       calc( 0.75 * var(--root-font-size) );
   --title-font-size:      calc( 1.2 * var(--root-font-size) );
   --jonas-font-size:      calc( 5 * var(--root-font-size) );
+  --slogan-font-size:     calc( 2 * var(--root-font-size) );
   /*--card-height:          calc( 3 * var(--root-font-size) );*/
   --grid-size:            3mm;
   --root-text-color:      #333;
   --marker-color:         #f55;
   --jonas-color:          var(--marker-color);
+  --slogan-color:         var(--marker-color);
   --link-color:           var(--marker-color);
   --warn-color:           hotpink;
   font-family:            var(--root-font-family);
@@ -126,6 +130,11 @@ h1, h2, h3, h4, h5, h6 {
   font-weight:            normal;
   font-family:            var(--title-font-family); }
 
+.hero-outer {
+  display:                flex;
+  flex-direction:         row;
+}
+
 .jonas {
   height:                 calc( 3 * var(--root-font-size) );
   position:               relative;
@@ -134,6 +143,17 @@ h1, h2, h3, h4, h5, h6 {
   font-family:            var(--jonas-font-family);
   font-size:              var(--jonas-font-size);
   color:                  var(--jonas-color); }
+
+.slogan {
+  display:                flex;
+  flex-direction:         column;
+  height:                 calc( 3 * var(--root-font-size) );
+/*  position:               relative;
+  left:                   calc( 0.5 * var(--root-font-size) );
+  top:                    calc( -1 * var(--root-font-size) );*/
+  font-family:            var(--slogan-font-family);
+  font-size:              var(--slogan-font-size);
+  color:                  var(--slogan-color); }
 
 td {
   display:                block; }
@@ -173,8 +193,10 @@ td:nth-child( 2 ):not( :has( a ) ) {
 
 <div class=page>
 
+<div class=hero-outer>
 <div class=jonas>Jonas</div>
-
+<div class=slogan>KIEZ<br>KNEIPE</div>
+</div>
 
 | Artist                          | Titel                                                                              | Anmerkungen           |
 | :------                         | :-----                                                                             | ---------             |
