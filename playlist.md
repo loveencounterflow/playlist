@@ -18,12 +18,15 @@
   --td-padding-top:       calc( 0.5 * var(--root-font-size) );
   --td-shift-top:         calc( 0.5 * var(--root-font-size) );
   --artist-font-size:     calc( 1.0 * var(--root-font-size) );
+  --note-font-size:       calc( 0.75 * var(--root-font-size) );
   --title-font-size:      calc( 1.2 * var(--root-font-size) );
   --jonas-font-size:      calc( 5 * var(--root-font-size) );
   /*--card-height:          calc( 3 * var(--root-font-size) );*/
   --grid-size:            3mm;
   --root-text-color:      #333;
-  --link-color:           #f55;
+  --marker-color:         #f55;
+  --jonas-color:          var(--marker-color);
+  --link-color:           var(--marker-color);
   --warn-color:           hotpink;
   font-family:            var(--root-font-family);
   font-size:              var(--root-font-size);
@@ -129,7 +132,8 @@ h1, h2, h3, h4, h5, h6 {
   left:                   calc( 0.5 * var(--root-font-size) );
   top:                    calc( -1 * var(--root-font-size) );
   font-family:            var(--jonas-font-family);
-  font-size:              var(--jonas-font-size); }
+  font-size:              var(--jonas-font-size);
+  color:                  var(--jonas-color); }
 
 td {
   display:                block; }
@@ -143,9 +147,10 @@ td:nth-child( 3 )::after        { content:  ')'; }
 td:nth-child( 3 ):empty::before { content:  ''; }
 td:nth-child( 3 ):empty::after  { content:  ''; }
 td:nth-child( 3 ) {
+  font-size:              var(--note-font-size);
   position:               relative;
   margin-left:            calc( 0.1 * var(--root-font-size ) );
-  top:                    calc( 0.45 * var(--root-font-size ) ); }
+  top:                    calc( 0.7 * var(--root-font-size ) ); }
 
 tr {
   display:                block;
@@ -211,6 +216,55 @@ td:nth-child( 2 ):not( :has( a ) ) {
 | Udo Jürgens                     | [Griechischer Wein](https://www.youtube.com/watch?v=eKveb4BjK_c)                   |                       |
 | Udo Jürgens                     | [Und immer wieder geht die Sonne auf](https://www.youtube.com/watch?v=s06hmLSxNFM) |                       |
 | Vickie Leandros                 | [Ich liebe das Leben](https://www.youtube.com/watch?v=7_FsW8RPCTc)                 |                       |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
+| XXX                             | XXX                                                                                | XXX                      |
 | XXX                             | XXX                                                                                | XXX                      |
 
 </div>
