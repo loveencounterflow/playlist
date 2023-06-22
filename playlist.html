@@ -1,5 +1,6 @@
 <head>
 <meta charset='UTF-8'>
+<link rel=stylesheet href='./reset.css'>
 <style>
 @font-face { font-family: 'anton-regular';  src: url( './Anton-Regular.ttf' ); }
 @font-face { font-family: 'futura-heavy';   src: url( './Futura Heavy.otf' ); }
@@ -18,9 +19,11 @@
   --artist-font-size:     calc( 1.0 * var(--root-font-size) );
   --title-font-size:      calc( 1.2 * var(--root-font-size) );
   --jonas-font-size:      calc( 5 * var(--root-font-size) );
+  /*--card-height:          calc( 3 * var(--root-font-size) );*/
   --grid-size:            3mm;
   --root-text-color:      #333;
   --link-color:           #f55;
+  --warn-color:           hotpink;
   font-family:            var(--root-font-family);
   font-size:              var(--root-font-size);
   line-height-step:       var(--grid-size); }
@@ -94,8 +97,8 @@ col:nth-child( 3 ) {
 td:nth-child( 1 ) {
   border-top:             1px solid red;
   position:               relative;
-  top:                    var(--td-shift-top);
-  padding-top:            var(--td-padding-top);
+  top:                    calc( 0.3 * var(--root-font-size ) );
+  padding-top:            calc( 0.2 * var(--root-font-size ) );
   font-family:            var(--artist-font-family);
   font-size:              var(--artist-font-size); }
 
@@ -120,6 +123,10 @@ h1, h2, h3, h4, h5, h6 {
   font-family:            var(--title-font-family); }
 
 .jonas {
+  height:                 calc( 3 * var(--root-font-size) );
+  position:               relative;
+  left:                   calc( 0.5 * var(--root-font-size) );
+  top:                    calc( -1 * var(--root-font-size) );
   font-family:            var(--jonas-font-family);
   font-size:              var(--jonas-font-size); }
 
@@ -134,9 +141,25 @@ td:nth-child( 3 )::before       { content:  '('; }
 td:nth-child( 3 )::after        { content:  ')'; }
 td:nth-child( 3 ):empty::before { content:  ''; }
 td:nth-child( 3 ):empty::after  { content:  ''; }
-td:nth-child( 3 ) { position:  relative; top: calc( 0.2 * var(--root-font-size ) ); }
+td:nth-child( 3 ) {
+  position:               relative;
+  margin-left:            calc( 0.1 * var(--root-font-size ) );
+  top:                    calc( 0.45 * var(--root-font-size ) ); }
 
-tr { break-inside: avoid; }
+tr {
+  display:                block;
+  width:                  100mm;
+  /*height:                 --var(--card-height);*/
+  height:                 calc( 3 * var(--root-font-size) );
+  break-inside:           avoid; }
+
+td:nth-child( 2 ):not( :has( a ) ) {
+  padding:                calc( 0.5 * var(--root-font-size) );
+  background-color:       var(--warn-color); }
+
+/*####################################################'*/
+/*td:nth-child( 3 ) { color:  red; }*/
+/*####################################################'*/
 
 </style>
 </head>
@@ -411,7 +434,40 @@ href="https://www.youtube.com/watch?v=7_FsW8RPCTc">Ich liebe das
 Leben</a></td>
 <td></td>
 </tr>
+<tr class="odd">
+<td style="text-align: left;">XXX</td>
+<td style="text-align: left;">XXX</td>
+<td>XXX</td>
+</tr>
 </tbody>
 </table>
 </div>
 <p><spacer></spacer></p>
+<script>
+const log = console.log;
+const $   = document.querySelector.bind( document );
+
+//----------------------------------------------------------------------------------------------------------
+const show_height = ( selector ) => {
+  const element   = $( selector );
+  // const height_px = element.clientHeight;
+  // thx to https://www.stevefenton.co.uk/blog/2021/07/how-to-get-accurate-element-width-as-a-floating-point-number/
+  const height_px = element.getBoundingClientRect().height;
+  const height_mm = CSS.px( height_px ).to( 'mm' ).value.toFixed( 1 );
+  log( `${selector}: ${height_px} px = ${height_mm} mm`, element );
+}
+
+//----------------------------------------------------------------------------------------------------------
+const get_css_variable = ( name ) => {
+  return getComputedStyle( $( ':root' ) ).getPropertyValue( name ); }
+
+//----------------------------------------------------------------------------------------------------------
+for ( let nr = 1; nr < 12; nr++ ){
+  show_height( `tr:nth-child( ${nr} )` ); }
+log( get_css_variable( '--root-color'       ) );
+log( get_css_variable( '--root-font-size'   ) );
+log( get_css_variable( '--artist-font-size' ) );
+log( get_css_variable( '--title-font-size'  ) );
+log( get_css_variable( '--jonas-font-size'  ) );
+log( get_css_variable( '--card-height'      ) );
+</script>
