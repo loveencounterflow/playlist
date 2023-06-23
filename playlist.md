@@ -63,10 +63,12 @@ table th {
 
 .page {
   display:                block flow;
-  columns:                2;
   width:                  210mm;
   margin:                 var(--grid-size);
   padding:                var(--grid-size); }
+
+.columns2 {
+  columns:                2; }
 
 spacer {
   display:                block;
@@ -132,10 +134,12 @@ h1, h2, h3, h4, h5, h6 {
 /*-------------------------------------------*/
 
 .hero {
-  transform:              translateX( calc( 1 * var(--root-font-size) ) )
-                          scale( 1.08 );
-  height:                 calc( 3 * var(--root-font-size) );
-  width:                  var(--column-width);
+  outline:  1px dashed blue;
+/*  transform:              translateX( calc( 1 * var(--root-font-size) ) )
+                          scale( 1.08 );*/
+  height:                 calc( 6 * var(--root-font-size) );
+  /*width:                  var(--column-width);*/
+  width:                  100%;
   display:                grid;
   justify-items:          start;
   justify-content:        center;
@@ -215,7 +219,6 @@ td:nth-child( 2 ):not( :has( a ) ) {
 </style>
 </head>
 
-
 <div class=page>
 
 <div class=hero>
@@ -223,6 +226,8 @@ td:nth-child( 2 ):not( :has( a ) ) {
   <div class='slogan slogan-top'>KIEZ</div>
   <div class='slogan slogan-bottom'>KNEIPE</div>
   </div>
+
+<div class=columns2>
 
 
 | Artist                            | Titel                                                                                        | Anmerkungen                   |
@@ -297,6 +302,7 @@ td:nth-child( 2 ):not( :has( a ) ) {
 | Don Henley                        | [The Boys Of Summer](https://www.youtube.com/watch?v=6RUIeX6UCT8)                            |                               |
 |                                   |                                                                                              |                               |
 
+</div>
 </div>
 <spacer></spacer>
 
