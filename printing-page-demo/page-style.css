@@ -54,13 +54,13 @@ div {
   text-align:             justify;
   line-height-step:       calc( 1 * var(--root-font-size) );
   margin-top:             calc( 1 * var(--root-font-size) );
-  page-break-inside:      avoid;
+  page-break-inside:      allow;
 }
 
 @page {
   size:                   A4 landscape;
-  margin-top:             5mm;
-  padding-top:            5mm;
+  margin:                 7mm;
+  /*padding:                0mm;*/
 }
 
 .header {

@@ -2,6 +2,7 @@
 <meta charset='UTF-8'>
 <link rel=stylesheet href='./reset.css'>
 <link rel=stylesheet href='./playlist.css'>
+<link rel=stylesheet href='./debugging.css'>
 <style></style>
 </head>
 
