@@ -5,6 +5,9 @@
 <link rel=stylesheet href='./page-style.css'>
 </head>
 
+<div class=header>HEADER</div>
+<div class=footer>FOOTER</div>
+
 <div class=tracker>
 <div>Yadda 1 yadda 2 yadda 3 yadda 4 yadda 5 yadda 6 yadda 7 yadda 8 yadda 9 yadda 10 yadda 11 yadda 12 yadda 13 yadda 14 yadda 15 yadda 16 yadda 17 yadda 18 yadda 19 yadda 20 yadda 21 yadda 22 yadda 23 yadda 24 yadda 25 yadda 26 yadda 27 yadda 28 yadda 29 yadda 30 yadda 31 yadda 32 yadda 33 yadda 34 yadda 35 yadda 36 yadda 37 yadda 38 yadda 39 yadda 40 yadda 41 yadda 42 yadda 43 yadda 44.</div>
 <div>Yadda 45 yadda 46 yadda 47 yadda 48 yadda 49 yadda 50 yadda 51 yadda 52 yadda 53 yadda 54 yadda 55 yadda 56 yadda 57 yadda 58 yadda 59 yadda 60 yadda 61 yadda 62 yadda 63 yadda 64 yadda 65 yadda 66 yadda 67 yadda 68 yadda 69 yadda 70 yadda 71 yadda 72 yadda 73 yadda 74 yadda 75 yadda 76 yadda 77 yadda 78 yadda 79 yadda 80 yadda 81 yadda 82 yadda 83 yadda 84 yadda 85 yadda 86 yadda 87 yadda 88.</div>

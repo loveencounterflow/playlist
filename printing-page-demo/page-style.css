@@ -39,6 +39,8 @@ html, body {
   width:                  210mm;
   padding:                0mm;
   margin:                 0mm;
+  margin-top:             10mm;
+  margin-bottom:          10mm;
   color:                  var(--root-text-color);
   /*position:               absolute;*/
   /*overflow:               hidden;*/
@@ -46,7 +48,7 @@ html, body {
 }
 
 div.tracker {
-  columns:                2; }
+  columns:                3; }
 
 div {
   text-align:             justify;
@@ -55,7 +57,20 @@ div {
   page-break-inside:      avoid;
 }
 
-
-
 @page {
-  size: A5 landscape; }
+  size:                   A4 landscape;
+  margin-top:             5mm;
+  padding-top:            5mm;
+}
+
+.header {
+  background-color:       lightblue;
+  width:                  100%;
+  position:               fixed;
+  top:                    -5mm; }
+
+.footer {
+  background-color:       lightblue;
+  width:                  100%;
+  position:               fixed;
+  bottom:                 0; }
