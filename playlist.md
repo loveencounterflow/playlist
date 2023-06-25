@@ -1,4 +1,3 @@
-
 <head>
 <meta charset='UTF-8'>
 <link rel=stylesheet href='./reset.css'>
@@ -63,16 +62,18 @@ table th {
 
 .page {
   display:                block flow;
-  width:                  210mm;
+  width:                  297mm;
   margin:                 var(--grid-size);
   padding:                var(--grid-size); }
 
-.columns2 {
-  columns:                2; }
+.columns {
+  columns:                3; }
 
-spacer {
+/*spacer {
   display:                block;
   min-height:             20mm; }
+*/
+spacer { display:  none; }
 
 
 /*table {
@@ -137,7 +138,7 @@ h1, h2, h3, h4, h5, h6 {
   outline:  1px dashed blue;
 /*  transform:              translateX( calc( 1 * var(--root-font-size) ) )
                           scale( 1.08 );*/
-  height:                 calc( 6 * var(--root-font-size) );
+  height:                 calc( 3 * var(--root-font-size) );
   /*width:                  var(--column-width);*/
   width:                  100%;
   display:                grid;
@@ -145,15 +146,14 @@ h1, h2, h3, h4, h5, h6 {
   justify-content:        center;
   align-items:            center;
   grid-template-columns:  1fr 1fr;
-  grid-template-rows:     1fr 1fr;
+  grid-template-rows:     1fr;
   grid-template-areas:
-    "jonas slogan-top"
-    "jonas slogan-bottom"
+    "jonas slogan-top slogan-bottom"
     ; }
 
 .jonas {
   position:               relative;
-  top:                    calc( -1 * var(--root-font-size) );
+  /*top:                    calc( -1 * var(--root-font-size) );*/
   grid-area:              jonas;
   font-family:            var(--jonas-font-family);
   font-size:              var(--jonas-font-size);
@@ -165,8 +165,6 @@ h1, h2, h3, h4, h5, h6 {
   color:                  var(--slogan-color); }
 
 .slogan-top  {
-  transform:              translateX( calc( 2 * var(--root-font-size) ) )
-                          scale( 1.6, 1 );
   grid-area:              slogan-top; }
 
 .slogan-bottom  {
@@ -203,7 +201,12 @@ td:nth-child( 2 ):not( :has( a ) ) {
 
 
 @page {
-  size: A4 portrait; }
+  size:                   A4 landscape;
+  @top-left {
+    outline:  1px dashed greenyellow;
+    content: '⛅ ';
+  }
+}
 
 
 
