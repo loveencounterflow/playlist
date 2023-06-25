@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <head>
 <meta charset='UTF-8'>
 <link rel=stylesheet href='./reset.css'>
@@ -62,16 +63,18 @@ table th {
 
 .page {
   display:                block flow;
-  width:                  210mm;
+  width:                  297mm;
   margin:                 var(--grid-size);
   padding:                var(--grid-size); }
 
-.columns2 {
-  columns:                2; }
+.columns {
+  columns:                3; }
 
-spacer {
+/*spacer {
   display:                block;
   min-height:             20mm; }
+*/
+spacer { display:  none; }
 
 
 /*table {
@@ -136,7 +139,7 @@ h1, h2, h3, h4, h5, h6 {
   outline:  1px dashed blue;
 /*  transform:              translateX( calc( 1 * var(--root-font-size) ) )
                           scale( 1.08 );*/
-  height:                 calc( 6 * var(--root-font-size) );
+  height:                 calc( 3 * var(--root-font-size) );
   /*width:                  var(--column-width);*/
   width:                  100%;
   display:                grid;
@@ -144,15 +147,14 @@ h1, h2, h3, h4, h5, h6 {
   justify-content:        center;
   align-items:            center;
   grid-template-columns:  1fr 1fr;
-  grid-template-rows:     1fr 1fr;
+  grid-template-rows:     1fr;
   grid-template-areas:
-    "jonas slogan-top"
-    "jonas slogan-bottom"
+    "jonas slogan-top slogan-bottom"
     ; }
 
 .jonas {
   position:               relative;
-  top:                    calc( -1 * var(--root-font-size) );
+  /*top:                    calc( -1 * var(--root-font-size) );*/
   grid-area:              jonas;
   font-family:            var(--jonas-font-family);
   font-size:              var(--jonas-font-size);
@@ -164,8 +166,6 @@ h1, h2, h3, h4, h5, h6 {
   color:                  var(--slogan-color); }
 
 .slogan-top  {
-  transform:              translateX( calc( 2 * var(--root-font-size) ) )
-                          scale( 1.6, 1 );
   grid-area:              slogan-top; }
 
 .slogan-bottom  {
@@ -202,7 +202,12 @@ td:nth-child( 2 ):not( :has( a ) ) {
 
 
 @page {
-  size: A4 portrait; }
+  size:                   A4 landscape;
+  @top-left {
+    outline:  1px dashed greenyellow;
+    content: '⛅ ';
+  }
+}
 
 
 
@@ -229,7 +234,7 @@ KIEZ
 KNEIPE
 </div>
 </div>
-<div class="columns2">
+<div class="columns">
 <table>
 <colgroup>
 <col style="width: 31%" />
@@ -631,49 +636,63 @@ href="https://www.youtube.com/watch?v=8joazJsBroM">Spooky</a></td>
 <td>from <em>La Piscine</em> 1969</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Johnny Cash</td>
-<td style="text-align: left;"></td>
-<td></td>
+<td style="text-align: left;">Bruce Springsteen</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=EPhWR4d3FJQ">Born In The
+U.S.A.</a></td>
+<td>Official Video 1979</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Bette Midler</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=0iAzMRKFX3c">Wind Beneath My
+Wings</a></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Dolly Parton</td>
-<td style="text-align: left;"></td>
-<td></td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=UbxUSsFXYo4">9 To 5</a></td>
+<td>Love To Infinity Radio Mix, official Video</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Elvis Presley</td>
-<td style="text-align: left;">In The Getto</td>
-<td></td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=KaYbwbkeC4w">In The Getto</a></td>
+<td>with Lisa Marie Presley</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Be My Little Baby</td>
-<td></td>
+<td style="text-align: left;">The Ronettes</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=AhzZIXvspI4">Be My Little
+Baby</a></td>
+<td>Video 1964</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Bing Crosby + Grace Kelly</td>
-<td style="text-align: left;">True Love</td>
-<td></td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=Fl5EPEzukNQ">True Love</a></td>
+<td>from <em>High Society</em> 1956</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Freddy Quinn</td>
-<td style="text-align: left;"></td>
-<td></td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=kSYblBKZ75Y">Junge komm bald
+wieder</a></td>
+<td>1963</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Hans Albers</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=ojvyG8gOOzE">Auf der Reeperbahn
+nachts um halb eins</a></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Barbara Streisand</td>
-<td style="text-align: left;"></td>
-<td></td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=MWoQW-b6Ph8">Memory</a></td>
+<td>Official Video</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Don Henley</td>
@@ -683,8 +702,49 @@ Summer</a></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">Nick Kershaw</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=cNyLVVyIiS8&amp;t=16s">Wouldn’t It
+Be Good</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The Shirelles</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=PAxb1vnb520">Will You Still Love
+Me Tomorrow</a></td>
+<td>Video 1961</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Millie Small</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=N7lCJg3WoSc">My Boy
+Lollipop</a></td>
+<td>Video 1964</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Louis Armstrong</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=FtfxSAnOgoU">High Society</a></td>
+<td>from <em>High Society</em> 1956</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The Platters</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=rAUJSc6unAg">Only You</a></td>
+<td>1955</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The Everly Brothers</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=56cKlT62wrQ">All I Have To Do Is
+Dream</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tarkan</td>
+<td style="text-align: left;"><a
+href="https://www.youtube.com/watch?v=exRaVIumBO4">Şıkıdım</a></td>
 <td></td>
 </tr>
 </tbody>
