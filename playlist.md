@@ -202,10 +202,7 @@ td:nth-child( 2 ):not( :has( a ) ) {
 
 @page {
   size:                   A4 landscape;
-  @top-left {
-    outline:  1px dashed greenyellow;
-    content: '⛅ ';
-  }
+  margin-top:             calc( 3 * var(--root-font-size) );
 }
 
 
