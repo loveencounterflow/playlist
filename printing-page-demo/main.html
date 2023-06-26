@@ -302,6 +302,32 @@ function addClientRectsOverlay(elt) {
 }
 
 //-----------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------
+
+// https://stackoverflow.com/a/63984037/7568091
+
+// createRange from DOM element, then getBoundingClientRect for coarse, getClientRects for
+// refined estimates of position
+
+const el = document.querySelector("#my-element");
+const range = document.createRange();
+range.setStart(el, 0);
+range.setEnd(el, 200);
+
+// A single rect for the entire range
+const rect = range.getBoundingClientRect();
+
+// An array of rects for each line of the range
+const rects = range.getClientRects();
+
+
+//-----------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------
+
+
+//-----------------------------------------------------------------------------------------------------------
 const draw_client_rectangles = () => {
   /* Call function addClientRectsOverlay(elt) for all elements with
      assigned class "withClientRectsOverlay" */
