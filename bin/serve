@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+home="$(realpath "$(realpath "${BASH_SOURCE[0]}" | xargs dirname)"/..)"
+cd "$home"
+"$(pnpm bin)"/live-server                                                                   \
+  --wait=300                                                                                \
+  --verbose                                                                                 \
+  --no-browser                                                                              \
+  --host=0.0.0.0                                                                            \
+  --port=8080                                                                               \
+  --watch=playlist.html,./printing-page-demo/main.html,./printing-page-demo/page-style.css  \
+  ./public
+
