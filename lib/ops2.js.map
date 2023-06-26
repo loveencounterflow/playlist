@@ -1,0 +1,13 @@
+{
+  "version": 3,
+  "file": "",
+  "sourceRoot": "",
+  "sources": [
+    "../src/ops2.coffee"
+  ],
+  "names": [],
+  "mappings": "AAIA;EAAA,OAAO,CAAC,GAAR,CAAY,aAAZ;AAAA",
+  "sourcesContent": [
+    "\n\n\n\nconsole.log \"ops2 loaded\"\n\n\n\n"
+  ]
+}
