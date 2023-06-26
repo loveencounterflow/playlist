@@ -37,19 +37,19 @@
 </div>
 
 <div class=tracker>
-<div>reserve 2</div>
-<div>reserve 2</div>
-<div>reserve 2</div>
-<div>reserve 2</div>
-<div>reserve 2</div>
-<div>reserve 2</div>
-<div>reserve 2</div>
-<div>reserve 2</div>
-<div>reserve 2</div>
-<div>reserve 2</div>
-<div>reserve 2</div>
-<div>reserve 2</div>
-<div>reserve 2</div>
+<div><span>reserve 2</span></div>
+<div><span>reserve 2</span></div>
+<div><span>reserve 2</span></div>
+<div><span>reserve 2</span></div>
+<div><span>reserve 2</span></div>
+<div><span>reserve 2</span></div>
+<div><span>reserve 2</span></div>
+<div><span>reserve 2</span></div>
+<div><span>reserve 2</span></div>
+<div><span>reserve 2</span></div>
+<div><span>reserve 2</span></div>
+<div><span>reserve 2</span></div>
+<div><span>reserve 2</span></div>
 </div>
 
 <script>
