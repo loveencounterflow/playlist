@@ -30,7 +30,8 @@
   --column-width:         100mm; /* ### TAINT calculate from page size */
   font-family:            var(--root-font-family);
   font-size:              var(--root-font-size);
-  line-height-step:       var(--grid-size); }
+  line-height-step:       var(--grid-size);
+}
 
 html, body {
   /*background-color:       #9eaeb5;*/
@@ -39,8 +40,6 @@ html, body {
   width:                  210mm;
   padding:                0mm;
   margin:                 0mm;
-  margin-top:             10mm;
-  margin-bottom:          10mm;
   color:                  var(--root-text-color);
   /*position:               absolute;*/
   /*overflow:               hidden;*/
@@ -48,28 +47,38 @@ html, body {
 }
 
 div.tracker {
-  columns:                3; }
+  outline:                10px dashed pink;
+  overflow:               hidden;
+  margin-top:             10mm;
+  margin-bottom:          10mm;
+  /*height:                 100mm;*/
+  page-break-inside:      avoid;
+  /*columns:                3;*/ }
 
 div {
   text-align:             justify;
   line-height-step:       calc( 1 * var(--root-font-size) );
-  margin-top:             calc( 1 * var(--root-font-size) );
-  page-break-inside:      allow;
-}
+  margin-bottom:          calc( 1 * var(--root-font-size) ); }
+
+div.tracker div::first-letter {
+  color:                  red; }
 
 @page {
   size:                   A4 landscape;
-  margin:                 7mm;
+  margin-top:             14mm;
+  margin-bottom:          14mm;
   /*padding:                0mm;*/
 }
 
 .header {
+  display:                none;
   background-color:       lightblue;
   width:                  100%;
   position:               fixed;
-  top:                    -5mm; }
+  top:                    0mm; }
 
 .footer {
+  display:                none;
   background-color:       lightblue;
   width:                  100%;
   position:               fixed;

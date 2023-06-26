@@ -35,3 +35,78 @@
 <div><span>Yadda 1013 yadda 1014 yadda 1015 yadda 1016 yadda 1017 yadda 1018 yadda 1019 yadda 1020 yadda 1021 yadda 1022 yadda 1023 yadda 1024 yadda 1025 yadda 1026 yadda 1027 yadda 1028 yadda 1029 yadda 1030 yadda 1031 yadda 1032 yadda 1033 yadda 1034 yadda 1035 yadda 1036 yadda 1037 yadda 1038 yadda 1039 yadda 1040 yadda 1041 yadda 1042 yadda 1043 yadda 1044 yadda 1045 yadda 1046 yadda 1047 yadda 1048 yadda 1049 yadda 1050 yadda 1051 yadda 1052 yadda 1053 yadda 1054 yadda 1055 yadda 1056.</span></div>
 <div><span>Yadda 1057 yadda 1058 yadda 1059 yadda 1060 yadda 1061 yadda 1062 yadda 1063 yadda 1064 yadda 1065 yadda 1066 yadda 1067 yadda 1068 yadda 1069 yadda 1070 yadda 1071 yadda 1072 yadda 1073 yadda 1074 yadda 1075 yadda 1076 yadda 1077 yadda 1078 yadda 1079 yadda 1080 yadda 1081 yadda 1082 yadda 1083 yadda 1084 yadda 1085 yadda 1086 yadda 1087 yadda 1088 yadda 1089 yadda 1090 yadda 1091 yadda 1092 yadda 1093 yadda 1094 yadda 1095 yadda 1096 yadda 1097 yadda 1098 yadda 1099 yadda 1100.</span></div>
 </div>
+
+<div class=tracker>
+<div>reserve 2</div>
+<div>reserve 2</div>
+<div>reserve 2</div>
+<div>reserve 2</div>
+<div>reserve 2</div>
+<div>reserve 2</div>
+<div>reserve 2</div>
+<div>reserve 2</div>
+<div>reserve 2</div>
+<div>reserve 2</div>
+<div>reserve 2</div>
+<div>reserve 2</div>
+<div>reserve 2</div>
+</div>
+
+<script>
+function addClientRectsOverlay(elt) {
+  /* Absolutely position a div over each client rect so that its border width
+     is the same as the rectangle's width.
+     Note: the overlays will be out of place if the user resizes or zooms. */
+  const rects = elt.getClientRects();
+  for (const rect of rects) {
+    const tableRectDiv = document.createElement("div");
+    tableRectDiv.style.position = "absolute";
+    tableRectDiv.style.border = "1px solid red";
+    tableRectDiv.style.backgroundColor = "rgba(100,0,0,0.25)";
+    const scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollLeft =
+      document.documentElement.scrollLeft || document.body.scrollLeft;
+    tableRectDiv.style.margin = tableRectDiv.style.padding = "0";
+    tableRectDiv.style.top = `${rect.top + scrollTop}px`;
+    tableRectDiv.style.left = `${rect.left + scrollLeft}px`;
+    // We want rect.width to be the border width, so content width is 2px less.
+    tableRectDiv.style.width = `${rect.width - 2}px`;
+    tableRectDiv.style.height = `${rect.height - 2}px`;
+    document.body.appendChild(tableRectDiv);
+  }
+}
+
+//-----------------------------------------------------------------------------------------------------------
+const draw_client_rectangles = () => {
+  /* Call function addClientRectsOverlay(elt) for all elements with
+     assigned class "withClientRectsOverlay" */
+  // const elements = document.getElementsByClassName("withClientRectsOverlay");
+  const elements = document.querySelectorAll( '.tracker div span' );
+  for ( const element of elements ) {
+    addClientRectsOverlay( element ); } }
+
+//-----------------------------------------------------------------------------------------------------------
+class Dom { // extends Multimix
+  /* inspired by http://youmightnotneedjquery.com
+   and https://blog.garstasio.com/you-dont-need-jquery */
+  //=========================================================================================================
+
+  //---------------------------------------------------------------------------------------------------------
+  ready(f) {
+    // thx to https://stackoverflow.com/a/7053197/7568091
+    // function r(f){/in/.test(document.readyState)?setTimeout(r,9,f):f()}
+    // validate.function(f);
+    if (/in/.test(document.readyState)) {
+      return setTimeout((() => {
+        return this.ready(f);
+      }), 9);
+    }
+    return f();
+  }
+}
+
+const DOM = new Dom();
+DOM.ready( draw_client_rectangles );
+
+</script>
