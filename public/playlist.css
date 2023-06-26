@@ -1,9 +1,9 @@
 
-@font-face { font-family: 'anton-regular';  src: url( './public/fonts/Anton-Regular.ttf' ); }
-@font-face { font-family: 'futura-heavy';   src: url( './public/fonts/Futura Heavy.otf' ); }
-@font-face { font-family: 'bilbo-swash';    src: url( './public/fonts/BilboSwashCaps-Regular.ttf' ); }
-@font-face { font-family: 'script-92';      src: url( './public/fonts/Script 92 Normal.ttf' ); }
-@font-face { font-family: 'ccr';            src: url( './public/fonts/ClimateCrisis-Regular-VariableFont_YEAR.ttf' ); }
+@font-face { font-family: 'anton-regular';  src: url( './fonts/Anton-Regular.ttf' ); }
+@font-face { font-family: 'futura-heavy';   src: url( './fonts/Futura Heavy.otf' ); }
+@font-face { font-family: 'bilbo-swash';    src: url( './fonts/BilboSwashCaps-Regular.ttf' ); }
+@font-face { font-family: 'script-92';      src: url( './fonts/Script 92 Normal.ttf' ); }
+@font-face { font-family: 'ccr';            src: url( './fonts/ClimateCrisis-Regular-VariableFont_YEAR.ttf' ); }
 
 /* thx to https://developer.mozilla.org/en-US/docs/Web/CSS/line-height-step */
 :root {
