@@ -5,6 +5,7 @@
   "main": "lib/main.js",
   "scripts": {
   	"serve": "bin/serve",
+  	"watch": "bin/watch",
   	"compile-pages": "bin/compile-pages",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
