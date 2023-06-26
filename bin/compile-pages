@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
+home="$(realpath "$(realpath "${BASH_SOURCE[0]}" | xargs dirname)"/..)"
+cd "$home"
 
 # rainbow=🌈🌈🌈
 # blink='\x1b[5m'
@@ -32,12 +34,12 @@ gold='\x1b[38;05;214m'
 date +"%Y-%m-%d %H:%M:%S"
 
 echo 'pandoc ./playlist.md'
-pandoc -o ./playlist.pre.html ./playlist.md
-echo '<!DOCTYPE html>' | cat - ./playlist.pre.html > ./playlist.html
-trash ./playlist.pre.html
+pandoc -o ./tmp/playlist.html ./playlist.md
+echo '<!DOCTYPE html>' | cat - ./tmp/playlist.html > ./public/playlist.html
+trash ./tmp/playlist.html
 
 echo 'pandoc ./printing-page-demo/main.md'
-pandoc -o ./printing-page-demo/main.pre.html ./printing-page-demo/main.md
-echo '<!DOCTYPE html>' | cat - ./printing-page-demo/main.pre.html > ./printing-page-demo/main.html
-trash ./printing-page-demo/main.pre.html
+pandoc -o ./tmp/printing-page-demo.html ./printing-page-demo/main.md
+echo '<!DOCTYPE html>' | cat - ./tmp/printing-page-demo.html > ./public/printing-page-demo.html
+trash ./tmp/printing-page-demo.html
 echo -e "$gold"'ok'"$reset"
