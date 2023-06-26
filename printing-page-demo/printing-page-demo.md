@@ -1,7 +1,7 @@
 
 <head>
 <meta charset='UTF-8'>
-<link rel=stylesheet href='../reset.css'>
+<link rel=stylesheet href='../public/reset.css'>
 <link rel=stylesheet href='./page-style.css'>
 </head>
 

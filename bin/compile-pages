@@ -38,8 +38,9 @@ pandoc -o ./tmp/playlist.html ./playlist.md
 echo '<!DOCTYPE html>' | cat - ./tmp/playlist.html > ./public/playlist.html
 trash ./tmp/playlist.html
 
-echo 'pandoc ./printing-page-demo/main.md'
-pandoc -o ./tmp/printing-page-demo.html ./printing-page-demo/main.md
+echo 'pandoc ./printing-page-demo/printing-page-demo.md'
+pandoc -o ./tmp/printing-page-demo.html ./printing-page-demo/printing-page-demo.md
 echo '<!DOCTYPE html>' | cat - ./tmp/printing-page-demo.html > ./public/printing-page-demo.html
 trash ./tmp/printing-page-demo.html
+
 echo -e "$gold"'ok'"$reset"
