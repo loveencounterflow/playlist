@@ -85,7 +85,7 @@ function addClientRectsOverlay(elt) {
 
 // createRange from DOM element, then getBoundingClientRect for coarse, getClientRects for
 // refined estimates of position
-
+/*
 const el = document.querySelector("#my-element");
 const range = document.createRange();
 range.setStart(el, 0);
@@ -96,7 +96,7 @@ const rect = range.getBoundingClientRect();
 
 // An array of rects for each line of the range
 const rects = range.getClientRects();
-
+*/
 
 //-----------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------
