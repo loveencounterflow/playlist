@@ -84,3 +84,11 @@ div.tracker div::first-letter {
   width:                  100%;
   position:               fixed;
   bottom:                 0; }
+
+.µ-clientrec {
+  outline:                1px solid red;
+  background-color:       rgba(255,255,0,0.5);
+  mix-blend-mode:         multiply;
+
+}
+
