@@ -129,3 +129,6 @@ __pycache__/
 
 .~lock.*
 .DS_Store
+
+public/jquery-3.7.0.js
+
