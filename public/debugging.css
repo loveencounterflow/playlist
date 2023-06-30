@@ -3,3 +3,8 @@ td:nth-child( 3 ) { color:  red; }
 .jonas          { outline: 2px solid green; }
 .slogan-top     { outline: 3px solid orange; }
 .slogan-bottom  { outline: 3px solid orange; }
+.hero           { outline:  1px dashed blue; }
+
+td:nth-child( 2 ):not( :has( a ) ) {
+  padding:                5mm;
+  background-color:       hotpink; }
