@@ -2,22 +2,18 @@
 <meta charset='UTF-8'>
 <link rel=stylesheet href='./reset.css'>
 <link rel=stylesheet href='./playlist.css'>
-<link rel=stylesheet href='./debugging.css'>
+<!-- <link rel=stylesheet href='./debugging.css'> -->
 <style></style>
 </head>
 
-<div class=page>
-
+<div class=page><div class=columns>
 <div class=hero>
   <div class=jonas>Jonas</div>
   <div class='slogan slogan-top'>KIEZ</div>
   <div class='slogan slogan-bottom'>KNEIPE</div>
   </div>
 
-<div class=columns>
-
-
-| Artist                            | Titel                                                                                        | Anmerkungen                                |
+|                                   |                                                                                              |                                            |
 | :------                           | :-----                                                                                       | ---------                                  |
 | Beatles                           | [Penny Lane](https://www.youtube.com/watch?v=vfxQ1oDiEJM)                                    |                                            |
 | Boy George                        | [Karma Chameleon](https://www.youtube.com/watch?v=JmcA9LIIXWw)                               |                                            |
@@ -56,7 +52,7 @@
 | Travis                            | [Sing](https://www.youtube.com/watch?v=eYO1-gGWJyo)                                          |                                            |
 | Udo Jürgens                       | [Griechischer Wein](https://www.youtube.com/watch?v=eKveb4BjK_c)                             |                                            |
 | Udo Jürgens                       | [Und immer wieder geht die Sonne auf](https://www.youtube.com/watch?v=s06hmLSxNFM)           |                                            |
-| Vickie Leandros                   | [Ich liebe das Leben](https://www.youtube.com/watch?v=7_FsW8RPCTc)                           |                                            |
+| Vicky Leandros                    | [Ich liebe das Leben](https://www.youtube.com/watch?v=7_FsW8RPCTc)                           |                                            |
 | Peter Schilling                   | [Major Tom (de)](https://www.youtube.com/watch?v=KQRaj1vcnrs)                                | Video 1982 by the man himself              |
 | Peter Schilling                   | [Major Tom (en)](https://www.youtube.com/watch?v=wO0A0XcWy88)                                | Video 1983                                 |
 | Soft Cell                         | [Tainted Love](https://www.youtube.com/watch?v=XZVpR3Pk-r8)                                  | Official Video 1981                        |
@@ -86,18 +82,80 @@
 | Freddy Quinn                      | [Junge komm bald wieder](https://www.youtube.com/watch?v=kSYblBKZ75Y)                        | 1963                                       |
 | Hans Albers                       | [Auf der Reeperbahn nachts um halb eins](https://www.youtube.com/watch?v=ojvyG8gOOzE)        |                                            |
 | Barbara Streisand                 | [Memory](https://www.youtube.com/watch?v=MWoQW-b6Ph8)                                        | Official Video                             |
-| Don Henley                        | [The Boys Of Summer](https://www.youtube.com/watch?v=6RUIeX6UCT8)                            |                                            |
-| Nick Kershaw                      | [Wouldn't It Be Good](https://www.youtube.com/watch?v=cNyLVVyIiS8&t=16s)                     |                                            |
-| The Shirelles                     | [Will You Still Love Me Tomorrow](https://www.youtube.com/watch?v=PAxb1vnb520)               | Video 1961                                 |
-| Millie Small                      | [My Boy Lollipop](https://www.youtube.com/watch?v=N7lCJg3WoSc)                               | Video 1964                                 |
-| Louis Armstrong                   | [High Society](https://www.youtube.com/watch?v=FtfxSAnOgoU)                                  | from *High Society* 1956                   |
-| The Platters                      | [Only You](https://www.youtube.com/watch?v=rAUJSc6unAg)                                      | 1955                                       |
-| The Everly Brothers               | [All I Have To Do Is Dream](https://www.youtube.com/watch?v=56cKlT62wrQ)                     |                                            |
-| Tarkan                            | [Şıkıdım](https://www.youtube.com/watch?v=exRaVIumBO4)                                                                                             |                                            |
+
+</div></div>
+
+<div class=page><div class=columns>
+<div class=hero>
+  <div class=jonas>Jonas</div>
+  <div class='slogan slogan-top'>KIEZ</div>
+  <div class='slogan slogan-bottom'>KNEIPE</div>
+  </div>
+
+|                             |                                                                                |                          |
+| :------                     | :-----                                                                         | ---------                |
+| Don Henley                  | [The Boys Of Summer](https://www.youtube.com/watch?v=6RUIeX6UCT8)              |                          |
+| Nick Kershaw                | [Wouldn't It Be Good](https://www.youtube.com/watch?v=cNyLVVyIiS8&t=16s)       |                          |
+| The Shirelles               | [Will You Still Love Me Tomorrow](https://www.youtube.com/watch?v=PAxb1vnb520) | Video 1961               |
+| Millie Small                | [My Boy Lollipop](https://www.youtube.com/watch?v=N7lCJg3WoSc)                 | Video 1964               |
+| Louis Armstrong             | [High Society](https://www.youtube.com/watch?v=FtfxSAnOgoU)                    | from *High Society* 1956 |
+| The Platters                | [Only You](https://www.youtube.com/watch?v=rAUJSc6unAg)                        | 1955                     |
+| The Everly Brothers         | [All I Have To Do Is Dream](https://www.youtube.com/watch?v=56cKlT62wrQ)       |                          |
+| Tarkan                      | [Şıkıdım](https://www.youtube.com/watch?v=exRaVIumBO4)                         |                          |
+| MC Hammer                   | Can't Touch This                                                               |                          |
+| Chris Isaak                 | [Wicked Game](https://www.youtube.com/watch?v=jd-qI62gNJM)                     |                          |
+| Santana                     | [Black Magic Woman](https://www.youtube.com/watch?v=9wT1s96JIb0)               |                          |
+| Michael Holm                | [Mendocino](https://www.youtube.com/watch?v=cJJ4odOP96Q)                       | ZDF Disco 1973           |
+| The Turtles                 | [So Happy Together](https://www.youtube.com/watch?v=sq3awlDqAVo)               |                          |
+| Ideal                       | [Berlin (Bahnhof Zoo)](https://www.youtube.com/watch?v=tYyZaoVT3WA)            |                          |
+| Rheingold                   | [Dreiklangs-Dimensionen](https://www.youtube.com/watch?v=UvABkrzvqQs)          |                          |
+| Nazareth                    | [Love Hurts](https://www.youtube.com/watch?v=soDZBW-1P04)                      | 1976                     |
+| Trent Reznor & al.          | [Warm Leatherette](https://www.youtube.com/watch?v=zo7ONZlN5Zg)                |                          |
+| Thin Lizzy                  | [Whiskey In The Jar](https://www.youtube.com/watch?v=6WDSY8Kaf6o)              | 1973                     |
+| Manfred Mann                | [Mighty Quinn](https://www.youtube.com/watch?v=K13hH0pJx5s)                    |                          |
+| Van Halen                   | [Jump](https://www.youtube.com/watch?v=SwYN7mTi6HM)                            | Official Video           |
+| Jimi Hendrix                | [Wild Thing](https://www.youtube.com/watch?v=xVN8_7wVSG0)                      | Monterey 1967            |
+| Sweet                       | [The Ballroom Blitz](https://www.youtube.com/watch?v=tqketmsRz1E)              | 1974                     |
+| Deep Purple                 | [Smoke On The Water](https://www.youtube.com/watch?v=zUwEIt9ez7M)              |                          |
+| Bananarama                  | [Venus Is Her Name](https://www.youtube.com/watch?v=d4-1ASpdT1Y)               |                          |
+| Tommy James & The Shondells | [Crimson And Clover](https://www.youtube.com/watch?v=GpGEeneO-t0)              |                          |
+| The Rolling Stones          | [Paint It Black](https://www.youtube.com/watch?v=O4irXQhgMqg)                  | Official Lyric Video     |
+| Elvis Presley               | [Can't Help Falling In Love](https://www.youtube.com/watch?v=TlrNxJqODBc)      |                          |
+| Rio Reiser                  | [Für immer und dich](https://www.youtube.com/watch?v=1JEClMj2YIw)              | Live 1986                |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
+|                             |                                                                                |                          |
 
 </div>
 </div>
-<spacer></spacer>
+<!-- <spacer></spacer> -->
 
 <script>
 const log = console.log;
