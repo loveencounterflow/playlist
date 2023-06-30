@@ -60,11 +60,10 @@ function addClientRectsOverlay( element ) {
     const scroll_left               = document.body.scrollLeft;
     marker.style.margin             = '0';
     marker.style.padding            = '0';
-    marker.style.top                = `${rectangle.top  + scroll_top}px`;
-    marker.style.left               = `${rectangle.left + scroll_left}px`;
-    // We want rectangle.width to be the border width, so content width is 2px less.
-    marker.style.width              = `${rectangle.width}px`;
-    marker.style.height             = `${rectangle.height}px`;
+    marker.style.top                = `${ scroll_top  + rectangle.top   }px`;
+    marker.style.left               = `${ scroll_left + rectangle.left  }px`;
+    marker.style.width              = `${ rectangle.width               }px`;
+    marker.style.height             = `${ rectangle.height              }px`;
     document.body.appendChild( marker);
   }
 }
@@ -98,6 +97,12 @@ const rectangles = range.getClientRects();
 
 ```
 
+wrap_inner = ( element, wrapper ) ->
+  element.appendChild(wrapper);
+  while element.firstChild isnt wrapper
+     wrapper.appendChild element.firstChild
+  return null
+
 #-----------------------------------------------------------------------------------------------------------
 draw_client_rectangles = =>
   elements = µ.DOM.select_all '.tracker > div > span'
@@ -108,14 +113,37 @@ draw_client_rectangles = =>
     addClientRectsOverlay element
   return null
 
-for element in µ.DOM.select_all '.tracker > div'
-  wrapper           = µ.DOM.parse_one '<span></span>'
-  wrapper.innerHTML = element.innerHTML
-  element.innerHTML = wrapper.outerHTML
+->
+  for element in µ.DOM.select_all '.tracker > div'
+    wrapper           = µ.DOM.parse_one '<span></span>'
+    wrapper.innerHTML = element.innerHTML
+    element.innerHTML = wrapper.outerHTML
 
-# $( ".tracker > div" ).wrap( "<span></span>" )
+do ->
+  for element in µ.DOM.select_all '.tracker > div'
+    wrapper = µ.DOM.parse_one '<span></span>'
+    wrap_inner element, wrapper
+  return null
+
+# $( ".tracker > div" ).wrapInner( '<span></span>' )
 µ.DOM.ready draw_client_rectangles
 log '^123-4^', "ops2 OK"
 
-
+do ->
+  scroll_top = document.body.scrollTop
+  for div in µ.DOM.select_all '.tracker > div'
+    offset_top = µ.DOM.get_offset_top div
+    log '^123-5^', { scroll_top, offset_top, }
+    p_cr = div.getClientRects()[ 0 ]
+    p_y1  = p_cr.y
+    p_y2  = p_y1 + p_cr.height
+    span = µ.DOM.select_first_from div, 'span'
+    log '^123-5^', { y: p_cr.y, p_y1, p_y2, }
+    log '^123-5^', span
+    for cr in span.getClientRects()
+      y1  = cr.y
+      y2  = y1 + cr.height
+      log '^123-5^', { y1, y2, }
+    break
+  return null
 
