@@ -12,8 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "chokidar": "^3.5.3",
+    "five-server": "^0.3.1",
     "guy": "^13.7.1",
-    "live-server": "^1.2.2",
     "moonriver": "^4.8.2",
     "zx": "^7.2.2"
   }
