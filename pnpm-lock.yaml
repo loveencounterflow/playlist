@@ -17,6 +17,9 @@ dependencies:
   moonriver:
     specifier: ^4.8.2
     version: 4.8.2(acorn-loose@8.3.0)(acorn-walk@8.2.0)(acorn@8.9.0)(astring@1.8.6)(dayjs@1.11.9)(tmp@0.2.1)
+  nodexh:
+    specifier: ^2.2.0
+    version: 2.2.0(acorn-loose@8.3.0)(acorn-walk@8.2.0)(acorn@8.9.0)(astring@1.8.6)(dayjs@1.11.9)(tmp@0.2.1)
   zx:
     specifier: ^7.2.2
     version: 7.2.2
