@@ -29,6 +29,7 @@ FS                        = require 'fs'
 #   validate
 #   equals }                = types
 { Pipeline
+  Async_pipeline
   $         }             = require 'moonriver'
 { after
   defer
@@ -56,8 +57,11 @@ xxx =
   #---------------------------------------------------------------------------------------------------------
   $add_file_info: -> ( d, send ) =>
     return send d unless d.path?
-    d.filename  = PATH.basename d.path
-    d.extension = PATH.extname d.filename
+    e           = PATH.parse d.path
+    d.home      = e.dir
+    d.filename  = e.base
+    d.extension = e.ext
+    d.barename  = e.name
     send d
 
   #---------------------------------------------------------------------------------------------------------
@@ -65,22 +69,23 @@ xxx =
     return send d unless d.key is 'change'
     return send d unless d.extension is '.md'
     #.......................................................................................................
-    { zx }      = await import( 'zx' )
-    source_path = d.path
-    tmp_path    = PATH.join G.tmp_path,     d.filename
-    public_path = PATH.join G.public_path,  d.filename
-    help GUY.datetime.now(), '^858-4^', '$html_from_md', source_path, tmp_path, public_path
-    await zx"""
-      date +"%Y-%m-%d %H:%M:%S"
-      pandoc -o #{tmp_path} #{source_path}
-      echo '<!DOCTYPE html>' | cat - #{tmp_path} > #{public_path}
-      trash #{tmp_path}"""
+    { $: zx }       = await import( 'zx' )
+    source_path     = d.path
+    public_filename = "#{d.barename}.html"
+    tmp_path        = PATH.join G.tmp_path,     public_filename
+    public_path     = PATH.join G.public_path,  public_filename
+    help GUY.datetime.now(), '^$html_from_md@858-4^', GUY.trm.reverse " #{d.filename} -> #{public_filename} "
+    await zx"""pandoc -o #{tmp_path} #{source_path}"""
+    await zx"""echo '<!DOCTYPE html>' | cat - #{tmp_path} > #{public_path}"""
+    await zx"""trash #{tmp_path}"""
+    info GUY.datetime.now(), '^$html_from_md@858-4^', GUY.trm.reverse " OK #{d.filename} -> #{public_filename} "
+      # date +"%Y-%m-%d %H:%M:%S"
     #.......................................................................................................
     return null
 
 #===========================================================================================================
 create_pipeline = ->
-  pipeline        = new Pipeline()
+  pipeline        = new Async_pipeline()
   # pipeline.push ( d ) -> warn GUY.datetime.now(), '^858-4^', 'pipeline', d
   pipeline.push xxx.$log_all()
   pipeline.push xxx.$add_as_change()
@@ -103,7 +108,7 @@ class My_watcher extends GUY.watch.Watcher
   on_all: ( key, path ) ->
     # whisper GUY.datetime.now(), '^858-1^', 'my_watcher', key, path
     @pipeline.send { key, path, }
-    null for d from @pipeline.walk()
+    null for await d from @pipeline.walk()
     return null
 
 #-----------------------------------------------------------------------------------------------------------
