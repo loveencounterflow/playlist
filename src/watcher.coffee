@@ -65,8 +65,10 @@ class My_watcher extends GUY.watch.Watcher
 demo = -> new Promise ( resolve, reject ) =>
   project_path      = PATH.dirname __dirname
   watcher           = new My_watcher create_pipeline()
-  new_glob          = PATH.join project_path, '**/*.{md,css}'
-  watcher.add_path new_glob
+  watcher.add_path PATH.join project_path, 'pages/**/*.md'
+  watcher.add_path PATH.join project_path, 'public/**/*.css'
+  watcher.add_path PATH.join project_path, 'public/**/*.js'
+  watcher.add_path PATH.join project_path, 'public/**/*.html'
   await after 100, ->
     return resolve()
   return
