@@ -113,6 +113,12 @@ class My_watcher extends GUY.watch.Watcher
 
 #-----------------------------------------------------------------------------------------------------------
 demo = -> new Promise ( resolve, reject ) =>
+  FiveServer = ( require 'five-server' ).default
+  cfg =
+    open:           false
+    root:           './public'
+    host:           '0.0.0.0'
+  new FiveServer().start cfg
   watcher           = new My_watcher create_pipeline()
   watcher.add_path PATH.join G.project_path, 'pages/**/*.md'
   watcher.add_path PATH.join G.project_path, 'public/**/*.css'
