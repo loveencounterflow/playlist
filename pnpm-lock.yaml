@@ -9,8 +9,8 @@ dependencies:
     specifier: ^3.5.3
     version: 3.5.3
   guy:
-    specifier: ^13.7.0
-    version: 13.7.0(acorn-loose@8.3.0)(acorn-walk@8.2.0)(acorn@8.9.0)(astring@1.8.6)(chokidar@3.5.3)(dayjs@1.11.9)(tmp@0.2.1)
+    specifier: ^13.7.1
+    version: 13.7.1(acorn-loose@8.3.0)(acorn-walk@8.2.0)(acorn@8.9.0)(astring@1.8.6)(chokidar@3.5.3)(dayjs@1.11.9)(tmp@0.2.1)
   live-server:
     specifier: ^1.2.2
     version: 1.2.2
@@ -800,8 +800,8 @@ packages:
       tmp: 0.2.1
     dev: false
 
-  /guy@13.7.0(acorn-loose@8.3.0)(acorn-walk@8.2.0)(acorn@8.9.0)(astring@1.8.6)(chokidar@3.5.3)(dayjs@1.11.9)(tmp@0.2.1):
-    resolution: {integrity: sha512-Heqnoh3BjARj+h3NUx84bJ8fvk+E4ddp7HsPgmSy44vpwNp6HaHtMF3zXswNlwO2xhi53Fnz2vHHYXntNzfvHA==}
+  /guy@13.7.1(acorn-loose@8.3.0)(acorn-walk@8.2.0)(acorn@8.9.0)(astring@1.8.6)(chokidar@3.5.3)(dayjs@1.11.9)(tmp@0.2.1):
+    resolution: {integrity: sha512-3bO5ZfOjRtII5KwEHzx7aZ4LH6Q2vFWHmDP4qnEMKQw18KBKQeLyygkTHDF1kQVqb3slOgIJSsmPIcNudx0gDQ==}
     peerDependencies:
       acorn: ^8.7.1
       acorn-loose: ^8.3.0
