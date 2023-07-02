@@ -4,17 +4,19 @@
   "description": "",
   "main": "lib/main.js",
   "scripts": {
-  	"serve": "bin/serve",
-  	"watch": "bin/watch",
-  	"compile-pages": "bin/compile-pages",
+    "serve": "bin/serve",
+    "watch": "bin/watch",
+    "compile-pages": "bin/compile-pages",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "live-server": "^1.2.2"
+    "chokidar": "^3.5.3",
+    "guy": "^13.7.0",
+    "live-server": "^1.2.2",
+    "moonriver": "^4.8.2",
+    "zx": "^7.2.2"
   }
 }
-
-
