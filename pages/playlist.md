@@ -1,5 +1,6 @@
 <head>
 <meta charset='UTF-8'>
+<title>Jonas Playlist</title>
 <link rel=stylesheet href='./reset.css'>
 <link rel=stylesheet href='./playlist.css'>
 <!-- <link rel=stylesheet href='./debugging.css'> -->
