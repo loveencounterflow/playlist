@@ -3,7 +3,6 @@
 
 
 globalThis.log = console.log
-globalThis.µ = require 'mudom'
 
 ```
 // // wrap an element with another; super basic but makes it consistent across our apps
@@ -56,12 +55,12 @@ function addClientRectsOverlay( element ) {
     // marker.style.outline            = '1px solid red';
     // marker.style.backgroundColor    = 'rgba(255,255,0,0.5)';
     // marker.style.mixBlendMode       = 'multiply';
-    const scroll_top                = document.body.scrollTop;
-    const scroll_left               = document.body.scrollLeft;
+    const scroll_top                = µ.DOM2.get_document_scroll_top();
+    const scroll_left               = µ.DOM2.get_document_scroll_left();
     marker.style.margin             = '0';
     marker.style.padding            = '0';
-    marker.style.top                = `${ scroll_top  + rectangle.top   }px`;
-    marker.style.left               = `${ scroll_left + rectangle.left  }px`;
+    marker.style.top                = `${ rectangle.top  + scroll_top   }px`;
+    marker.style.left               = `${ rectangle.left + scroll_left  }px`;
     marker.style.width              = `${ rectangle.width               }px`;
     marker.style.height             = `${ rectangle.height              }px`;
     document.body.appendChild( marker);
@@ -109,7 +108,7 @@ draw_client_rectangles = =>
   for element in elements
     # wrapper = µ.DOM.parse_one '<span></span>'
     # wrap element, wrapper
-    # log '^123-3^', wrapper
+    # log '^123-1^', wrapper
     addClientRectsOverlay element
   return null
 
@@ -127,23 +126,35 @@ do ->
 
 # $( ".tracker > div" ).wrapInner( '<span></span>' )
 µ.DOM.ready draw_client_rectangles
-log '^123-4^', "ops2 OK"
+log '^123-2^', "ops2 OK"
 
 do ->
+  window.pageYOffset
   scroll_top = document.body.scrollTop
   for div in µ.DOM.select_all '.tracker > div'
-    offset_top = µ.DOM.get_offset_top div
-    log '^123-5^', { scroll_top, offset_top, }
-    p_cr = div.getClientRects()[ 0 ]
+    # offset_top = µ.DOM.get_offset_top div
+    offset_top = div.offsetTop
+    log '^123-3^', { scroll_top, offset_top, }
+    p_cr  = div.getClientRects()[ 0 ]
     p_y1  = p_cr.y
     p_y2  = p_y1 + p_cr.height
-    span = µ.DOM.select_first_from div, 'span'
-    log '^123-5^', { y: p_cr.y, p_y1, p_y2, }
+    span  = µ.DOM.select_first_from div, 'span'
+    log '^123-4^', { y: p_cr.y, p_y1, p_y2, }
     log '^123-5^', span
     for cr in span.getClientRects()
       y1  = cr.y
       y2  = y1 + cr.height
-      log '^123-5^', { y1, y2, }
+      log '^123-6^', { y1, y2, }
     break
   return null
+
+
+µ.DOM.ready ->
+  log '^345-1^', "set up scroll events"
+  µ.DOM.on document, 'scroll', ->
+    log '^345-1^', 'scroll', µ.DOM.get_document_scroll_top()
+    return null
+  handler = ->
+    log '^345-2^', 'scroll tracker'
+  ( µ.DOM.select_first '.tracker' ).addEventListener 'scroll', handler, true
 
