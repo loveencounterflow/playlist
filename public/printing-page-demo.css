@@ -49,9 +49,12 @@ html, body {
 div.tracker {
   outline:                10px dashed pink;
   overflow:               hidden;
-  margin-top:             10mm;
-  margin-bottom:          10mm;
-  /*height:                 100mm;*/
+  margin:                 10mm;
+  width:                  80mm;
+  /*margin-top:             10mm;*/
+  /*margin-bottom:          10mm;*/
+  height:                 80mm;
+  margin-bottom:          250mm;
   page-break-inside:      avoid;
   /*columns:                3;*/ }
 
@@ -63,6 +66,11 @@ div {
 div.tracker div::first-letter {
   font-size:              200%;
   color:                  red; }
+
+div.tracker > div {
+  /*margin-left:  10mm;*/
+}
+
 
 @page {
   size:                   A4 landscape;
