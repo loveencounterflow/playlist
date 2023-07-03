@@ -55,8 +55,8 @@ function addClientRectsOverlay( element ) {
     // marker.style.outline            = '1px solid red';
     // marker.style.backgroundColor    = 'rgba(255,255,0,0.5)';
     // marker.style.mixBlendMode       = 'multiply';
-    const scroll_top                = µ.DOM2.get_document_scroll_top();
-    const scroll_left               = µ.DOM2.get_document_scroll_left();
+    const scroll_top                = µ.DOM.get_document_scroll_top();
+    const scroll_left               = µ.DOM.get_document_scroll_left();
     marker.style.margin             = '0';
     marker.style.padding            = '0';
     marker.style.top                = `${ rectangle.top  + scroll_top   }px`;
