@@ -1,0 +1,13 @@
+{
+  "version": 3,
+  "file": "",
+  "sourceRoot": "",
+  "sources": [
+    "../src/mudom2.coffee"
+  ],
+  "names": [],
+  "mappings": "AACA;EAAA;AAAA,MAAA,IAAA;;;EAIA,UAAU,CAAC,CAAX,GAAe,OAAA,CAAQ,OAAR,EAJf;;;EAOM,OAAN,MAAA,KAAA,QAAmB,CAAC,CAAC,GAAG,CAAC,YAAzB;IACE,uBAA0B,CAAA,CAAA;aAAG,QAAQ,CAAC,eAAe,CAAC;IAA5B;;IAC1B,wBAA0B,CAAA,CAAA;aAAG,QAAQ,CAAC,eAAe,CAAC;IAA5B;;EAF5B,EAPA;;;EAYA,CAAC,CAAC,GAAF,GAAQ,IAAI,IAAJ,CAAA;AAZR",
+  "sourcesContent": [
+    "\n'use strict'\n\n\n#===========================================================================================================\nglobalThis.µ = require 'mudom'\n\n#===========================================================================================================\nclass Dom2 extends µ.DOM.constructor\n  get_document_scroll_top:  -> document.documentElement.scrollTop\n  get_document_scroll_left: -> document.documentElement.scrollLeft\n\n#===========================================================================================================\nµ.DOM = new Dom2()\n"
+  ]
+}
