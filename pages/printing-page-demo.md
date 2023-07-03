@@ -2,6 +2,7 @@
 <head>
 <meta charset='UTF-8'>
 <script src='/browserified/mudom.js'></script>
+<script src='./mudom2.js'></script>
 <link rel=stylesheet href='./reset.css'>
 <link rel=stylesheet href='./printing-page-demo.css'>
 </head>
