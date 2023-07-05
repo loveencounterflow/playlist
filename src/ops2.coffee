@@ -151,6 +151,10 @@ do ->
 
 µ.DOM.ready ->
   log '^345-1^', "set up scroll events"
+  button  = µ.DOM.select_first '#redraw'
+  µ.DOM.on button, 'click', ->
+    debug '^123-1^', "redraw"
+    draw_client_rectangles()
   µ.DOM.on document, 'scroll', ->
     log '^345-1^', 'scroll', µ.DOM.get_document_scroll_top()
     return null

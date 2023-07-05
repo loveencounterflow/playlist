@@ -103,3 +103,8 @@ div.tracker > div {
   mix-blend-mode:         multiply;
   pointer-events:         none; }
 
+button#redraw {
+  position:               fixed;
+  top:                    3mm;
+  left:                   95mm;
+}
