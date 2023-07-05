@@ -103,6 +103,12 @@ div.tracker > div {
   mix-blend-mode:         multiply;
   pointer-events:         none; }
 
+.µ-clientrec.above {
+  background-color:       rgba(0,255,0,0.5); }
+
+.µ-clientrec.below {
+  background-color:       rgba(255,0,255,0.5); }
+
 button#redraw {
   position:               fixed;
   top:                    3mm;
