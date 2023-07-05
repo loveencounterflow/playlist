@@ -18,6 +18,9 @@
 <div>As she said this she looked down at her hands, and was surprised to see that she had put on one of the Rabbit’s little white kid gloves while she was talking. “How can I have done that?” she thought. “I must be growing small again.” She got up and went to the table to measure herself by it, and found that, as nearly as she could guess, she was now about two feet high, and was going on shrinking rapidly: she soon found out that</div>
 </div>
 
+<div class=tracker></div>
+<div class=tracker></div>
+<div class=tracker></div>
 
 <!-- <script src='./jquery-3.7.0.js'></script> -->
 <script src='./ops2.js'></script>
