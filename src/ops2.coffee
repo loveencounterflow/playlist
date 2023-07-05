@@ -96,10 +96,6 @@ const rectangles = range.getClientRects();
 
 ```
 
-wrap_inner = ( element, wrapper ) ->
-  element.appendChild(wrapper);
-  while element.firstChild isnt wrapper
-     wrapper.appendChild element.firstChild
   return null
 
 #-----------------------------------------------------------------------------------------------------------
