@@ -65,6 +65,9 @@ xxx =
     send d
 
   #---------------------------------------------------------------------------------------------------------
+  _call: ( cmd ) ->
+
+  #---------------------------------------------------------------------------------------------------------
   $html_from_md: -> ( d, send ) =>
     return send d unless d.key is 'change'
     return send d unless d.extension is '.md'
@@ -75,9 +78,25 @@ xxx =
     tmp_path        = PATH.join G.tmp_path,     public_filename
     public_path     = PATH.join G.public_path,  public_filename
     help GUY.datetime.now(), '^$html_from_md@858-4^', GUY.trm.reverse " #{d.filename} -> #{public_filename} "
-    await zx"""pandoc -o #{tmp_path} #{source_path}"""
-    await zx"""echo '<!DOCTYPE html>' | cat - #{tmp_path} > #{public_path}"""
-    await zx"""trash #{tmp_path}"""
+    #.......................................................................................................
+    try
+      await zx"""pandoc -o #{tmp_path} #{source_path}"""
+    catch error
+      message = error.message ? error
+      warn '^$html_from_md@858-4^', GUY.trm.reverse " #{message} "
+    #.......................................................................................................
+    try
+      await zx"""echo '<!DOCTYPE html>' | cat - #{tmp_path} > #{public_path}"""
+    catch error
+      message = error.message ? error
+      warn '^$html_from_md@858-4^', GUY.trm.reverse " #{message} "
+    #.......................................................................................................
+    try
+      await zx"""trash #{tmp_path}"""
+    catch error
+      message = error.message ? error
+      warn '^$html_from_md@858-4^', GUY.trm.reverse " #{message} "
+    #.......................................................................................................
     info GUY.datetime.now(), '^$html_from_md@858-4^', GUY.trm.reverse " OK #{d.filename} -> #{public_filename} "
       # date +"%Y-%m-%d %H:%M:%S"
     #.......................................................................................................
@@ -126,33 +145,8 @@ demo = -> new Promise ( resolve, reject ) =>
   watcher.add_path PATH.join G.project_path, 'public/**/*.html'
   await after 100, ->
     return resolve()
-  return
-  #.......................................................................................................
-  new_path_1        = PATH.join folder_path, 'new_1.txt'
-  new_folder_path   = PATH.join folder_path, 'sub'
-  new_path_2        = PATH.join folder_path, 'sub/new_2.txt'
-  #.......................................................................................................
-  # await sleep 0.25
-  FS.writeFileSync new_path_1, 'helo'
-  FS.mkdirSync new_folder_path
-  FS.writeFileSync new_path_2, 'helo'
-  await sleep 0.25
-  FS.writeFileSync new_path_1, 'sfhsoifhas'
-  FS.writeFileSync new_path_2, 'helo'
-  await sleep 0.25
-  FS.writeFileSync new_path_2, 'helo'
-  FS.rmSync new_path_2
-  FS.rmdirSync new_folder_path
-  after 0.25, =>
-    debug GUY.datetime.now(), '^858-5^', "stopping watcher"
-    await watcher.stop()
-    debug GUY.datetime.now(), '^858-6^', "removing #{folder_path}"
-    rm?()
-    resolve()
-    # return null
-  return null
   #.........................................................................................................
-  resolve()
+  return null
 
 
 ############################################################################################################
