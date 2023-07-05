@@ -48,7 +48,8 @@ html, body {
 
 div.tracker {
   outline:                10px dashed pink;
-  overflow:               hidden;
+  position:               relative;
+  overflow-y:             scroll;
   margin:                 10mm;
   width:                  80mm;
   /*margin-top:             10mm;*/
