@@ -8,7 +8,11 @@
 
 <style>
 
+  body {
+    padding:                5mm; }
+
   iframe {
+    margin:                 2.5mm;
     width:                  80mm;
     height:                 80mm;
     overflow:               hidden;
@@ -26,8 +30,9 @@
 
 <button id=redraw>REDRAW</button>
 
-<div class=spacer></div>
-
+<iframe src='./printing-page-demo.html' scrolling=no></iframe>
+<iframe src='./printing-page-demo.html' scrolling=no></iframe>
+<iframe src='./printing-page-demo.html' scrolling=no></iframe>
 <iframe src='./printing-page-demo.html' scrolling=no></iframe>
 
 <div class=spacer></div>
