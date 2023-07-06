@@ -47,15 +47,16 @@ html, body {
 }
 
 div.tracker {
-  outline:                10px dashed pink;
+  outline:                3px dotted red;
   position:               relative;
-  overflow-y:             scroll;
+  /*overflow-y:             scroll;*/
+  overflow-y:             visible;
   margin:                 10mm;
   width:                  80mm;
   /*margin-top:             10mm;*/
   /*margin-bottom:          10mm;*/
   height:                 80mm;
-  margin-bottom:          250mm;
+  margin-bottom:          10mm;
   page-break-inside:      avoid;
   /*columns:                3;*/ }
 
