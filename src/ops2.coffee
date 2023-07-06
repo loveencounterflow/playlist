@@ -57,6 +57,8 @@ do ->
 #-----------------------------------------------------------------------------------------------------------
 µ.DOM.ready ->
   log '^123-4^', "ready"
+  first_tracker = µ.DOM.select_first '.tracker'
+  first_tracker.scrollTop = 100
   draw_client_rectangles()
   button  = µ.DOM.select_first '#redraw'
   µ.DOM.on button, 'click', ->
@@ -64,7 +66,6 @@ do ->
     draw_client_rectangles()
   #.........................................................................................................
   log '^123-10^', "set up scroll events"
-  first_tracker = µ.DOM.select_first '.tracker'
   show_scroll_tops = ->
     doc_scroll_top      = µ.DOM.get_document_scroll_top().toFixed 0
     tracker_scroll_top  = first_tracker.scrollTop.toFixed 0
@@ -75,6 +76,7 @@ do ->
   # handler = ->
   #   log '^123-12^', 'scroll tracker'
   # ( µ.DOM.select_first '.tracker' ).addEventListener 'scroll', handler, true
+  return null
 
 
 log '^123-5^', "ops2 OK"
