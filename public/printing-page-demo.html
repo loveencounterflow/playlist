@@ -3,8 +3,24 @@
 <meta charset='UTF-8'>
 <script src='/browserified/mudom.js'></script>
 <script src='./mudom2.js'></script>
-<link rel=stylesheet href='./reset.css'>
-<link rel=stylesheet href='./printing-page-demo.css'>
+<script src='./lining.js'></script>
+<p><link rel=stylesheet href='./reset.css'>
+<link rel=stylesheet href='./printing-page-demo.css'></p>
+<style>
+.line {
+  display:                inline-block;
+  width:                  100%;
+  text-align-last:        justify; }
+.line[first]               { letter-spacing:  0.1px; }
+.line:nth-last-of-type(2n+1) { background-color:  skyblue; }
+.line[first]               { color:  green; }
+.line[last]                {
+  color:                  red;
+  text-align:             center;
+  text-align-last:        center; }
+.line[index="5"]           { color:  blue; }
+/*div .line:nth-of-type(-n+2)    { color:  #f00; }*/
+</style>
 </head>
 <div class="header">
 HEADER
@@ -19,17 +35,18 @@ REDRAW
 
 </div>
 <div class="tracker">
-<div>
-Suddenly she came upon a little three-legged table, all made of solid
-glass; there was nothing on it except a tiny golden key, and Alice’s
-first thought was that it might belong to one of the doors of the hall;
-but, alas! either the locks were too large, or the key was too small,
-but at any rate it would not open any of them. However, on the second
-time round, she came upon a low curtain she had not noticed before, and
-behind it was a little door about fifteen inches high: she tried the
-little golden key in the lock, and to her great delight it fitted!
+<div data-lining="">
+Very­very­very­very­very­very­very­very­very­very­very­long­word Suddenly she came
+upon a little three-legged table, all made of solid glass; there was
+nothing on it except a tiny golden key, and Alice’s first thought was
+that it might belong to one of the doors of the hall; but, alas! either
+the locks were too large, or the key was too small, but at any rate it
+would not open any of them. However, on the second time round, she came
+upon a low curtain she had not noticed before, and behind it was a
+little door about fifteen inches high: she tried the little golden key
+in the lock, and to her great delight it fitted!
 </div>
-<div>
+<div data-lining="">
 “I’m sure those are not the right words,” said poor Alice, and her eyes
 filled with tears again as she went on, “I must be Mabel after all, and
 I shall have to go and live in that poky little house, and have next to
@@ -42,7 +59,7 @@ till I’m somebody else’—but, oh dear!” cried Alice, with a sudden burst
 of tears, “I do wish they would put their heads down! I am so very tired
 of being all alone here!”
 </div>
-<div>
+<div data-lining="">
 As she said this she looked down at her hands, and was surprised to see
 that she had put on one of the Rabbit’s little white kid gloves while
 she was talking. “How can I have done that?” she thought. “I must be
@@ -65,4 +82,4 @@ out that
 
 </div>
 <!-- <script src='./jquery-3.7.0.js'></script> -->
-<script src='./ops2.js'></script>
+<!-- <script src='./ops2.js'></script> -->

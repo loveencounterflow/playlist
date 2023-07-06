@@ -66,6 +66,7 @@ div.spacer {
 
 div {
   text-align:             justify;
+  text-justify:           inter-character;
   line-height-step:       calc( 1 * var(--root-font-size) );
   margin-bottom:          calc( 1 * var(--root-font-size) ); }
 
@@ -112,6 +113,8 @@ div.tracker > div {
   /* ### TAINT consider to use scopes instead of `!important` */
   font-size:              100% !important;
   color:                  black !important; }
+
+div::nth-line(2) { color: red; }
 
 .µ-clientrec.above {
   background-color:       rgba(0,255,0,0.5); }
