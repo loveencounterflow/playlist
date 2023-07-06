@@ -7,8 +7,18 @@
 <link rel=stylesheet href='./printing-page-demo.css'>
 
 <style>
+
   iframe {
+    width:                  80mm;
+    height:                 80mm;
+    overflow:               hidden;
+    scrollbar-width:        none;
     outline:                1px dotted red; }
+
+  iframe::-webkit-scrollbar {
+    width:                  0;
+    display:                none; }
+
 </style>
 
 </head>
@@ -18,7 +28,7 @@
 
 <div class=spacer></div>
 
-<iframe src='./printing-page-demo.html'></iframe>
+<iframe src='./printing-page-demo.html' scrolling=no></iframe>
 
 <div class=spacer></div>
 

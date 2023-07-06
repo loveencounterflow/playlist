@@ -37,7 +37,7 @@ html, body {
   /*background-color:       #9eaeb5;*/
   /*height:                 100vh;*/
   /*width:                  100vw;*/
-  width:                  210mm;
+  /*width:                  210mm;*/
   padding:                0mm;
   margin:                 0mm;
   color:                  var(--root-text-color);
@@ -51,11 +51,10 @@ div.tracker {
   position:               relative;
   /*overflow-y:             scroll;*/
   overflow-y:             visible;
-  margin:                 10mm;
+  margin:                 0mm;
   width:                  80mm;
   /*margin-top:             10mm;*/
   /*margin-bottom:          10mm;*/
-  height:                 80mm;
   margin-bottom:          10mm;
   page-break-inside:      avoid;
   /*columns:                3;*/ }
