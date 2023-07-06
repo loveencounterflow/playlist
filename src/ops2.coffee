@@ -15,26 +15,36 @@ add_line_markers = ( ref_element, element ) ->
   ref_rectangle = ref_element.getBoundingClientRect()
   #.........................................................................................................
   for rectangle, idx in element.getClientRects()
-    marker                = document.createElement 'div'
-    scroll_top            = 0 # -element.scrollTop
-    scroll_left           = 0 # -element.scrollLeft
-    # scroll_top            = µ.DOM.get_document_scroll_top()
-    # scroll_left           = µ.DOM.get_document_scroll_left()
-    marker_top            = rectangle.top     - ref_rectangle.top  + ref_element.scrollTop
+    scroll_top                = 0 # -element.scrollTop
+    scroll_left               = 0 # -element.scrollLeft
+    # scroll_top                = µ.DOM.get_document_scroll_top()
+    # scroll_left               = µ.DOM.get_document_scroll_left()
+    marker_top                = rectangle.top     - ref_rectangle.top  + ref_element.scrollTop
     if idx is 0
       debug '^423^', marker_top, rectangle.top, ref_rectangle.top, ref_element.scrollTop
-    marker_left           = rectangle.left    - ref_rectangle.left
-    marker_width          = rectangle.width
-    marker_height         = rectangle.height
-    marker_bottom         = marker_top        + marker_height
-    marker.style.top      = "#{ marker_top    }px"
-    marker.style.left     = "#{ marker_left   }px"
-    marker.style.width    = "#{ marker_width  }px"
-    marker.style.height   = "#{ marker_height }px"
+    marker_left               = rectangle.left    - ref_rectangle.left
+    marker_width              = rectangle.width
+    marker_height             = rectangle.height
+    marker_bottom             = marker_top        + marker_height
+    marker                    = µ.DOM.parse_one "<div>#{marker_top.toFixed 0}px</div>"
+    marker.style.top          = "#{ marker_top    }px"
+    marker.style.left         = "#{ marker_left   }px"
+    marker.style.width        = "#{ marker_width  }px"
+    marker.style.height       = "#{ marker_height }px"
+    marker.style.paddingLeft  = "#{ marker_width  }px"
     µ.DOM.add_class marker, 'µ-clientrec'
     µ.DOM.add_class marker, 'above' if marker_top     < 0
-    µ.DOM.add_class marker, 'below' if marker_bottom  > ref_rectangle.bottom
-    element.appendChild marker
+    µ.DOM.add_class marker, 'below' if marker_bottom  > ref_rectangle.height
+    ref_element.appendChild marker
+  # µ.DOM.remove m2 for m2 in µ.DOM.select_all_from ref_element, '.µ-clientrec.ref-rectangle'
+  # m2 = document.createElement 'div'
+  # µ.DOM.add_class m2, 'µ-clientrec'
+  # µ.DOM.add_class m2, 'ref-rectangle'
+  # m2.style.top    = "#{0}px"
+  # m2.style.left   = "#{0}px"
+  # m2.style.width  = "#{ref_rectangle.width}px"
+  # m2.style.height = "#{ref_rectangle.height}px"
+  # ref_element.appendChild m2
   return null
 
 #-----------------------------------------------------------------------------------------------------------
