@@ -60,6 +60,10 @@ div.tracker {
   page-break-inside:      avoid;
   /*columns:                3;*/ }
 
+div.spacer {
+  min-height:             50mm;
+  height:                 50mm; }
+
 div {
   text-align:             justify;
   line-height-step:       calc( 1 * var(--root-font-size) );
