@@ -58,26 +58,52 @@ draw_client_rectangles = =>
       add_line_markers ref_element, element
   return null
 
-#-----------------------------------------------------------------------------------------------------------
-do ->
-  for element in µ.DOM.select_all '.tracker > div'
-    µ.DOM.wrap_inner element, µ.DOM.parse_one '<span></span>'
-  return null
+# #-----------------------------------------------------------------------------------------------------------
+# do ->
+#   for element in µ.DOM.select_all '.tracker > div'
+#     µ.DOM.wrap_inner element, µ.DOM.parse_one '<span></span>'
+#   return null
 
-#-----------------------------------------------------------------------------------------------------------
+
+#===========================================================================================================
+class Aligner
+
+  #---------------------------------------------------------------------------------------------------------
+  constructor: ->
+    @_insert_spans()
+    return undefined
+
+  #---------------------------------------------------------------------------------------------------------
+  _insert_spans: ->
+    ### all relevant iframes show the same underlying document so we only add spans for the document in the
+    first iframe ###
+    first_iframe  = µ.DOM.select_first 'iframe'
+    sub_document  = first_iframe.contentDocument
+    ### NB µDOM rejects sub_document b/c not considered an 'element', may change that ###
+    first_tracker = sub_document.querySelector '.tracker'
+    debug '^123-435^', first_tracker
+    ### `:scope` is akin to `this`, refers to present element;
+    thx to https://stackoverflow.com/a/17206138/7568091 ###
+    for element in first_tracker.querySelectorAll ':scope > div'
+      debug '^123-435^', element
+      µ.DOM.wrap_inner element, µ.DOM.parse_one "<span class='µ-aligner'></span>"
+    return null
+
+
+#===========================================================================================================
 µ.DOM.ready ->
   log '^123-4^', "ready"
-
-  iframes = µ.DOM.select_all 'iframe'
-  for iframe in iframes
-    sub_document  = iframe.contentDocument
-    # first_tracker = µ.DOM.select_first_from sub_document, '.tracker'
-    first_tracker = sub_document.querySelector '.tracker'
-    debug '^35345^', first_tracker
-    iframe.contentWindow.scrollTo 0, 0
-    # sub_document.scrollTo 0, 100
-    # first_tracker.scrollTop = 100
-    draw_client_rectangles()
+  aligner = new Aligner()
+  # iframes = µ.DOM.select_all 'iframe'
+  # for iframe in iframes
+  #   sub_document  = iframe.contentDocument
+  #   # first_tracker = µ.DOM.select_first_from sub_document, '.tracker'
+  #   first_tracker = sub_document.querySelector '.tracker'
+  #   debug '^35345^', first_tracker
+  #   iframe.contentWindow.scrollTo 0, 0
+  #   # sub_document.scrollTo 0, 100
+  #   # first_tracker.scrollTop = 100
+  #   draw_client_rectangles()
   button  = µ.DOM.select_first '#redraw'
   µ.DOM.on button, 'click', ->
     debug '^123-1^', "redraw"
