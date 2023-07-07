@@ -3,7 +3,6 @@
 <meta charset='UTF-8'>
 <script src='/browserified/mudom.js'></script>
 <script src='./mudom2.js'></script>
-<script src='./lining.js'></script>
 <link rel=stylesheet href='./reset.css'>
 <link rel=stylesheet href='./printing-page-demo.css'>
 
@@ -34,6 +33,4 @@
 </div>
 
 
-<!-- <script src='./jquery-3.7.0.js'></script> -->
-<!-- <script src='./ops2.js'></script> -->
 
