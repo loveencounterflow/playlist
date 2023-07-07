@@ -67,22 +67,30 @@ do ->
 #-----------------------------------------------------------------------------------------------------------
 µ.DOM.ready ->
   log '^123-4^', "ready"
-  first_tracker = µ.DOM.select_first '.tracker'
-  first_tracker.scrollTop = 100
-  draw_client_rectangles()
+
+  iframes = µ.DOM.select_all 'iframe'
+  for iframe in iframes
+    sub_document  = iframe.contentDocument
+    # first_tracker = µ.DOM.select_first_from sub_document, '.tracker'
+    first_tracker = sub_document.querySelector '.tracker'
+    debug '^35345^', first_tracker
+    iframe.contentWindow.scrollTo 0, 0
+    # sub_document.scrollTo 0, 100
+    # first_tracker.scrollTop = 100
+    draw_client_rectangles()
   button  = µ.DOM.select_first '#redraw'
   µ.DOM.on button, 'click', ->
     debug '^123-1^', "redraw"
     draw_client_rectangles()
-  #.........................................................................................................
-  log '^123-10^', "set up scroll events"
-  show_scroll_tops = ->
-    doc_scroll_top      = µ.DOM.get_document_scroll_top().toFixed 0
-    tracker_scroll_top  = first_tracker.scrollTop.toFixed 0
-    log '^123-11^', 'scroll', doc_scroll_top, tracker_scroll_top
-    return null
-  µ.DOM.on document,      'scroll', show_scroll_tops
-  µ.DOM.on first_tracker, 'scroll', show_scroll_tops
+  # #.........................................................................................................
+  # log '^123-10^', "set up scroll events"
+  # show_scroll_tops = ->
+  #   doc_scroll_top      = µ.DOM.get_document_scroll_top().toFixed 0
+  #   tracker_scroll_top  = first_tracker.scrollTop.toFixed 0
+  #   log '^123-11^', 'scroll', doc_scroll_top, tracker_scroll_top
+  #   return null
+  # µ.DOM.on document,      'scroll', show_scroll_tops
+  # µ.DOM.on first_tracker, 'scroll', show_scroll_tops
   # handler = ->
   #   log '^123-12^', 'scroll tracker'
   # ( µ.DOM.select_first '.tracker' ).addEventListener 'scroll', handler, true
