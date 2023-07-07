@@ -73,7 +73,7 @@ div {
   margin-bottom:          calc( 1 * var(--root-font-size) ); }
 
 div.tracker div::first-letter {
-  font-size:              200%;
+  /*font-size:              200%;*/
   color:                  red; }
 
 div.tracker > div {
