@@ -23,17 +23,19 @@
   --jonas-font-size:      calc( 5 * var(--root-font-size) );
   --slogan-font-size:     calc( 2 * var(--root-font-size) );
   /*--card-height:          calc( 3 * var(--root-font-size) );*/
-  --grid-size:            3mm;
+  --grid-size:            6mm;
   --root-text-color:      #333;
   --marker-color:         #f55;
   --jonas-color:          var(--marker-color);
   --slogan-color:         var(--marker-color);
   --link-color:           var(--marker-color);
   --warn-color:           hotpink;
-  --column-width:         100mm; /* ### TAINT calculate from page size */
+  --column-width:         80mm; /* ### TAINT calculate from page size */
+  --column-height:        80mm;
   font-family:            var(--root-font-family);
   font-size:              var(--root-font-size);
   line-height-step:       var(--grid-size);
+  line-height:            var(--grid-size);
 }
 
 html, body {
@@ -55,10 +57,11 @@ div.tracker {
   /*overflow-y:             scroll;*/
   overflow-y:             visible;
   margin:                 0mm;
-  width:                  80mm;
+  width:                  var(--column-width);
   /*margin-top:             10mm;*/
   /*margin-bottom:          10mm;*/
-  margin-bottom:          10mm;
+  margin-bottom:          var(--column-height); /* should be calculated as max of all column heights */
+  margin-top:             var(--column-height); /* should be calculated as max of all column heights */
   page-break-inside:      avoid;
   /*columns:                3;*/ }
 
@@ -132,3 +135,15 @@ button#redraw {
   top:                    3mm;
   left:                   95mm;
 }
+
+iframe {
+  margin:                 2.5mm;
+  width:                  80mm;
+  height:                 80mm;
+  overflow:               hidden;
+  scrollbar-width:        none;
+  outline:                1px dotted red; }
+
+iframe::-webkit-scrollbar {
+  width:                  0;
+  display:                none; }
