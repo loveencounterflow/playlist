@@ -20,19 +20,45 @@
   text-align-last:        center; }
 .line[index="5"]           { color:  blue; }
 /*div .line:nth-of-type(-n+2)    { color:  #f00; }*/
+
+
+pusher {
+  display:                block;
+  float:                  left;
+  clear:                  both;
+  --path:
+    0mm   0mm,
+    10mm  5mm,
+    10mm  10mm,
+    10mm  15mm,
+    10mm  20mm,
+    10mm  25mm,
+    10mm  30mm,
+    10mm  35mm,
+    0mm  40mm;
+  shape-outside:          polygon( var(--path) );
+  clip-path:              polygon( var(--path) );
+  background-color:       yellow;
+  height:                 80mm;
+  width:                  80mm;
+  outline:                1px dotted blue; }
+
+
 </style>
 </head>
 <div class="tracker">
+<pusher></pusher>
 <div data-lining="">
-Very­very­very­very­very­very­very­very­very­very­very­long­word Suddenly she came
-upon a little three-legged table, all made of solid glass; there was
-nothing on it except a tiny golden key, and Alice’s first thought was
-that it might belong to one of the doors of the hall; but, alas! either
-the locks were too large, or the key was too small, but at any rate it
-would not open any of them. However, on the second time round, she came
-upon a low curtain she had not noticed before, and behind it was a
-little door about fifteen inches high: she tried the little golden key
-in the lock, and to her great delight it fitted!
+Very­very­very­very­very­very­very­very­very­very­very­long­word
+<strong>Suddenly</strong> she came upon a little three-legged table, all
+made of solid glass; there was nothing on it except <em>a tiny golden
+key</em>, and Alice’s first thought was that it might belong to one of
+the doors of the hall; but, alas! either the locks were too large, or
+the key was too small, but at any rate it would not open any of them.
+However, on the second time round, she came upon a low curtain she had
+not noticed before, and behind it was a little door about fifteen inches
+high: she tried the little golden key in the lock, and to her great
+delight it fitted!
 </div>
 <div data-lining="">
 “I’m sure those are not the right words,” said poor Alice, and her eyes

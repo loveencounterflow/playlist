@@ -20,13 +20,14 @@ add_line_markers = ( ref_element, element ) ->
     # scroll_top                = µ.DOM.get_document_scroll_top()
     # scroll_left               = µ.DOM.get_document_scroll_left()
     marker_top                = rectangle.top     - ref_rectangle.top  + ref_element.scrollTop
-    if idx is 0
-      debug '^123-1^', marker_top, rectangle.top, ref_rectangle.top, ref_element.scrollTop
+    # if idx is 0
+    #   debug '^123-1^', marker_top, rectangle.top, ref_rectangle.top, ref_element.scrollTop
     marker_left               = rectangle.left    - ref_rectangle.left
     marker_width              = rectangle.width
     marker_height             = rectangle.height
     marker_bottom             = marker_top        + marker_height
-    marker                    = µ.DOM.parse_one "<div>#{marker_top.toFixed 0}px</div>"
+    # marker                    = µ.DOM.parse_one "<div>#{marker_top.toFixed 0}px</div>"
+    marker                    = µ.DOM.parse_one "<div></div>"
     marker.style.top          = "#{ marker_top    }px"
     marker.style.left         = "#{ marker_left   }px"
     marker.style.width        = "#{ marker_width  }px"
@@ -72,6 +73,7 @@ class Aligner
   constructor: ->
     @_insert_spans()
     @_mark_line_rectangles()
+    @_xxx()
     return undefined
 
   #---------------------------------------------------------------------------------------------------------
@@ -85,7 +87,7 @@ class Aligner
     ### `:scope` is akin to `this`, refers to present element;
     thx to https://stackoverflow.com/a/17206138/7568091 ###
     for element in first_tracker.querySelectorAll ':scope > div'
-      debug '^123-3^', element
+      # debug '^123-3^', element
       µ.DOM.wrap_inner element, µ.DOM.parse_one "<span class='µ-aligner'></span>"
     return null
 
@@ -100,7 +102,7 @@ class Aligner
     debug "draw_client_rectangles for first_tracker", first_tracker
     elements = first_tracker.querySelectorAll ':scope > div > span'
     for element in elements
-      debug '^123-4^', element
+      # debug '^123-4^', element
       add_line_markers first_tracker, element
     return null
 
@@ -118,34 +120,43 @@ class Aligner
           * width held constant across iframes
           * position on page irrelevant
 
-      * tracker / galley:
-        * has same width as targetted iframe
+      * galley:
+        * has maximum width of all target frames
         * has margins above, below of at least the maximum target height
         * extensions:
           * when one flow should go into targets with differing widths, need to add
-            `float`ing `div`s that restrict line lengths intermittently in the galley
-          * may consider to do that line-by-line so that ['Form' / 'Kontur'satz](https://de.wikipedia.org/wiki/Kontursatz)
-            is already being thought of
-
+            floating divs left and right to constrain and position lines using CSS
+            `shape-outside` (and analogous `clip-path` for visualization)
+            `d.style.setProperty( '--path', getComputedStyle(d).getPropertyValue('--path') + ', 20mm 50mm' )`
 
     ###
     first_iframe  = µ.DOM.select_first 'iframe'
     sub_document  = first_iframe.contentDocument
     ### NB µDOM rejects sub_document b/c not considered an 'element', may change that ###
     first_tracker = sub_document.querySelector '.tracker'
-    ### `:scope` is akin to `this`, refers to present element;
-    thx to https://stackoverflow.com/a/17206138/7568091 ###
-    debug "draw_client_rectangles for first_tracker", first_tracker
-    elements = first_tracker.querySelectorAll ':scope > div > span'
+    ref_element   = first_tracker
+    ref_rectangle = ref_element.getBoundingClientRect()
+    elements      = first_tracker.querySelectorAll ':scope > div > span'
     for element in elements
-      debug '^123-4^', element
-      add_line_markers first_tracker, element
+      debug '^123-5^', element
+      for rectangle, idx in element.getClientRects()
+        scroll_top                = 0 # -element.scrollTop
+        scroll_left               = 0 # -element.scrollLeft
+        # scroll_top                = µ.DOM.get_document_scroll_top()
+        # scroll_left               = µ.DOM.get_document_scroll_left()
+        marker_top                = rectangle.top     - ref_rectangle.top  + ref_element.scrollTop
+        if idx is 0
+          debug '^123-6^', marker_top, rectangle.top, ref_rectangle.top, ref_element.scrollTop
+        marker_left               = rectangle.left    - ref_rectangle.left
+        marker_width              = rectangle.width
+        marker_height             = rectangle.height
+        marker_bottom             = marker_top        + marker_height
     return null
 
 
 #===========================================================================================================
 µ.DOM.ready ->
-  log '^123-5^', "ready"
+  log '^123-7^', "ready"
   aligner = new Aligner()
   iframes = µ.DOM.select_all 'iframe'
   for iframe in iframes
@@ -159,21 +170,21 @@ class Aligner
   #   draw_client_rectangles()
   button  = µ.DOM.select_first '#redraw'
   µ.DOM.on button, 'click', ->
-    debug '^123-6^', "redraw"
+    debug '^123-8^', "redraw"
     draw_client_rectangles()
   # #.........................................................................................................
-  # log '^123-7^', "set up scroll events"
+  # log '^123-9^', "set up scroll events"
   # show_scroll_tops = ->
   #   doc_scroll_top      = µ.DOM.get_document_scroll_top().toFixed 0
   #   tracker_scroll_top  = first_tracker.scrollTop.toFixed 0
-  #   log '^123-8^', 'scroll', doc_scroll_top, tracker_scroll_top
+  #   log '^123-10^', 'scroll', doc_scroll_top, tracker_scroll_top
   #   return null
   # µ.DOM.on document,      'scroll', show_scroll_tops
   # µ.DOM.on first_tracker, 'scroll', show_scroll_tops
   # handler = ->
-  #   log '^123-9^', 'scroll tracker'
+  #   log '^123-11^', 'scroll tracker'
   # ( µ.DOM.select_first '.tracker' ).addEventListener 'scroll', handler, true
   return null
 
 
-log '^123-10^', "ops2 OK"
+log '^123-12^', "ops2 OK"

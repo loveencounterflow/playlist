@@ -23,7 +23,7 @@
   --jonas-font-size:      calc( 5 * var(--root-font-size) );
   --slogan-font-size:     calc( 2 * var(--root-font-size) );
   /*--card-height:          calc( 3 * var(--root-font-size) );*/
-  --grid-size:            6mm;
+  --grid-size:            5mm;
   --root-text-color:      #333;
   --marker-color:         #f55;
   --jonas-color:          var(--marker-color);
