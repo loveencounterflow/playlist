@@ -1,64 +1,111 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   <title>
     Detecting Rendered Line Breaks In A Text Node In JavaScript
   </title>
+<!--   <script src='./Hyphenopoly_Loader.js'></script>
+        <script>
+        globalThis.hyphenator = Hyphenopoly.config({
+            require: {
+                // 'la': 'honorificabilitudinitas',
+                // 'de': 'Silbentrennungsalgorithmus',
+                // 'en-us': 'Supercalifragilisticexpialidocious'
+                // "la": "FORCEHYPHENOPOLY",
+                // "de": "FORCEHYPHENOPOLY",
+                "en-us": "FORCEHYPHENOPOLY"
 
+            },
+            setup: {
+                selectors: {
+                    'galley > p': {}
+                }
+            }
+        });
+  </script>
+ -->
 <style>
 
-body {
+/*body {
   font-family: verdana, arial, sans-serif ;
 }
-
-.sample {
-  font-size: 16px ;
-  line-height: 25px ;
+*/
+galley {
+  display:                block;
+  /*width:                  50mm;*/
+  text-align:             justify;
+  /*font-size:              5mm;*/
+  /*line-height:            5mm;*/
 }
 
-.box {
-  background-color: rgba( 255, 248, 0, 0.2 ) ;
-  border-radius: 2px 2px 2px 2px ;
-  box-sizing: border-box ;
-  outline: 1px dashed #ff0000 ;
-  outline-offset: 1px ;
-  pointer-events: none ;
-  position: fixed ;
+/*.box {
+  background-color:       rgba( 255, 248, 0, 0.2 );
+  border-radius:          2px 2px 2px 2px;
+  box-sizing:             border-box;
+  outline:                1px dashed #ff0000;
+  outline-offset:         1px;
+  pointer-events:         none;
+  position:               fixed;
 }
 
 button {
   position:   fixed;
   top:        0;
   left:       0; }
+*/
+
+galley p {
+  hyphens:                manual; }
+
+span {
+  outline:                1px dotted red; }
 
 </style>
 
 </head>
 <body>
+  <p><button class="button">Detect Line Breaks</button></p>
 
   <h1>
     Detecting Rendered Line Breaks In A Text Node In JavaScript
   </h1>
 
-  <p class="sample" style="width: 200px ;">
-  Very&shy;very&shy;very&shy;very&shy;very&shy;very&shy;very&shy;very&shy;very&shy;very&shy;very&shy;long&shy;word
+  <galley>
 
-  Suddenly she came upon a little three-legged table, all made of solid glass; there was nothing on it
+  <p lang='en-us'>An unimaginably excruciatingly detailed unimaginably excruciatingly detailed unimaginably
+  excruciatingly detailed unimaginably excruciatingly detailed unimaginably excruciatingly detailed
+  unimaginably excruciatingly detailed unimaginably excruciatingly detailed unimaginably excruciatingly
+  detailed expression</p>
+
+  <p lang='en-us'>
+  xxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxx Very&shy;very&shy;very&shy;very&shy;very&shy;very&shy;very&shy;very&shy;very&shy;very&shy;very&shy;long&shy;word
+  </p>
+
+  <p lang='en-us'>An abc&shy;abc&shy;abc&shy;abc&shy;abc&shy;abc&shy;abc&shy;abc&shy;abc&shy;abc&shy;abc&shy;abc&shy;abc&shy;abc&shy;abc&shy;abc&shy; unimaginably excruciatingly detailed expression
+  </p>
+
+
+  <p lang='en-us'>
+  Suddenly she came upon a little three-legged table, all made of solid glass; <i>there was nothing on it</i>
   except <i>a tiny golden key</i>, and Alice’s first thought was that it might belong to one of the doors of the
   hall; but, alas! either the locks were too large, or the key was too small, but at any rate it would not
   open any of them. <b>However</b>, on the second time round, she came upon a low curtain she had not noticed
   before, and behind it was a little door about fifteen inches high: she tried the little golden key in the
   lock, and to her great delight it fitted!
-
   </p>
 
-  <p>
-    <button class="button">
-      Detect Line Breaks
-    </button>
-  </p>
+  </galley>
 
+
+  <script src='/browserified/mudom.js'></script>
+  <script src='./mudom2.js'></script>
+  <!-- <script src='./jquery-3.7.0.js'></script> -->
+  <!-- <script src='./jquery.hypher.js'></script> -->
+  <!-- <script src='./hyphenation.en-us.js'></script> -->
+  <!-- <script src='./unjustifiable.js'></script> -->
+  <!-- <script src='./caretbrowsing.js'></script> -->
+  <script src='./traverse_util.js'></script>
   <script src='./line-detector.js'></script>
 
 </body>

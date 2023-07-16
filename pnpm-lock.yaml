@@ -8,18 +8,33 @@ dependencies:
   chokidar:
     specifier: ^3.5.3
     version: 3.5.3
+  chrome-a11y-caret-browsing-extension:
+    specifier: ^1.0.2
+    version: 1.0.2
   five-server:
     specifier: ^0.3.1
     version: 0.3.1
   guy:
     specifier: ^13.7.1
     version: 13.7.1(acorn-loose@8.3.0)(acorn-walk@8.2.0)(acorn@8.9.0)(astring@1.8.6)(chokidar@3.5.3)(dayjs@1.11.9)(tmp@0.2.1)
+  hyphenation.en-us:
+    specifier: ^0.2.1
+    version: 0.2.1
+  hyphenopoly:
+    specifier: 5.2.0-beta.1
+    version: 5.2.0-beta.1
+  hypher:
+    specifier: ^0.2.5
+    version: 0.2.5
   moonriver:
     specifier: ^4.8.2
     version: 4.8.2(acorn-loose@8.3.0)(acorn-walk@8.2.0)(acorn@8.9.0)(astring@1.8.6)(dayjs@1.11.9)(tmp@0.2.1)
   nodexh:
     specifier: ^2.2.0
     version: 2.2.0(acorn-loose@8.3.0)(acorn-walk@8.2.0)(acorn@8.9.0)(astring@1.8.6)(dayjs@1.11.9)(tmp@0.2.1)
+  unjustifiable:
+    specifier: ^1.1.2
+    version: 1.1.2
   zx:
     specifier: ^7.2.2
     version: 7.2.2
@@ -308,6 +323,10 @@ packages:
       readdirp: 3.6.0
     optionalDependencies:
       fsevents: 2.3.2
+    dev: false
+
+  /chrome-a11y-caret-browsing-extension@1.0.2:
+    resolution: {integrity: sha512-bGuhhXF0lrFKpaQW6Nk+1ifCkdoGGVPBtjvUAPJARA6DDtZ3BfBregNgAhgjV4Y03KRRZyXwXtoe4KH3mBtoSw==}
     dev: false
 
   /cnd@9.3.0(acorn-loose@8.3.0)(acorn-walk@8.2.0)(acorn@8.9.0)(astring@1.8.6)(dayjs@1.11.9)(tmp@0.2.1):
@@ -965,6 +984,21 @@ packages:
       setprototypeof: 1.2.0
       statuses: 2.0.1
       toidentifier: 1.0.1
+    dev: false
+
+  /hyphenation.en-us@0.2.1:
+    resolution: {integrity: sha512-ItXYgvIpfN8rfXl/GTBQC7DsSb5PPsKh9gGzViK/iWzCS5mvjDebFJ6xCcIYo8dal+nSp2rUzvTT7BosrKlL8A==}
+    dependencies:
+      hypher: 0.2.5
+    dev: false
+
+  /hyphenopoly@5.2.0-beta.1:
+    resolution: {integrity: sha512-HnEaKUjxINWig92QbN9zU7SqXcxuyIhgp/QJcsKKPwLwFg+exW6zs37oO7ZOvtBODQwUSlpFwwJgZfbi9su8qQ==}
+    engines: {node: '>=14'}
+    dev: false
+
+  /hypher@0.2.5:
+    resolution: {integrity: sha512-kUTpuyzBWWDO2VakmjHC/cxesg4lKQP+Fdc+7lrK4yvjNjkV9vm5UTZMDAwOyyHTOpbkYrAMlNZHG61NnE9vYQ==}
     dev: false
 
   /ignore@5.2.4:
@@ -1720,6 +1754,10 @@ packages:
   /universalify@2.0.0:
     resolution: {integrity: sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ==}
     engines: {node: '>= 10.0.0'}
+    dev: false
+
+  /unjustifiable@1.1.2:
+    resolution: {integrity: sha512-NUqlxSRMQtshjTHJdYVAEb/P77XTJJx5Kw8hYiERXM9+werQs50LhupTR9CpPuzi/U875ar2lTKg5Y7x3g+lLg==}
     dev: false
 
   /unpipe@1.0.0:
