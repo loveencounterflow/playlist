@@ -112,16 +112,18 @@ draw_box = ( rectangle ) ->
   TraverseUtil.setSelection( c1, c2 )
   # Selection {anchorNode: text, anchorOffset: 0, focusNode: text, focusOffset: 20, isCollapsed: false, …}
   count = 0
-  f = ->
+  console.time()
+  loop
     count++
     TraverseUtil.getNextChar c1, c2, nc, false
-    selection = TraverseUtil.setSelection c1, c2
-    range     = selection.getRangeAt 0
+    selection   = TraverseUtil.setSelection c1, c2
+    range       = selection.getRangeAt 0
+    rectangles  = range.getClientRects()
     # debug '^2432^', range.getBoundingClientRect()
-    draw_box range.getBoundingClientRect()
-    return null if count > 1000
-    setTimeout f, 0
-  f()
+    # draw_box range.getBoundingClientRect()
+    draw_boxes rectangles
+    break if count > 1000
+  console.timeEnd()
   # log nc
   return null
 
