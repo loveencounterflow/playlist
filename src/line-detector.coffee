@@ -6,22 +6,24 @@
   debug }       = console
 
 #-----------------------------------------------------------------------------------------------------------
-_remove_boxes = ->
-  for element in document.querySelectorAll '.box'
-    element.remove()
+remove_boxes = ->
+  element.remove() for element in document.querySelectorAll '.box'
   return null
 
 #-----------------------------------------------------------------------------------------------------------
 draw_boxes = ( rectangles ) ->
-  _remove_boxes()
-  for rectangle in rectangles
-    box = document.createElement "div"
-    box.classList.add( "box" )
-    box.style.top     = rectangle.y + "px"
-    box.style.left    = rectangle.x + "px"
-    box.style.width   = rectangle.width + "px"
-    box.style.height  = rectangle.height + "px"
-    document.body.appendChild box
+  draw_box rectangle for rectangle in rectangles
+  return null
+
+#-----------------------------------------------------------------------------------------------------------
+draw_box = ( rectangle ) ->
+  box               = document.createElement 'div'
+  box.style.top     = document.documentElement.scrollTop  + rectangle.y       + 'px'
+  box.style.left    = document.documentElement.scrollLeft + rectangle.x       + 'px'
+  box.style.width   =                                       rectangle.width - 1   + 'px' # collapse borders
+  box.style.height  =                                       rectangle.height  + 'px'
+  box.classList.add 'box'
+  document.body.appendChild box
   return null
 
 # #-----------------------------------------------------------------------------------------------------------
@@ -105,16 +107,20 @@ draw_boxes = ( rectangles ) ->
   p = ( µ.DOM.select_all 'p' )[ 1 ].childNodes[ 0 ]
   c1 = new Cursor( p, 0, p.data )
   # Cursor {node: text, index: 0, text: 'An unimaginably excruciatingly detailed unimaginab…unimaginably excruciatingly\n  detailed expression'}
-  c2 = new Cursor( p, 20, p.data )
+  c2 = new Cursor( p, 0, p.data )
   # Cursor {node: text, index: 20, text: 'An unimaginably excruciatingly detailed unimaginab…unimaginably excruciatingly\n  detailed expression'}
   TraverseUtil.setSelection( c1, c2 )
   # Selection {anchorNode: text, anchorOffset: 0, focusNode: text, focusOffset: 20, isCollapsed: false, …}
   count = 0
   f = ->
-    TraverseUtil.getNextChar(c1,c2,nc,true)
-    TraverseUtil.setSelection( c1, c2 )
+    count++
+    TraverseUtil.getNextChar c1, c2, nc, false
+    selection = TraverseUtil.setSelection c1, c2
+    range     = selection.getRangeAt 0
+    # debug '^2432^', range.getBoundingClientRect()
+    draw_box range.getBoundingClientRect()
     return null if count > 1000
-    setTimeout f, 20
+    setTimeout f, 0
   f()
   # log nc
   return null
