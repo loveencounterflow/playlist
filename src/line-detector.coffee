@@ -30,24 +30,12 @@ draw_box = ( rectangle ) ->
 
 #-----------------------------------------------------------------------------------------------------------
 select_next_chr = ( c1, c2, nodes_crossed, node ) ->
-  # count++
-  # return null if count > 1000
-  ### TAINT do this outside the method to avoid duplication ###
-  ref_range   = document.createRange()
-  ref_range.setStartBefore  node
-  ref_range.setEndAfter     node
   TraverseUtil.getNextChar c1, c2, nodes_crossed, false
   selection   = TraverseUtil.setSelection c1, c2
   range       = selection.getRangeAt 0
   rectangles  = range.getClientRects()
-  # debug '^2424^', boxes
-  # debug '^2424^', ( node.contains range.startContainer.parentNode ), node.contains range.endContainer.parentNode
-  # debug '^321^', ( ref_range.intersectsNode range.startContainer.parentNode ), ( ref_range.intersectsNode range.endContainer.parentNode )
   return false unless node.contains range.startContainer.parentNode
   return false unless node.contains range.endContainer.parentNode
-    # µ.DOM.remove box for box in boxes
-  # debug '^2424^', "nodes_crossed", nodes_crossed.length
-  # return nodes_crossed.every ( n ) -> node.contains n
   boxes       = draw_boxes rectangles
   return true
 
