@@ -55,8 +55,18 @@ walk_chr_rectangles_of_node = ( node ) ->
   log '^123-7^', "ready"
   nodes         = µ.DOM.select_all '#p5'
   node          = nodes[ 0 ]
+  height_avg    = 0
+  bottom_avg    = 0
+  bottom_prv    = null
+  count         = 0
   for rectangle from walk_chr_rectangles_of_node node
+    count++
     box = draw_box rectangle
+    height_avg  = ( height_avg * ( count - 1 ) / count ) + ( rectangle.height * 1 / count )
+    bottom_avg  = ( bottom_avg * ( count - 1 ) / count ) + ( rectangle.bottom * 1 / count )
+    # if bottom_prv?
+    bottom_prv = rectangle.bottom
+    # debug '^3224^', rectangle
   return null
 
 
