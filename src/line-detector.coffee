@@ -33,22 +33,29 @@ select_next_chr = ( c1, c2, nodes_crossed, node ) ->
   TraverseUtil.getNextChar c1, c2, nodes_crossed, false
   selection   = TraverseUtil.setSelection c1, c2
   range       = selection.getRangeAt 0
-  return false unless node.contains range.startContainer.parentNode
-  return false unless node.contains range.endContainer.parentNode
+  return null unless node.contains range.startContainer.parentNode
+  return null unless node.contains range.endContainer.parentNode
   rectangles  = range.getClientRects()
-  boxes       = draw_boxes rectangles
-  return true
+  return rectangles
+
+#-----------------------------------------------------------------------------------------------------------
+walk_chr_rectangles_of_node = ( node ) ->
+  return null
 
 #===========================================================================================================
 µ.DOM.ready ->
   log '^123-7^', "ready"
   nodes         = µ.DOM.select_all '#p5'
-  p             = nodes[ 0 ].childNodes[ 0 ]
-  c1            = new Cursor( p, 0, p.data )
-  c2            = new Cursor( p, 0, p.data )
-  TraverseUtil.setSelection( c1, c2 )
+  node          = nodes[ 0 ].childNodes[ 0 ]
+  c1            = new Cursor node, 0, node.data
+  c2            = new Cursor node, 0, node.data
+  TraverseUtil.setSelection c1, c2
   loop
-    break unless select_next_chr c1, c2, [], nodes[ 0 ]
+    rectangles = select_next_chr c1, c2, [], nodes[ 0 ]
+    break unless rectangles?
+    box = draw_box rectangle for rectangle in rectangles
+  # for rectangle from walk_chr_rectangles_of_node node
+  #   box = draw_box rectangle
   return null
 
 
