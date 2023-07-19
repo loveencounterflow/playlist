@@ -40,22 +40,23 @@ select_next_chr = ( c1, c2, nodes_crossed, node ) ->
 
 #-----------------------------------------------------------------------------------------------------------
 walk_chr_rectangles_of_node = ( node ) ->
+  text_node     = node.childNodes[ 0 ]
+  c1            = new Cursor text_node, 0, text_node.data
+  c2            = new Cursor text_node, 0, text_node.data
+  TraverseUtil.setSelection c1, c2
+  loop
+    rectangles = select_next_chr c1, c2, [], node
+    break unless rectangles?
+    yield rectangle for rectangle in rectangles
   return null
 
 #===========================================================================================================
 µ.DOM.ready ->
   log '^123-7^', "ready"
   nodes         = µ.DOM.select_all '#p5'
-  node          = nodes[ 0 ].childNodes[ 0 ]
-  c1            = new Cursor node, 0, node.data
-  c2            = new Cursor node, 0, node.data
-  TraverseUtil.setSelection c1, c2
-  loop
-    rectangles = select_next_chr c1, c2, [], nodes[ 0 ]
-    break unless rectangles?
-    box = draw_box rectangle for rectangle in rectangles
-  # for rectangle from walk_chr_rectangles_of_node node
-  #   box = draw_box rectangle
+  node          = nodes[ 0 ]
+  for rectangle from walk_chr_rectangles_of_node node
+    box = draw_box rectangle
   return null
 
 
