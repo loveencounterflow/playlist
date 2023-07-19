@@ -29,8 +29,8 @@ draw_box = ( rectangle ) ->
   return box
 
 #-----------------------------------------------------------------------------------------------------------
-select_next_chr = ( c1, c2, nodes_crossed, node ) ->
-  TraverseUtil.getNextChar c1, c2, nodes_crossed, false
+_get_next_chr_rectangles = ( node, c1, c2 ) ->
+  TraverseUtil.getNextChar c1, c2, [], false
   selection   = TraverseUtil.setSelection c1, c2
   range       = selection.getRangeAt 0
   return null unless node.contains range.startContainer.parentNode
@@ -45,9 +45,9 @@ walk_chr_rectangles_of_node = ( node ) ->
   c2            = new Cursor text_node, 0, text_node.data
   TraverseUtil.setSelection c1, c2
   loop
-    rectangles = select_next_chr c1, c2, [], node
+    rectangles = _get_next_chr_rectangles node, c1, c2
     break unless rectangles?
-    yield rectangle for rectangle in rectangles
+    yield from rectangles
   return null
 
 #===========================================================================================================
