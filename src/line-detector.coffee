@@ -64,9 +64,10 @@ _reset_line_walker = ( s ) ->
 
 #-----------------------------------------------------------------------------------------------------------
 walk_line_rectangles_of_node = ( node ) ->
-  _reset_line_walker s = {}
+  _reset_line_walker s  = {}
+  xxx_height_factor     = 1 / 2 ### relative minimum height to recognize line step ###
   for rectangle from walk_chr_rectangles_of_node node
-    if s.count > 0 and rectangle.bottom - s.avg_bottom > s.avg_height / 2
+    if s.count > 0 and rectangle.bottom - s.avg_bottom > s.avg_height * xxx_height_factor
       yield # new Rectangle
         left:   s.min_left
         top:    s.min_top
