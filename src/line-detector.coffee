@@ -4,7 +4,7 @@
 { log
   warn
   debug }       = console
-# after           = ( dts, f  ) => new Promise ( resolve ) => setTimeout  ( -> resolve f() ), dts * 1000
+after           = ( dts, f  ) => new Promise ( resolve ) => setTimeout  ( -> resolve f() ), dts * 1000
 # sleep           = ( dts     ) -> debug '^2-1^'; new Promise ( resolve ) => debug '^2-2^'; setTimeout  resolve,            dts * 1000
 # defer           = ( f = ->  ) => await sleep 0; return await f()
 
@@ -95,9 +95,22 @@ walk_line_rectangles_of_node = ( node ) ->
 µ.DOM.ready ->
   log '^123-7^', "ready"
   nodes         = µ.DOM.select_all 'p'
+  rectangles    = []
   for node in nodes
     for rectangle from walk_line_rectangles_of_node node
+      rectangles.push rectangle
       draw_box rectangle
+  ref_top = document.documentElement.scrollTop
+  dt      = 0.5
+  idx     = -1
+  scroll = ->
+    idx++
+    return null unless ( rectangle = rectangles[ idx ] )?
+    top = ref_top + rectangle.top
+    # debug "scrolling to #{top.toFixed 0}px"
+    await window.scrollTo { top, behavior: 'smooth', }
+    after dt, scroll
+  after dt, scroll
   return null
 
 
