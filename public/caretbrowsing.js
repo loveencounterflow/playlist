@@ -1,1 +1,0 @@
-../node_modules/chrome-a11y-caret-browsing-extension/dist/caretbrowsing.js
