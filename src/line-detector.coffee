@@ -73,7 +73,6 @@ walk_line_rectangles_of_node = ( node ) ->
         width:  s.max_right   - s.min_left
         height: s.max_bottom  - s.min_top
       _reset_line_walker s
-      debug 'new line'
     #.......................................................................................................
     # draw_box rectangle
     s.count++
