@@ -58,7 +58,6 @@ _reset_line_walker = ( s ) ->
   s.max_right     = -Infinity
   s.avg_height    = 0
   s.avg_bottom    = 0
-  s.prv_bottom    = null
   s.count         = 0
   return null
 
@@ -83,7 +82,6 @@ walk_line_rectangles_of_node = ( node ) ->
     s.max_right   = Math.max s.max_right,   rectangle.right
     s.avg_height  = ( s.avg_height * ( s.count - 1 ) / s.count ) + ( rectangle.height * 1 / s.count )
     s.avg_bottom  = ( s.avg_bottom * ( s.count - 1 ) / s.count ) + ( rectangle.bottom * 1 / s.count )
-    s.prv_bottom = rectangle.bottom
   #.........................................................................................................
   if s.count > 0
     yield # new Rectangle
