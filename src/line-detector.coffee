@@ -66,13 +66,17 @@ _reset_line_walker = ( s ) ->
 walk_line_rectangles_of_node = ( node ) ->
   _reset_line_walker s = {}
   for rectangle from walk_chr_rectangles_of_node node
-    s.count++
-    #.......................................................................................................
-    if s.count > 1 and rectangle.bottom - s.avg_bottom > s.avg_height / 2
+    if s.count > 0 and rectangle.bottom - s.avg_bottom > s.avg_height / 2
+      yield # new Rectangle
+        left:   s.min_left
+        top:    s.min_top
+        width:  s.max_right   - s.min_left
+        height: s.max_bottom  - s.min_top
+      _reset_line_walker s
       debug 'new line'
-      break
     #.......................................................................................................
-    draw_box rectangle
+    # draw_box rectangle
+    s.count++
     s.min_top     = Math.min s.min_top,     rectangle.top
     s.max_bottom  = Math.max s.max_bottom,  rectangle.bottom
     s.min_left    = Math.min s.min_left,    rectangle.left
@@ -80,20 +84,22 @@ walk_line_rectangles_of_node = ( node ) ->
     s.avg_height  = ( s.avg_height * ( s.count - 1 ) / s.count ) + ( rectangle.height * 1 / s.count )
     s.avg_bottom  = ( s.avg_bottom * ( s.count - 1 ) / s.count ) + ( rectangle.bottom * 1 / s.count )
     s.prv_bottom = rectangle.bottom
-    # debug '^3224^', rectangle
-  return # new Rectangle
-    left:   s.min_left
-    top:    s.min_top
-    width:  s.max_right   - s.min_left
-    height: s.max_bottom  - s.min_top
+  #.........................................................................................................
+  if s.count > 0
+    yield # new Rectangle
+      left:   s.min_left
+      top:    s.min_top
+      width:  s.max_right   - s.min_left
+      height: s.max_bottom  - s.min_top
   return null
 
 #===========================================================================================================
 µ.DOM.ready ->
   log '^123-7^', "ready"
-  nodes         = µ.DOM.select_all '#p3'
+  nodes         = µ.DOM.select_all '#p4'
   node          = nodes[ 0 ]
-  draw_box walk_line_rectangles_of_node node
+  for rectangle from walk_line_rectangles_of_node node
+    draw_box rectangle
   return null
 
 
