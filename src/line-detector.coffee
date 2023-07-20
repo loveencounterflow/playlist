@@ -22,10 +22,6 @@ class Linefinder
     return undefined
 
   #---------------------------------------------------------------------------------------------------------
-  draw_boxes: ( rectangles ) ->
-    return ( @draw_box rectangle for rectangle in rectangles )
-
-  #---------------------------------------------------------------------------------------------------------
   draw_box: ( rectangle ) ->
     box               = document.createElement 'div'
     box.style.top     = document.documentElement.scrollTop  + rectangle.top       + 'px'
