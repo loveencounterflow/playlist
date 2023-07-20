@@ -95,10 +95,10 @@ walk_line_rectangles_of_node = ( node ) ->
 #===========================================================================================================
 µ.DOM.ready ->
   log '^123-7^', "ready"
-  nodes         = µ.DOM.select_all '#p4'
-  node          = nodes[ 0 ]
-  for rectangle from walk_line_rectangles_of_node node
-    draw_box rectangle
+  nodes         = µ.DOM.select_all 'p'
+  for node in nodes
+    for rectangle from walk_line_rectangles_of_node node
+      draw_box rectangle
   return null
 
 
