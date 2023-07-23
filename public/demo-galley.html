@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <head>
 <meta charset='UTF-8'>
+<meta http-equiv="Permissions-Policy" content="interest-cohort=()">
 <p><link rel=stylesheet href='./reset.css'>
-<link rel=stylesheet href='./printing-page-demo.css'></p>
+<link rel=stylesheet href='./demo-galley.css'></p>
 <style>
 
-.line {
+/*.line {
   display:                inline-block;
   width:                  100%;
   text-align-last:        justify; }
@@ -17,8 +18,8 @@
   text-align:             center;
   text-align-last:        center; }
 .line[index="5"]           { color:  blue; }
-/*div .line:nth-of-type(-n+2)    { color:  #f00; }*/
-
+div .line:nth-of-type(-n+2)    { color:  #f00; }
+*/
 
 pusher {
   display:                block;
@@ -44,9 +45,8 @@ pusher {
 
 </style>
 </head>
-<div class="tracker">
-<pusher></pusher>
-<div data-lining="">
+<galley> <pusher></pusher>
+<div>
 Very­very­very­very­very­very­very­very­very­very­very­long­word
 <strong>Suddenly</strong> she came upon a little three-legged table, all
 made of solid glass; there was nothing on it except <em>a tiny golden
@@ -58,7 +58,7 @@ not noticed before, and behind it was a little door about fifteen inches
 high: she tried the little golden key in the lock, and to her great
 delight it fitted!
 </div>
-<div data-lining="">
+<div>
 “I’m sure those are not the right words,” said poor Alice, and her eyes
 filled with tears again as she went on, “I must be Mabel after all, and
 I shall have to go and live in that poky little house, and have next to
@@ -71,7 +71,7 @@ till I’m somebody else’—but, oh dear!” cried Alice, with a sudden burst
 of tears, “I do wish they would put their heads down! I am so very tired
 of being all alone here!”
 </div>
-<div data-lining="">
+<div>
 As she said this she looked down at her hands, and was surprised to see
 that she had put on one of the Rabbit’s little white kid gloves while
 she was talking. “How can I have done that?” she thought. “I must be
@@ -80,6 +80,7 @@ herself by it, and found that, as nearly as she could guess, she was now
 about two feet high, and was going on shrinking rapidly: she soon found
 out that
 </div>
-</div>
+<p></galley></p>
 <script src='/browserified/mudom.js'></script>
 <script src='./mudom2.js'></script>
+<script src='./ops2.js'></script>

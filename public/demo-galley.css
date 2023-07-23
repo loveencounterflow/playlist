@@ -51,7 +51,8 @@ html, body {
   /*font-size:              6mm;*/
 }
 
-div.tracker {
+galley {
+  display:                block;
   outline:                3px dotted red;
   position:               relative;
   /*overflow-y:             scroll;*/
@@ -75,11 +76,11 @@ div {
   line-height-step:       calc( 1 * var(--root-font-size) );
   margin-bottom:          calc( 1 * var(--root-font-size) ); }
 
-div.tracker div::first-letter {
+galley div::first-letter {
   /*font-size:              200%;*/
   color:                  red; }
 
-div.tracker > div {
+galley > div {
   /*margin-left:  10mm;*/
 }
 
@@ -147,3 +148,13 @@ iframe {
 iframe::-webkit-scrollbar {
   width:                  0;
   display:                none; }
+
+.box {
+  background-color:       rgba( 255, 248, 0, 0.2 );
+/*  outline:                1px solid rgba( 255, 0, 0, 0.2 );
+  outline-offset :        0px;*/
+  border:                 1px solid rgba( 255, 0, 0, 0.2 );
+  mix-blend-mode:         multiply;
+  pointer-events:         none;
+  position:               absolute;
+}
