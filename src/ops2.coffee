@@ -194,7 +194,10 @@ globalThis.draw_line_boxes = ( nodes = null ) ->
   log '^123-12^', galley_document.querySelector 'galley'
   ### Demo ###
   for slug from galley_window.draw_line_boxes()
-    log '^123-13^', slug
+    top = slug.rectangle.top + galley_document.documentElement.scrollTop
+    log '^123-13^', top, slug
+    galley_window.scrollTo { top, }
+    break
   return null
 
 
