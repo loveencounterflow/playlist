@@ -157,69 +157,54 @@ class Aligner
 #===========================================================================================================
 globalThis.draw_line_boxes = ( nodes = null ) ->
   nodes        ?= document.querySelectorAll 'galley > div'
-  log '^123-12^', nodes
-  rectangles    = []
+  # slugs         = []
   linefinder    = new µ.LINEFINDER.Linefinder()
   for node in nodes
-    # log '^123-4^', ( d for d from linefinder.walk_line_rectangles_of_node node )
-    for rectangle from linefinder.walk_line_rectangles_of_node node
-      rectangles.push rectangle
-      linefinder.draw_box rectangle
+    # log '^123-8^', ( d for d from linefinder.walk_line_rectangles_of_node node )
+    for slug from linefinder.walk_slugs_of_node node
+      # slugs.push slug
+      linefinder.draw_box slug.rectangle
+      yield slug
   ref_top = document.documentElement.scrollTop
-  return { rectangles, ref_top, }
+  return null
 
 
 #===========================================================================================================
 µ.DOM.ready ->
-  log '^123-7^', "ready"
+  log '^123-9^', "ready"
   #.........................................................................................................
+  if µ.DOM.page_is_inside_iframe()
+    log '^123-10^', "leaving b/c document is loaded in iframe"
+    return null
+  #.........................................................................................................
+  unless ( galley_iframe = µ.DOM.select_first 'iframe', null )?
+    log '^123-11^', "leaving b/c document does not have galley"
+    return null
+  #.........................................................................................................
+  ### Allow user-scrolling for demo ###
   for iframe in µ.DOM.select_all 'iframe'
     µ.DOM.set iframe, 'scrolling', 'true'
   #.........................................................................................................
-  if µ.DOM.page_is_inside_iframe()
-    log '^123-7^', "leaving b/c document is loaded in iframe"
-    return null
-  # log '^123-9^', 'page_is_inside_iframe', window.parent
-  # log '^123-10^', µ.DOM.select_first 'galley', null
-  galley_iframe     = µ.DOM.select_first 'iframe', null
-  unless galley_iframe?
-    log '^123-7^', "leaving b/c document does not have galley"
-    return null
   galley_document   = galley_iframe.contentDocument
   galley_window     = galley_iframe.contentWindow
+  #.........................................................................................................
+  ### Demo ###
   galley_window.scrollTo { top: 500, }
-  # galley            = µ.DOM.select_first_from galley_document, 'galley'
-  log '^123-11^', galley_document.querySelector 'galley'
-  log '^123-11^', galley_window.draw_line_boxes()
+  #.........................................................................................................
+  log '^123-12^', galley_document.querySelector 'galley'
+  ### Demo ###
+  for slug from galley_window.draw_line_boxes()
+    log '^123-13^', slug
   return null
-  aligner = new Aligner()
-  iframes = µ.DOM.select_all 'iframe'
-  for iframe in iframes
-    sub_document  = iframe.contentDocument
-    # first_tracker = µ.DOM.select_first_from sub_document, '.tracker'
-    first_tracker = sub_document.querySelector '.tracker'
-    debug '^35345^', first_tracker
-    iframe.contentWindow.scrollTo 0, 200
-  #   # sub_document.scrollTo 0, 100
-  #   # first_tracker.scrollTop = 100
-  #   draw_client_rectangles()
+
+
+###
   button  = µ.DOM.select_first '#redraw'
   µ.DOM.on button, 'click', ->
-    debug '^123-13^', "redraw"
+    debug '^123-14^', "redraw"
     draw_client_rectangles()
-  # #.........................................................................................................
-  # log '^123-14^', "set up scroll events"
-  # show_scroll_tops = ->
-  #   doc_scroll_top      = µ.DOM.get_document_scroll_top().toFixed 0
-  #   tracker_scroll_top  = first_tracker.scrollTop.toFixed 0
-  #   log '^123-15^', 'scroll', doc_scroll_top, tracker_scroll_top
-  #   return null
-  # µ.DOM.on document,      'scroll', show_scroll_tops
-  # µ.DOM.on first_tracker, 'scroll', show_scroll_tops
-  # handler = ->
-  #   log '^123-16^', 'scroll tracker'
-  # ( µ.DOM.select_first '.tracker' ).addEventListener 'scroll', handler, true
   return null
+###
 
 
 
