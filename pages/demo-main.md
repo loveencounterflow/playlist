@@ -2,6 +2,7 @@
 <head>
 <meta charset='UTF-8'>
 <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+<meta http-equiv="Permissions-Policy" content="browsing-topics=()">
 <link rel=stylesheet href='./reset.css'>
 <link rel=stylesheet href='./demo-galley.css'>
 
