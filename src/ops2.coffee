@@ -182,7 +182,7 @@ next_node = ( walker ) -> d = walker.next(); { node: d.value, nodes_done: d.done
   galley_window.scrollTo { left:0, top: 0, }
   #.........................................................................................................
   node_walker       = ( galley_document.querySelectorAll 'galley > div' ).values()
-  linefinder        = new galley_window.µ.LINEFINDER.Linefinder { document: galley_document, }
+  linefinder        = new galley_window.µ.LINEFINDER.Linefinder()
   #.........................................................................................................
   xxx_count         = 0
   state             =
