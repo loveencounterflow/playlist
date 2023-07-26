@@ -157,48 +157,66 @@ class Aligner
 #===========================================================================================================
 globalThis.draw_line_boxes = ( nodes = null ) ->
   nodes        ?= document.querySelectorAll 'galley > div'
-  # slugs         = []
   linefinder    = new µ.LINEFINDER.Linefinder()
   for node in nodes
-    # log '^123-8^', ( d for d from linefinder.walk_line_rectangles_of_node node )
     for slug from linefinder.walk_slugs_of_node node
-      # slugs.push slug
       linefinder.draw_box slug.rectangle
       yield slug
-  ref_top = document.documentElement.scrollTop
   return null
 
+#===========================================================================================================
+next_slug = ( iterator ) ->
+  d = iterator.next()
+  return { slug: d.value, slugs_done: d.done, }
 
 #===========================================================================================================
 µ.DOM.ready ->
-  log '^123-9^', "ready"
+  log '^123-8^', "ready"
   #.........................................................................................................
   if µ.DOM.page_is_inside_iframe()
-    log '^123-10^', "leaving b/c document is loaded in iframe"
+    log '^123-9^', "leaving b/c document is loaded in iframe"
     return null
   #.........................................................................................................
   unless ( galley_iframe = µ.DOM.select_first 'iframe', null )?
-    log '^123-11^', "leaving b/c document does not have galley"
+    log '^123-10^', "leaving b/c document does not have galley"
     return null
   #.........................................................................................................
   ### Allow user-scrolling for demo ###
   for iframe in µ.DOM.select_all 'iframe'
     µ.DOM.set iframe, 'scrolling', 'true'
   #.........................................................................................................
+  galley_height     = µ.DOM.get_height galley_iframe
   galley_document   = galley_iframe.contentDocument
   galley_window     = galley_iframe.contentWindow
   #.........................................................................................................
   ### Demo ###
-  galley_window.scrollTo { top: 500, }
+  galley_window.scrollTo { left:0, top: 0, }
   #.........................................................................................................
-  log '^123-12^', galley_document.querySelector 'galley'
+  log '^123-11^', galley_document.querySelector 'galley'
   ### Demo ###
-  for slug from galley_window.draw_line_boxes()
-    top = slug.rectangle.top + galley_document.documentElement.scrollTop
-    log '^123-13^', top, slug
-    galley_window.scrollTo { top, }
-    break
+  slug_iterator = galley_window.draw_line_boxes()
+  xxx_count     = 0
+  state         =
+    first_slug:   null
+    top:          null
+  #.........................................................................................................
+  loop
+    break if xxx_count++ > 500
+    { slug, slugs_done, } = next_slug slug_iterator
+    #.......................................................................................................
+    log '^main-1^', galley_document.documentElement.scrollTop
+    unless state.first_slug?
+      state.first_slug    = slug
+      state.top           = state.first_slug.rectangle.top + galley_document.documentElement.scrollTop
+      galley_window.scrollTo { top: state.top, }
+      log '^main-2^', galley_document.documentElement.scrollTop
+      log '^main-2^', galley_window.scrollTop
+    break if slugs_done
+      # bottom    = slug.rectangle.bottom + galley_document.documentElement.scrollTop
+      # distance  = bottom - top
+      # log '^123-13^', { bottom, distance, galley_height, }
   return null
+
 
 
 ###
