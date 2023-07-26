@@ -155,19 +155,9 @@ class Aligner
 
 
 #===========================================================================================================
-globalThis.draw_line_boxes = ( nodes = null ) ->
-  nodes        ?= document.querySelectorAll 'galley > div'
-  linefinder    = new µ.LINEFINDER.Linefinder()
-  for node in nodes
-    for slug from linefinder.walk_slugs_of_node node
-      linefinder.draw_box slug.rectangle
-      yield slug
-  return null
+next_slug = ( walker ) -> d = walker.next(); { slug: d.value, slugs_done: d.done, }
+next_node = ( walker ) -> d = walker.next(); { node: d.value, nodes_done: d.done, }
 
-#===========================================================================================================
-next_slug = ( iterator ) ->
-  d = iterator.next()
-  return { slug: d.value, slugs_done: d.done, }
 
 #===========================================================================================================
 µ.DOM.ready ->
@@ -178,7 +168,7 @@ next_slug = ( iterator ) ->
     return null
   #.........................................................................................................
   unless ( galley_iframe = µ.DOM.select_first 'iframe', null )?
-    log '^123-10^', "leaving b/c document does not have galley"
+    log '^123-10^', "leaving b/c document does not have iframes"
     return null
   #.........................................................................................................
   ### Allow user-scrolling for demo ###
@@ -189,29 +179,41 @@ next_slug = ( iterator ) ->
   galley_document   = galley_iframe.contentDocument
   galley_window     = galley_iframe.contentWindow
   #.........................................................................................................
-  ### Demo ###
   galley_window.scrollTo { left:0, top: 0, }
   #.........................................................................................................
-  log '^123-11^', galley_document.querySelector 'galley'
+  node_walker       = ( galley_document.querySelectorAll 'galley > div' ).values()
   ### Demo ###
   slug_iterator = galley_window.draw_line_boxes()
   xxx_count     = 0
-  state         =
+  linefinder        = new µ.LINEFINDER.Linefinder { document: galley_document, }
+  #.........................................................................................................
+  xxx_count         = 0
+  state             =
     first_slug:   null
     top:          null
   #.........................................................................................................
   loop
-    break if xxx_count++ > 500
-    { slug, slugs_done, } = next_slug slug_iterator
+    break if xxx_count++ > 500 ### !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ###
+    { node
+      nodes_done    } = next_node node_walker
+    log '^123-1^', node, nodes_done
     #.......................................................................................................
-    log '^main-1^', galley_document.documentElement.scrollTop
-    unless state.first_slug?
-      state.first_slug    = slug
-      state.top           = state.first_slug.rectangle.top + galley_document.documentElement.scrollTop
-      galley_window.scrollTo { top: state.top, }
-      log '^main-2^', galley_document.documentElement.scrollTop
-      log '^main-2^', galley_window.scrollTop
-    break if slugs_done
+    if nodes_done
+      # might want to mark galleys without content at this point
+      break
+    #.......................................................................................................
+    slug_walker       = linefinder.walk_slugs_of_node node
+    loop
+      break if xxx_count++ > 500 ### !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ###
+      { slug
+        slugs_done  } = next_slug slug_walker
+      #.......................................................................................................
+      unless state.first_slug?
+        state.first_slug    = slug
+        state.top           = state.first_slug.rectangle.top + galley_document.documentElement.scrollTop
+        galley_window.scrollTo { top: state.top, }
+      linefinder.draw_box slug.rectangle
+      break if slugs_done
       # bottom    = slug.rectangle.bottom + galley_document.documentElement.scrollTop
       # distance  = bottom - top
       # log '^123-13^', { bottom, distance, galley_height, }
