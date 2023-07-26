@@ -182,10 +182,7 @@ next_node = ( walker ) -> d = walker.next(); { node: d.value, nodes_done: d.done
   galley_window.scrollTo { left:0, top: 0, }
   #.........................................................................................................
   node_walker       = ( galley_document.querySelectorAll 'galley > div' ).values()
-  ### TAINT this won't work because the `traverse_util` inherently works in the same `document` context as
-  the caller; in the present state, that is the main / target page, not the galley. Fix by instantiating
-  like we did for `Linefinder`? ###
-  linefinder        = new µ.LINEFINDER.Linefinder { document: galley_document, }
+  linefinder        = new galley_window.µ.LINEFINDER.Linefinder { document: galley_document, }
   #.........................................................................................................
   xxx_count         = 0
   state             =
