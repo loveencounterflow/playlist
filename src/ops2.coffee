@@ -204,13 +204,13 @@ next_node = ( walker ) -> d = walker.next(); { node: d.value, nodes_done: d.done
       break if xxx_count++ > 500 ### !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ###
       { slug
         slugs_done  } = next_slug slug_walker
+      break if slugs_done
       #.......................................................................................................
       unless state.first_slug?
         state.first_slug    = slug
         state.top           = state.first_slug.rectangle.top + galley_document.documentElement.scrollTop
         galley_window.scrollTo { top: state.top, }
       linefinder.draw_box slug.rectangle
-      break if slugs_done
       # bottom    = slug.rectangle.bottom + galley_document.documentElement.scrollTop
       # distance  = bottom - top
       # log '^123-13^', { bottom, distance, galley_height, }
