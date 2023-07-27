@@ -172,8 +172,7 @@ next_node = ( walker ) -> d = walker.next(); { node: d.value, nodes_done: d.done
     return null
   #.........................................................................................................
   ### Allow user-scrolling for demo ###
-  for iframe in µ.DOM.select_all 'iframe'
-    µ.DOM.set iframe, 'scrolling', 'true'
+  # µ.DOM.set iframe, 'scrolling', 'true' for iframe in µ.DOM.select_all 'iframe'
   #.........................................................................................................
   galley_height     = µ.DOM.get_height galley_iframe
   galley_document   = galley_iframe.contentDocument
