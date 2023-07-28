@@ -201,7 +201,7 @@ reset_state = ( state ) ->
     galley_window
     galley_draw_box } = next_iframe iframe_walker
   #.........................................................................................................
-  node_walker       = ( galley_document.querySelectorAll 'galley > div' ).values()
+  node_walker       = ( galley_document.querySelectorAll 'galley > p' ).values()
   linefinder        = new galley_window.µ.LINEFINDER.Linefinder()
   #.........................................................................................................
   xxx_count         = 0
