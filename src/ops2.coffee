@@ -160,12 +160,15 @@ next_node   = ( walker ) -> d = walker.next(); { node:    d.value, nodes_done:  
 next_iframe = ( walker ) ->
   { value: iframe, done: iframes_done, } = walker.next()
   return { iframes_done, } if iframes_done
+  local_linefinder = new iframe.contentWindow.µ.LINEFINDER.Linefinder()
   return {
     iframe:           iframe,
     iframe_height:    ( µ.DOM.get_height iframe ),
     galley_document:  iframe.contentDocument,
     galley_window:    iframe.contentWindow,
-    iframes_done:     iframes_done, }
+    iframes_done:     iframes_done,
+    ### TAINT may want to return `linefinder` itself ###
+    galley_draw_box:  ( local_linefinder.draw_box.bind local_linefinder ), }
 
 #===========================================================================================================
 reset_state = ( state ) ->
@@ -190,12 +193,13 @@ reset_state = ( state ) ->
   ### Allow user-scrolling for demo ###
   µ.DOM.set iframe, 'scrolling', 'true' for iframe in µ.DOM.select_all 'iframe'
   #.........................................................................................................
-  iframe_walker     = iframes.values()
+  iframe_walker       = iframes.values()
   { iframe
     iframes_done
     iframe_height
     galley_document
-    galley_window } = next_iframe iframe_walker
+    galley_window
+    galley_draw_box } = next_iframe iframe_walker
   #.........................................................................................................
   node_walker       = ( galley_document.querySelectorAll 'galley > div' ).values()
   linefinder        = new galley_window.µ.LINEFINDER.Linefinder()
@@ -233,13 +237,14 @@ reset_state = ( state ) ->
       #.......................................................................................................
       ### TAINT must use rectangle bottom to account for gaps ###
       state.height += slug.rectangle.height
-      linefinder.draw_box slug.rectangle
+      galley_draw_box slug.rectangle
       continue if iframe_height > state.height
       { iframe
         iframes_done
         iframe_height
         galley_document
-        galley_window } = next_iframe iframe_walker
+        galley_window
+        galley_draw_box } = next_iframe iframe_walker
       reset_state state
       if iframes_done
         log '^123-1^', "nodes done"
