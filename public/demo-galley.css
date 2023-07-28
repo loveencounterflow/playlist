@@ -151,5 +151,12 @@ iframe::-webkit-scrollbar {
   border:                 1px solid rgba( 255, 0, 0, 0.2 );
   mix-blend-mode:         multiply;
   pointer-events:         none;
-  position:               absolute;
-}
+  position:               absolute; }
+
+.box.cover {
+  background-color:       rgba( 255, 0, 0, 0.2 );
+/*  outline:                1px solid rgba( 255, 0, 0, 0.2 );
+  outline-offset :        0px;*/
+  mix-blend-mode:         normal;
+  pointer-events:         none;
+  position:               absolute; }

@@ -43,7 +43,8 @@ next_iframe = ( walker ) ->
     galley_window:    iframe.contentWindow,
     iframes_done:     iframes_done,
     ### TAINT may want to return `linefinder` itself ###
-    galley_draw_box:  ( local_linefinder.draw_box.bind local_linefinder ), }
+    galley_draw_box:        ( local_linefinder.draw_box.bind            local_linefinder ),
+    galley_draw_line_cover: ( local_linefinder.xxx_draw_line_cover.bind local_linefinder ), }
 
 #===========================================================================================================
 reset_state = ( state ) ->
@@ -74,7 +75,8 @@ reset_state = ( state ) ->
     iframe_height
     galley_document
     galley_window
-    galley_draw_box } = next_iframe iframe_walker
+    galley_draw_box
+    galley_draw_line_cover } = next_iframe iframe_walker
   #.........................................................................................................
   node_walker       = ( galley_document.querySelectorAll 'galley > p' ).values()
   linefinder        = new galley_window.µ.LINEFINDER.Linefinder()
@@ -115,13 +117,15 @@ reset_state = ( state ) ->
       if iframe_height > state.height
         galley_draw_box slug.rectangle
         continue
+      galley_draw_line_cover slug.rectangle
       #.......................................................................................................
       { iframe
         iframes_done
         iframe_height
         galley_document
         galley_window
-        galley_draw_box } = next_iframe iframe_walker
+        galley_draw_box
+        galley_draw_line_cover } = next_iframe iframe_walker
       reset_state state
       galley_draw_box slug.rectangle
       if iframes_done
