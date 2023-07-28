@@ -67,5 +67,6 @@ entities:
     shapes may not be sufficient to keep lines visually apart. This is a weakness in the current
     solution's design which will be hard to fix; one could think about inserting an inline element at an
     appropriate position *in the galley* that pushes lines apart visually.
-    * Observe that such a solution would require *all* iframes to be reloaded.
+    * Observe that such a solution would require *all* iframes to be reloaded *and* some way to make the
+      server deliver the updated document, not the static version (could serialize changes to file system?).
     * That said, all iframes should only load the galley when their turn has come, not earlier.
