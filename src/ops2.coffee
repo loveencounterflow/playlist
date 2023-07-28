@@ -191,7 +191,7 @@ reset_state = ( state ) ->
     return null
   #.........................................................................................................
   ### Allow user-scrolling for demo ###
-  µ.DOM.set iframe, 'scrolling', 'true' for iframe in µ.DOM.select_all 'iframe'
+  # µ.DOM.set iframe, 'scrolling', 'true' for iframe in µ.DOM.select_all 'iframe'
   #.........................................................................................................
   iframe_walker       = iframes.values()
   { iframe
