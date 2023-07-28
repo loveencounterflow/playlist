@@ -70,20 +70,15 @@ div.spacer {
   min-height:             50mm;
   height:                 50mm; }
 
-div {
+galley > p {
   text-align:             justify;
   text-justify:           inter-character;
   line-height-step:       calc( 1 * var(--root-font-size) );
   margin-bottom:          calc( 1 * var(--root-font-size) ); }
 
-galley div::first-letter {
-  /*font-size:              200%;*/
+galley > p::first-letter {
+  font-size:              200%;
   color:                  red; }
-
-galley > div {
-  /*margin-left:  10mm;*/
-}
-
 
 @page {
   size:                   A4 landscape;
