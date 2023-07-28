@@ -231,12 +231,11 @@ reset_state = ( state ) ->
       #.......................................................................................................
       unless state.first_slug?
         state.first_slug    = slug
-        state.top           = state.first_slug.rectangle.top + galley_document.documentElement.scrollTop
+        state.top           = state.first_slug.rectangle.top
         state.height        = 0
         galley_window.scrollTo { top: state.top, }
       #.......................................................................................................
-      ### TAINT must use rectangle bottom to account for gaps ###
-      state.height += slug.rectangle.height
+      state.height = slug.rectangle.bottom - state.top
       galley_draw_box slug.rectangle
       continue if iframe_height > state.height
       { iframe
