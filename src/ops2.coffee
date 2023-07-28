@@ -112,8 +112,9 @@ reset_state = ( state ) ->
         galley_window.scrollTo { top: state.top, }
       #.......................................................................................................
       state.height = slug.rectangle.bottom - state.top
-      galley_draw_box slug.rectangle
-      continue if iframe_height > state.height
+      if iframe_height > state.height
+        galley_draw_box slug.rectangle
+        continue
       #.......................................................................................................
       { iframe
         iframes_done
@@ -122,6 +123,7 @@ reset_state = ( state ) ->
         galley_window
         galley_draw_box } = next_iframe iframe_walker
       reset_state state
+      galley_draw_box slug.rectangle
       if iframes_done
         log '^123-1^', "iframes done"
         break
