@@ -101,8 +101,9 @@ reset_state = ( state ) ->
         galley_draw_box
         galley_draw_line_cover } = next_iframe iframe_walker
       reset_state state
-      galley_draw_box slug.rectangle
-      if iframes_done
+      unless iframes_done
+        galley_draw_box slug.rectangle
+      else
         log '^123-1^', "iframes done"
         break
       ### TAINT code duplication; use method ###
