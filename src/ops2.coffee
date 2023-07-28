@@ -230,6 +230,7 @@ reset_state = ( state ) ->
         break
       #.......................................................................................................
       unless state.first_slug?
+        ### TAINT code duplication; use method ###
         state.first_slug    = slug
         state.top           = state.first_slug.rectangle.top
         state.height        = 0
@@ -238,6 +239,7 @@ reset_state = ( state ) ->
       state.height = slug.rectangle.bottom - state.top
       galley_draw_box slug.rectangle
       continue if iframe_height > state.height
+      #.......................................................................................................
       { iframe
         iframes_done
         iframe_height
@@ -246,8 +248,13 @@ reset_state = ( state ) ->
         galley_draw_box } = next_iframe iframe_walker
       reset_state state
       if iframes_done
-        log '^123-1^', "nodes done"
+        log '^123-1^', "iframes done"
         break
+      ### TAINT code duplication; use method ###
+      state.first_slug    = slug
+      state.top           = state.first_slug.rectangle.top
+      state.height        = 0
+      galley_window.scrollTo { top: state.top, }
 
   return null
 
