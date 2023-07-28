@@ -155,9 +155,24 @@ class Aligner
 
 
 #===========================================================================================================
-next_slug = ( walker ) -> d = walker.next(); { slug: d.value, slugs_done: d.done, }
-next_node = ( walker ) -> d = walker.next(); { node: d.value, nodes_done: d.done, }
+next_slug   = ( walker ) -> d = walker.next(); { slug:    d.value, slugs_done:    d.done, }
+next_node   = ( walker ) -> d = walker.next(); { node:    d.value, nodes_done:    d.done, }
+next_iframe = ( walker ) ->
+  { value: iframe, done: iframes_done, } = walker.next()
+  return { iframes_done, } if iframes_done
+  return {
+    iframe:           iframe,
+    iframe_height:    ( µ.DOM.get_height iframe ),
+    galley_document:  iframe.contentDocument,
+    galley_window:    iframe.contentWindow,
+    iframes_done:     iframes_done, }
 
+#===========================================================================================================
+reset_state = ( state ) ->
+  state.first_slug  = null
+  state.top         = null
+  state.height      = null
+  return state
 
 #===========================================================================================================
 µ.DOM.ready ->
@@ -167,26 +182,28 @@ next_node = ( walker ) -> d = walker.next(); { node: d.value, nodes_done: d.done
     log '^123-9^', "leaving b/c document is loaded in iframe"
     return null
   #.........................................................................................................
-  unless ( galley_iframe = µ.DOM.select_first 'iframe', null )?
+  iframes = µ.DOM.select_all 'iframe'
+  unless iframes.length > 0
     log '^123-10^', "leaving b/c document does not have iframes"
     return null
   #.........................................................................................................
   ### Allow user-scrolling for demo ###
-  # µ.DOM.set iframe, 'scrolling', 'true' for iframe in µ.DOM.select_all 'iframe'
+  µ.DOM.set iframe, 'scrolling', 'true' for iframe in µ.DOM.select_all 'iframe'
   #.........................................................................................................
-  galley_height     = µ.DOM.get_height galley_iframe
-  galley_document   = galley_iframe.contentDocument
-  galley_window     = galley_iframe.contentWindow
-  #.........................................................................................................
-  galley_window.scrollTo { left:0, top: 0, }
+  iframe_walker     = iframes.values()
+  { iframe
+    iframes_done
+    iframe_height
+    galley_document
+    galley_window } = next_iframe iframe_walker
   #.........................................................................................................
   node_walker       = ( galley_document.querySelectorAll 'galley > div' ).values()
   linefinder        = new galley_window.µ.LINEFINDER.Linefinder()
   #.........................................................................................................
   xxx_count         = 0
-  state             =
-    first_slug:   null
-    top:          null
+  state             = {}
+  ### TAINT prefer to use `new State()`? ###
+  reset_state state
   #.........................................................................................................
   loop
     break if xxx_count++ > 500 ### !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ###
@@ -196,6 +213,7 @@ next_node = ( walker ) -> d = walker.next(); { node: d.value, nodes_done: d.done
     #.......................................................................................................
     if nodes_done
       # might want to mark galleys without content at this point
+      log '^123-1^', "nodes done"
       break
     #.......................................................................................................
     slug_walker       = linefinder.walk_slugs_of_node node
@@ -203,16 +221,30 @@ next_node = ( walker ) -> d = walker.next(); { node: d.value, nodes_done: d.done
       break if xxx_count++ > 500 ### !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ###
       { slug
         slugs_done  } = next_slug slug_walker
-      break if slugs_done
+      if slugs_done
+        log '^123-1^', "slugs done"
+        break
       #.......................................................................................................
       unless state.first_slug?
         state.first_slug    = slug
         state.top           = state.first_slug.rectangle.top + galley_document.documentElement.scrollTop
+        state.height        = 0
         galley_window.scrollTo { top: state.top, }
+      #.......................................................................................................
+      ### TAINT must use rectangle bottom to account for gaps ###
+      state.height += slug.rectangle.height
       linefinder.draw_box slug.rectangle
-      # bottom    = slug.rectangle.bottom + galley_document.documentElement.scrollTop
-      # distance  = bottom - top
-      # log '^123-13^', { bottom, distance, galley_height, }
+      continue if iframe_height > state.height
+      { iframe
+        iframes_done
+        iframe_height
+        galley_document
+        galley_window } = next_iframe iframe_walker
+      reset_state state
+      if iframes_done
+        log '^123-1^', "nodes done"
+        break
+
   return null
 
 
