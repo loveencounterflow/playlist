@@ -59,16 +59,13 @@ reset_state = ( state ) ->
   node_walker       = ( galley_document.querySelectorAll 'galley > p' ).values()
   linefinder        = new galley_window.µ.LINEFINDER.Linefinder()
   #.........................................................................................................
-  xxx_count         = 0
   state             = {}
   ### TAINT prefer to use `new State()`? ###
   reset_state state
   #.........................................................................................................
   loop
-    break if xxx_count++ > 500 ### !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ###
     { node
       nodes_done    } = next_node node_walker
-    log '^123-1^', node, nodes_done
     #.......................................................................................................
     if nodes_done
       # might want to mark galleys without content at this point
@@ -77,7 +74,6 @@ reset_state = ( state ) ->
     #.......................................................................................................
     slug_walker       = linefinder.walk_slugs_of_node node
     loop
-      break if xxx_count++ > 500 ### !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ###
       { slug
         slugs_done  } = next_slug slug_walker
       if slugs_done
@@ -114,7 +110,6 @@ reset_state = ( state ) ->
       state.top           = state.first_slug.rectangle.top
       state.height        = 0
       galley_window.scrollTo { top: state.top, }
-
   return null
 
 
