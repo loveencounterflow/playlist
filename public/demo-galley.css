@@ -148,7 +148,7 @@ iframe::-webkit-scrollbar {
   background-color:       rgba( 255, 248, 0, 0.2 );
 /*  outline:                1px solid rgba( 255, 0, 0, 0.2 );
   outline-offset :        0px;*/
-  border:                 1px solid rgba( 255, 0, 0, 0.2 );
+  outline:                1px solid rgba( 255, 0, 0, 0.2 );
   mix-blend-mode:         multiply;
   pointer-events:         none;
   position:               absolute; }
