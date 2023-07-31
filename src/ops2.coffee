@@ -8,7 +8,7 @@ globalThis.debug = console.debug
 
 
 #===========================================================================================================
-next_node   = ( walker ) -> walker.next()
+# next_node   = ( walker ) -> walker.next()
 next_slug   = ( walker ) -> walker.next()
 next_iframe = ( walker ) ->
   d = walker.next()
@@ -41,6 +41,31 @@ class Column
 
 
 #===========================================================================================================
+class Walker
+
+  #---------------------------------------------------------------------------------------------------------
+  constructor: ( iterator, stop = null ) ->
+    @_iterator  = iterator
+    @_stop      = stop
+    @done       = false
+    @value      = stop
+    return undefined
+
+  #---------------------------------------------------------------------------------------------------------
+  step: ->
+    { value, done, } = @_iterator.next()
+    if done
+      @done   = true
+      @value  = @_stop
+      return @_stop
+    @value = value
+    return value
+
+
+#===========================================================================================================
+class Node_walker extends Walker
+
+#===========================================================================================================
 µ.DOM.ready ->
   log '^123-8^', "ready"
   #.........................................................................................................
@@ -58,13 +83,14 @@ class Column
   #.........................................................................................................
   iframe_walker     = iframes.values()
   ø_iframe          = next_iframe iframe_walker
-  node_walker       = ( ø_iframe.galley_document.querySelectorAll 'galley > p' ).values()
+  _nodes            = ø_iframe.galley_document.querySelectorAll 'galley > p'
+  ø_node            = new Node_walker _nodes.values()
   linefinder        = new ø_iframe.galley_window.µ.LINEFINDER.Linefinder()
   column            = null
   #.........................................................................................................
   loop
     break if ø_iframe.done
-    ø_node = next_node node_walker
+    ø_node.step()
     #.......................................................................................................
     if ø_node.done # might want to mark galleys without content at this point
       log '^123-1^', "nodes done"; break
