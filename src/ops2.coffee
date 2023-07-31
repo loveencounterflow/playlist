@@ -66,9 +66,9 @@ class Iframe_walker extends Walker
     super iterator, stop
     @height                 = null
     # @galley_document        = null
-    @galley_window          = null
-    @galley_draw_box        = null
-    @galley_draw_line_cover = null
+    @window                 = null
+    @draw_box               = null
+    @draw_line_cover        = null
     return undefined
 
   #---------------------------------------------------------------------------------------------------------
@@ -77,11 +77,11 @@ class Iframe_walker extends Walker
     return @_stop if @done
     @height                 = µ.DOM.get_height @value
     # @galley_document        = @value.contentDocument
-    @galley_window          = @value.contentWindow
+    @window                 = @value.contentWindow
     ### TAINT may want to return `linefinder` itself ###
     local_linefinder        = new @value.contentWindow.µ.LINEFINDER.Linefinder()
-    @galley_draw_box        = local_linefinder.draw_box.bind            local_linefinder
-    @galley_draw_line_cover = local_linefinder.xxx_draw_line_cover.bind local_linefinder
+    @draw_box               = local_linefinder.draw_box.bind            local_linefinder
+    @draw_line_cover        = local_linefinder.xxx_draw_line_cover.bind local_linefinder
     return @value
 
 
@@ -105,7 +105,7 @@ class Iframe_walker extends Walker
   ø_iframe.step()
   _nodes            = ø_iframe.window.µ.DOM.select_all 'galley > p'
   ø_node            = new Node_walker _nodes.values()
-  linefinder        = new ø_iframe.galley_window.µ.LINEFINDER.Linefinder()
+  linefinder        = new ø_iframe.window.µ.LINEFINDER.Linefinder()
   column            = null
   #.........................................................................................................
   loop
@@ -125,14 +125,14 @@ class Iframe_walker extends Walker
       #.......................................................................................................
       column.set_height_from_slug ø_slug
       if ø_iframe.height > column.height
-        ø_iframe.galley_draw_box ø_slug.value.rectangle
+        ø_iframe.draw_box ø_slug.value.rectangle
         continue
       #.......................................................................................................
-      ø_iframe.galley_draw_line_cover ø_slug.value.rectangle
+      ø_iframe.draw_line_cover ø_slug.value.rectangle
       column    = null
       unless ø_iframe.step()?
         log '^123-1^', "iframes done"; break
-      ø_iframe.galley_draw_box ø_slug.value.rectangle
+      ø_iframe.draw_box ø_slug.value.rectangle
       column = new Column ø_iframe, ø_slug
       column.scroll_to_first_line()
   return null
