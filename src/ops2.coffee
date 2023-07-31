@@ -109,8 +109,7 @@ class TMP_to_be_named
     #.......................................................................................................
     ø_iframe          = new Iframe_walker _iframes.values()
     ø_iframe.step()
-    _nodes            = ø_iframe.window.µ.DOM.select_all 'galley > p'
-    ø_node            = new Node_walker _nodes.values()
+    ø_node            = new Node_walker ( ø_iframe.window.µ.DOM.select_all @cfg.paragraph_selector ).values()
     linefinder        = new ø_iframe.window.µ.LINEFINDER.Linefinder()
     column            = null
     #.......................................................................................................
