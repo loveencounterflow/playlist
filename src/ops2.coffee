@@ -8,8 +8,6 @@ globalThis.debug = console.debug
 
 
 #===========================================================================================================
-# next_node   = ( walker ) -> walker.next()
-next_slug   = ( walker ) -> walker.next()
 next_iframe = ( walker ) ->
   d = walker.next()
   return d if d.done
@@ -64,6 +62,8 @@ class Walker
 
 #===========================================================================================================
 class Node_walker extends Walker
+class Slug_walker extends Walker
+
 
 #===========================================================================================================
 µ.DOM.ready ->
@@ -90,15 +90,13 @@ class Node_walker extends Walker
   #.........................................................................................................
   loop
     break if ø_iframe.done
-    ø_node.step()
     #.......................................................................................................
-    if ø_node.done # might want to mark galleys without content at this point
+    unless ø_node.step()? # might want to mark galleys without content at this point
       log '^123-1^', "nodes done"; break
     #.......................................................................................................
-    slug_walker       = linefinder.walk_slugs_of_node ø_node.value
+    ø_slug = new Slug_walker linefinder.walk_slugs_of_node ø_node.value
     loop
-      ø_slug = next_slug slug_walker
-      if ø_slug.done
+      unless ø_slug.step()?
         log '^123-1^', "slugs done"; break
       #.......................................................................................................
       unless column?.first_slug?
