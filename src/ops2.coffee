@@ -125,10 +125,9 @@ class Iframe_walker extends Walker
       #.......................................................................................................
       ø_iframe.galley_draw_line_cover ø_slug.value.rectangle
       column    = null
-      if ø_iframe.step()?
-        ø_iframe.galley_draw_box ø_slug.value.rectangle
-      else
+      unless ø_iframe.step()?
         log '^123-1^', "iframes done"; break
+      ø_iframe.galley_draw_box ø_slug.value.rectangle
       column = new Column ø_iframe, ø_slug
       column.scroll_to_first_line()
   return null
