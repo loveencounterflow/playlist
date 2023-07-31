@@ -23,11 +23,12 @@ next_iframe = ( walker ) ->
   return d
 
 #===========================================================================================================
-reset_state = ( state ) ->
-  state.first_slug  = null
-  state.top         = null
-  state.height      = null
-  return state
+class Column
+  constructor: ( first_slug ) ->
+    @first_slug = first_slug
+    @top        = first_slug.rectangle.top
+    @height     = 0
+    return undefined
 
 #===========================================================================================================
 µ.DOM.ready ->
@@ -49,9 +50,7 @@ reset_state = ( state ) ->
   ø_iframe          = next_iframe iframe_walker
   node_walker       = ( ø_iframe.galley_document.querySelectorAll 'galley > p' ).values()
   linefinder        = new ø_iframe.galley_window.µ.LINEFINDER.Linefinder()
-  state             = {}
-  ### TAINT prefer to use `new State()`? ###
-  reset_state state
+  column            = null
   #.........................................................................................................
   loop
     break if ø_iframe.done
@@ -66,30 +65,24 @@ reset_state = ( state ) ->
       if ø_slug.done
         log '^123-1^', "slugs done"; break
       #.......................................................................................................
-      unless state.first_slug?
-        ### TAINT code duplication; use method ###
-        state.first_slug    = ø_slug.value
-        state.top           = state.first_slug.rectangle.top
-        state.height        = 0
-        ø_iframe.galley_window.scrollTo { top: state.top, }
+      unless column?.first_slug?
+        column = new Column ø_slug.value
+        ø_iframe.galley_window.scrollTo { top: column.top, }
       #.......................................................................................................
-      state.height = ø_slug.value.rectangle.bottom - state.top
-      if ø_iframe.height > state.height
+      column.height = ø_slug.value.rectangle.bottom - column.top
+      if ø_iframe.height > column.height
         ø_iframe.galley_draw_box ø_slug.value.rectangle
         continue
       #.......................................................................................................
       ø_iframe.galley_draw_line_cover ø_slug.value.rectangle
-      ø_iframe = next_iframe iframe_walker
-      reset_state state
+      ø_iframe  = next_iframe iframe_walker
+      column    = null
       unless ø_iframe.done
         ø_iframe.galley_draw_box ø_slug.value.rectangle
       else
         log '^123-1^', "iframes done"; break
-      ### TAINT code duplication; use method ###
-      state.first_slug    = ø_slug.value
-      state.top           = state.first_slug.rectangle.top
-      state.height        = 0
-      ø_iframe.galley_window.scrollTo { top: state.top, }
+      column = new Column ø_slug.value
+      ø_iframe.galley_window.scrollTo { top: column.top, }
   return null
 
 
