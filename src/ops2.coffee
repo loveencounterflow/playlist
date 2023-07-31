@@ -22,8 +22,13 @@ class Column
 
   #---------------------------------------------------------------------------------------------------------
   scroll_to_first_line: ->
-    @_ø_iframe.galley_window.scrollTo { top: @top, }
+    @_ø_iframe.window.scrollTo { top: @top, }
     return null
+
+  #---------------------------------------------------------------------------------------------------------
+  set_height_from_slug: ( ø_slug ) ->
+    @height = ø_slug.value.rectangle.bottom - @top
+    return @height
 
 
 #===========================================================================================================
@@ -118,7 +123,7 @@ class Iframe_walker extends Walker
         column = new Column ø_iframe, ø_slug
         column.scroll_to_first_line()
       #.......................................................................................................
-      column.height = ø_slug.value.rectangle.bottom - column.top
+      column.set_height_from_slug ø_slug
       if ø_iframe.height > column.height
         ø_iframe.galley_draw_box ø_slug.value.rectangle
         continue
