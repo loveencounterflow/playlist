@@ -6,7 +6,7 @@ globalThis.log = console.log
 globalThis.debug = console.debug
 
 
-
+# debug '^24334^', require 'intertype'
 
 
 #===========================================================================================================
