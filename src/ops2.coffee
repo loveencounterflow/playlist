@@ -7,18 +7,6 @@ globalThis.debug = console.debug
 
 
 
-#===========================================================================================================
-next_iframe = ( walker ) ->
-  d = walker.next()
-  return d if d.done
-  d.height                  = µ.DOM.get_height d.value
-  d.galley_document         = d.value.contentDocument
-  d.galley_window           = d.value.contentWindow
-  ### TAINT may want to return `linefinder` itself ###
-  local_linefinder          = new d.value.contentWindow.µ.LINEFINDER.Linefinder()
-  d.galley_draw_box         = local_linefinder.draw_box.bind            local_linefinder
-  d.galley_draw_line_cover  = local_linefinder.xxx_draw_line_cover.bind local_linefinder
-  return d
 
 
 #===========================================================================================================
@@ -66,6 +54,33 @@ class Slug_walker extends Walker
 
 
 #===========================================================================================================
+class Iframe_walker extends Walker
+
+  #---------------------------------------------------------------------------------------------------------
+  constructor: ( iterator, stop = null ) ->
+    super iterator, stop
+    @height                 = null
+    @galley_document        = null
+    @galley_window          = null
+    @galley_draw_box        = null
+    @galley_draw_line_cover = null
+    return undefined
+
+  #---------------------------------------------------------------------------------------------------------
+  step: ->
+    super()
+    return @_stop if @done
+    @height                 = µ.DOM.get_height @value
+    @galley_document        = @value.contentDocument
+    @galley_window          = @value.contentWindow
+    ### TAINT may want to return `linefinder` itself ###
+    local_linefinder        = new @value.contentWindow.µ.LINEFINDER.Linefinder()
+    @galley_draw_box        = local_linefinder.draw_box.bind            local_linefinder
+    @galley_draw_line_cover = local_linefinder.xxx_draw_line_cover.bind local_linefinder
+    return @value
+
+
+#===========================================================================================================
 µ.DOM.ready ->
   log '^123-8^', "ready"
   #.........................................................................................................
@@ -73,16 +88,16 @@ class Slug_walker extends Walker
     log '^123-9^', "leaving b/c document is loaded in iframe"
     return null
   #.........................................................................................................
-  iframes = µ.DOM.select_all 'iframe'
-  unless iframes.length > 0
+  _iframes = µ.DOM.select_all 'iframe'
+  unless _iframes.length > 0
     log '^123-10^', "leaving b/c document does not have iframes"
     return null
   #.........................................................................................................
   ### Allow user-scrolling for demo ###
   # µ.DOM.set ø_iframe.value, 'scrolling', 'true' for ø_iframe.value in µ.DOM.select_all 'ø_iframe.value'
   #.........................................................................................................
-  iframe_walker     = iframes.values()
-  ø_iframe          = next_iframe iframe_walker
+  ø_iframe          = new Iframe_walker _iframes.values()
+  ø_iframe.step()
   _nodes            = ø_iframe.galley_document.querySelectorAll 'galley > p'
   ø_node            = new Node_walker _nodes.values()
   linefinder        = new ø_iframe.galley_window.µ.LINEFINDER.Linefinder()
@@ -109,9 +124,8 @@ class Slug_walker extends Walker
         continue
       #.......................................................................................................
       ø_iframe.galley_draw_line_cover ø_slug.value.rectangle
-      ø_iframe  = next_iframe iframe_walker
       column    = null
-      unless ø_iframe.done
+      if ø_iframe.step()?
         ø_iframe.galley_draw_box ø_slug.value.rectangle
       else
         log '^123-1^', "iframes done"; break
