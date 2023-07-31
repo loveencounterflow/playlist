@@ -86,55 +86,70 @@ class Iframe_walker extends Walker
 
 
 #===========================================================================================================
-µ.DOM.ready ->
-  log '^123-8^', "ready"
-  #.........................................................................................................
-  if µ.DOM.page_is_inside_iframe()
-    log '^123-9^', "leaving b/c document is loaded in iframe"
-    return null
-  #.........................................................................................................
-  _iframes = µ.DOM.select_all 'iframe'
-  unless _iframes.length > 0
-    log '^123-10^', "leaving b/c document does not have iframes"
-    return null
-  #.........................................................................................................
-  ### Allow user-scrolling for demo ###
-  # µ.DOM.set ø_iframe.value, 'scrolling', 'true' for ø_iframe.value in µ.DOM.select_all 'ø_iframe.value'
-  #.........................................................................................................
-  ø_iframe          = new Iframe_walker _iframes.values()
-  ø_iframe.step()
-  _nodes            = ø_iframe.window.µ.DOM.select_all 'galley > p'
-  ø_node            = new Node_walker _nodes.values()
-  linefinder        = new ø_iframe.window.µ.LINEFINDER.Linefinder()
-  column            = null
-  #.........................................................................................................
-  loop
-    break if ø_iframe.done
+class TMP_to_be_named
+
+  #---------------------------------------------------------------------------------------------------------
+  constructor: () ->
+    return undefined
+
+  #---------------------------------------------------------------------------------------------------------
+  distribute_lines: () ->
     #.......................................................................................................
-    unless ø_node.step()? # might want to mark galleys without content at this point
-      log '^123-1^', "nodes done"; break
+    if µ.DOM.page_is_inside_iframe()
+      log '^123-9^', "leaving b/c document is loaded in iframe"
+      return null
     #.......................................................................................................
-    ø_slug = new Slug_walker linefinder.walk_slugs_of_node ø_node.value
+    _iframes = µ.DOM.select_all 'iframe'
+    unless _iframes.length > 0
+      log '^123-10^', "leaving b/c document does not have iframes"
+      return null
+    #.......................................................................................................
+    ### Allow user-scrolling for demo ###
+    # µ.DOM.set ø_iframe.value, 'scrolling', 'true' for ø_iframe.value in µ.DOM.select_all 'ø_iframe.value'
+    #.......................................................................................................
+    ø_iframe          = new Iframe_walker _iframes.values()
+    ø_iframe.step()
+    _nodes            = ø_iframe.window.µ.DOM.select_all 'galley > p'
+    ø_node            = new Node_walker _nodes.values()
+    linefinder        = new ø_iframe.window.µ.LINEFINDER.Linefinder()
+    column            = null
+    #.......................................................................................................
     loop
-      unless ø_slug.step()?
-        log '^123-1^', "slugs done"; break
-      #.......................................................................................................
-      unless column?.first_slug?
+      break if ø_iframe.done
+      #.....................................................................................................
+      unless ø_node.step()? # might want to mark galleys without content at this point
+        log '^123-1^', "nodes done"; break
+      #.....................................................................................................
+      ø_slug = new Slug_walker linefinder.walk_slugs_of_node ø_node.value
+      loop
+        unless ø_slug.step()?
+          log '^123-1^', "slugs done"; break
+        #...................................................................................................
+        unless column?.first_slug?
+          column = new Column ø_iframe, ø_slug
+          column.scroll_to_first_line()
+        #...................................................................................................
+        column.set_height_from_slug ø_slug
+        if ø_iframe.height > column.height
+          ø_iframe.draw_box ø_slug.value.rectangle
+          continue
+        #...................................................................................................
+        ø_iframe.draw_line_cover ø_slug.value.rectangle
+        column    = null
+        unless ø_iframe.step()?
+          log '^123-1^', "iframes done"; break
+        ø_iframe.draw_box ø_slug.value.rectangle
         column = new Column ø_iframe, ø_slug
         column.scroll_to_first_line()
-      #.......................................................................................................
-      column.set_height_from_slug ø_slug
-      if ø_iframe.height > column.height
-        ø_iframe.draw_box ø_slug.value.rectangle
-        continue
-      #.......................................................................................................
-      ø_iframe.draw_line_cover ø_slug.value.rectangle
-      column    = null
-      unless ø_iframe.step()?
-        log '^123-1^', "iframes done"; break
-      ø_iframe.draw_box ø_slug.value.rectangle
-      column = new Column ø_iframe, ø_slug
-      column.scroll_to_first_line()
+    #.......................................................................................................
+    return null
+
+
+#===========================================================================================================
+µ.DOM.ready ->
+  log '^123-8^', "ready"
+  tmp_to_be_named = new TMP_to_be_named()
+  tmp_to_be_named.distribute_lines()
   return null
 
 
