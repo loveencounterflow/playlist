@@ -8,21 +8,19 @@ globalThis.debug = console.debug
 
 
 #===========================================================================================================
-next_slug   = ( walker ) -> d = walker.next(); { slug:    d.value, slugs_done:    d.done, }
-next_node   = ( walker ) -> d = walker.next(); { node:    d.value, nodes_done:    d.done, }
+next_node   = ( walker ) -> walker.next()
+next_slug   = ( walker ) -> walker.next()
 next_iframe = ( walker ) ->
-  { value: iframe, done: iframes_done, } = walker.next()
-  return { iframes_done, } if iframes_done
-  local_linefinder = new iframe.contentWindow.µ.LINEFINDER.Linefinder()
-  return {
-    iframe:           iframe,
-    iframe_height:    ( µ.DOM.get_height iframe ),
-    galley_document:  iframe.contentDocument,
-    galley_window:    iframe.contentWindow,
-    iframes_done:     iframes_done,
-    ### TAINT may want to return `linefinder` itself ###
-    galley_draw_box:        ( local_linefinder.draw_box.bind            local_linefinder ),
-    galley_draw_line_cover: ( local_linefinder.xxx_draw_line_cover.bind local_linefinder ), }
+  d = walker.next()
+  return d if d.done
+  d.height                  = µ.DOM.get_height d.value
+  d.galley_document         = d.value.contentDocument
+  d.galley_window           = d.value.contentWindow
+  ### TAINT may want to return `linefinder` itself ###
+  local_linefinder          = new d.value.contentWindow.µ.LINEFINDER.Linefinder()
+  d.galley_draw_box         = local_linefinder.draw_box.bind            local_linefinder
+  d.galley_draw_line_cover  = local_linefinder.xxx_draw_line_cover.bind local_linefinder
+  return d
 
 #===========================================================================================================
 reset_state = ( state ) ->
@@ -45,73 +43,60 @@ reset_state = ( state ) ->
     return null
   #.........................................................................................................
   ### Allow user-scrolling for demo ###
-  # µ.DOM.set iframe, 'scrolling', 'true' for iframe in µ.DOM.select_all 'iframe'
+  # µ.DOM.set ø_iframe.value, 'scrolling', 'true' for ø_iframe.value in µ.DOM.select_all 'ø_iframe.value'
   #.........................................................................................................
-  iframe_walker       = iframes.values()
-  { iframe
-    iframes_done
-    iframe_height
-    galley_document
-    galley_window
-    galley_draw_box
-    galley_draw_line_cover } = next_iframe iframe_walker
+  iframe_walker     = iframes.values()
+  ø_iframe          = next_iframe iframe_walker
+  log '^35345456^', ø_iframe
   #.........................................................................................................
-  node_walker       = ( galley_document.querySelectorAll 'galley > p' ).values()
-  linefinder        = new galley_window.µ.LINEFINDER.Linefinder()
+  node_walker       = ( ø_iframe.galley_document.querySelectorAll 'galley > p' ).values()
+  linefinder        = new ø_iframe.galley_window.µ.LINEFINDER.Linefinder()
   #.........................................................................................................
   state             = {}
   ### TAINT prefer to use `new State()`? ###
   reset_state state
   #.........................................................................................................
   loop
-    break if iframes_done
-    { node
-      nodes_done    } = next_node node_walker
+    break if ø_iframe.done
+    ø_node = next_node node_walker
     #.......................................................................................................
-    if nodes_done
+    if ø_node.done
       # might want to mark galleys without content at this point
       log '^123-1^', "nodes done"
       break
     #.......................................................................................................
-    slug_walker       = linefinder.walk_slugs_of_node node
+    slug_walker       = linefinder.walk_slugs_of_node ø_node.value
     loop
-      { slug
-        slugs_done  } = next_slug slug_walker
-      if slugs_done
+      ø_slug = next_slug slug_walker
+      if ø_slug.done
         log '^123-1^', "slugs done"
         break
       #.......................................................................................................
       unless state.first_slug?
         ### TAINT code duplication; use method ###
-        state.first_slug    = slug
+        state.first_slug    = ø_slug.value
         state.top           = state.first_slug.rectangle.top
         state.height        = 0
-        galley_window.scrollTo { top: state.top, }
+        ø_iframe.galley_window.scrollTo { top: state.top, }
       #.......................................................................................................
-      state.height = slug.rectangle.bottom - state.top
-      if iframe_height > state.height
-        galley_draw_box slug.rectangle
+      state.height = ø_slug.value.rectangle.bottom - state.top
+      if ø_iframe.height > state.height
+        ø_iframe.galley_draw_box ø_slug.value.rectangle
         continue
-      galley_draw_line_cover slug.rectangle
+      ø_iframe.galley_draw_line_cover ø_slug.value.rectangle
       #.......................................................................................................
-      { iframe
-        iframes_done
-        iframe_height
-        galley_document
-        galley_window
-        galley_draw_box
-        galley_draw_line_cover } = next_iframe iframe_walker
+      ø_iframe = next_iframe iframe_walker
       reset_state state
-      unless iframes_done
-        galley_draw_box slug.rectangle
+      unless ø_iframe.done
+        ø_iframe.galley_draw_box ø_slug.value.rectangle
       else
         log '^123-1^', "iframes done"
         break
       ### TAINT code duplication; use method ###
-      state.first_slug    = slug
+      state.first_slug    = ø_slug.value
       state.top           = state.first_slug.rectangle.top
       state.height        = 0
-      galley_window.scrollTo { top: state.top, }
+      ø_iframe.galley_window.scrollTo { top: state.top, }
   return null
 
 
