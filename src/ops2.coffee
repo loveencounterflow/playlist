@@ -89,17 +89,22 @@ class Iframe_walker extends Walker
 class TMP_to_be_named
 
   #---------------------------------------------------------------------------------------------------------
-  constructor: () ->
+  constructor: ( cfg ) ->
+    ### TAINT use `intertype` ###
+    defaults =
+      paragraph_selector:   'galley > p'
+      iframe_selector:      'iframe'
+    @cfg = Object.freeze { defaults..., cfg..., }
     return undefined
 
   #---------------------------------------------------------------------------------------------------------
-  distribute_lines: () ->
+  distribute_lines: ->
     #.......................................................................................................
     if µ.DOM.page_is_inside_iframe()
       log '^123-9^', "leaving b/c document is loaded in iframe"
       return null
     #.......................................................................................................
-    _iframes = µ.DOM.select_all 'iframe'
+    _iframes = µ.DOM.select_all @cfg.iframe_selector
     unless _iframes.length > 0
       log '^123-10^', "leaving b/c document does not have iframes"
       return null
@@ -147,7 +152,9 @@ class TMP_to_be_named
 #===========================================================================================================
 µ.DOM.ready ->
   log '^123-8^', "ready"
-  tmp_to_be_named = new TMP_to_be_named()
+  tmp_to_be_named = new TMP_to_be_named
+    paragraph_selector:   'galley > p'
+    iframe_selector:      'iframe'
   tmp_to_be_named.distribute_lines()
   return null
 
