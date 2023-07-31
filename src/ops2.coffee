@@ -47,11 +47,8 @@ reset_state = ( state ) ->
   #.........................................................................................................
   iframe_walker     = iframes.values()
   ø_iframe          = next_iframe iframe_walker
-  log '^35345456^', ø_iframe
-  #.........................................................................................................
   node_walker       = ( ø_iframe.galley_document.querySelectorAll 'galley > p' ).values()
   linefinder        = new ø_iframe.galley_window.µ.LINEFINDER.Linefinder()
-  #.........................................................................................................
   state             = {}
   ### TAINT prefer to use `new State()`? ###
   reset_state state
@@ -60,17 +57,14 @@ reset_state = ( state ) ->
     break if ø_iframe.done
     ø_node = next_node node_walker
     #.......................................................................................................
-    if ø_node.done
-      # might want to mark galleys without content at this point
-      log '^123-1^', "nodes done"
-      break
+    if ø_node.done # might want to mark galleys without content at this point
+      log '^123-1^', "nodes done"; break
     #.......................................................................................................
     slug_walker       = linefinder.walk_slugs_of_node ø_node.value
     loop
       ø_slug = next_slug slug_walker
       if ø_slug.done
-        log '^123-1^', "slugs done"
-        break
+        log '^123-1^', "slugs done"; break
       #.......................................................................................................
       unless state.first_slug?
         ### TAINT code duplication; use method ###
@@ -83,15 +77,14 @@ reset_state = ( state ) ->
       if ø_iframe.height > state.height
         ø_iframe.galley_draw_box ø_slug.value.rectangle
         continue
-      ø_iframe.galley_draw_line_cover ø_slug.value.rectangle
       #.......................................................................................................
+      ø_iframe.galley_draw_line_cover ø_slug.value.rectangle
       ø_iframe = next_iframe iframe_walker
       reset_state state
       unless ø_iframe.done
         ø_iframe.galley_draw_box ø_slug.value.rectangle
       else
-        log '^123-1^', "iframes done"
-        break
+        log '^123-1^', "iframes done"; break
       ### TAINT code duplication; use method ###
       state.first_slug    = ø_slug.value
       state.top           = state.first_slug.rectangle.top
