@@ -65,7 +65,7 @@ class Iframe_walker extends Walker
   constructor: ( iterator, stop = null ) ->
     super iterator, stop
     @height                 = null
-    @galley_document        = null
+    # @galley_document        = null
     @galley_window          = null
     @galley_draw_box        = null
     @galley_draw_line_cover = null
@@ -76,7 +76,7 @@ class Iframe_walker extends Walker
     super()
     return @_stop if @done
     @height                 = µ.DOM.get_height @value
-    @galley_document        = @value.contentDocument
+    # @galley_document        = @value.contentDocument
     @galley_window          = @value.contentWindow
     ### TAINT may want to return `linefinder` itself ###
     local_linefinder        = new @value.contentWindow.µ.LINEFINDER.Linefinder()
@@ -103,7 +103,7 @@ class Iframe_walker extends Walker
   #.........................................................................................................
   ø_iframe          = new Iframe_walker _iframes.values()
   ø_iframe.step()
-  _nodes            = ø_iframe.galley_document.querySelectorAll 'galley > p'
+  _nodes            = ø_iframe.window.µ.DOM.select_all 'galley > p'
   ø_node            = new Node_walker _nodes.values()
   linefinder        = new ø_iframe.galley_window.µ.LINEFINDER.Linefinder()
   column            = null
