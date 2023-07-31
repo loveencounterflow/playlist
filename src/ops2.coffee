@@ -22,13 +22,23 @@ next_iframe = ( walker ) ->
   d.galley_draw_line_cover  = local_linefinder.xxx_draw_line_cover.bind local_linefinder
   return d
 
+
 #===========================================================================================================
 class Column
-  constructor: ( first_slug ) ->
-    @first_slug = first_slug
-    @top        = first_slug.rectangle.top
+
+  #---------------------------------------------------------------------------------------------------------
+  constructor: ( ø_iframe, ø_slug ) ->
+    @_ø_iframe  = ø_iframe
+    @first_slug = ø_slug.value
+    @top        = ø_slug.value.rectangle.top
     @height     = 0
     return undefined
+
+  #---------------------------------------------------------------------------------------------------------
+  scroll_to_first_line: ->
+    @_ø_iframe.galley_window.scrollTo { top: @top, }
+    return null
+
 
 #===========================================================================================================
 µ.DOM.ready ->
@@ -66,8 +76,8 @@ class Column
         log '^123-1^', "slugs done"; break
       #.......................................................................................................
       unless column?.first_slug?
-        column = new Column ø_slug.value
-        ø_iframe.galley_window.scrollTo { top: column.top, }
+        column = new Column ø_iframe, ø_slug
+        column.scroll_to_first_line()
       #.......................................................................................................
       column.height = ø_slug.value.rectangle.bottom - column.top
       if ø_iframe.height > column.height
@@ -81,8 +91,8 @@ class Column
         ø_iframe.galley_draw_box ø_slug.value.rectangle
       else
         log '^123-1^', "iframes done"; break
-      column = new Column ø_slug.value
-      ø_iframe.galley_window.scrollTo { top: column.top, }
+      column = new Column ø_iframe, ø_slug
+      column.scroll_to_first_line()
   return null
 
 
