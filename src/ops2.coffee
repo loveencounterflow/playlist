@@ -6,11 +6,18 @@ globalThis.log = console.log
 globalThis.debug = console.debug
 
 
+#-----------------------------------------------------------------------------------------------------------
+setup_debug_button = ->
+  return null unless ( button = µ.DOM.select_first '#debug', null )?
+  µ.DOM.on button, 'click', ->
+    µ.DOM.toggle_class ( µ.DOM.select_first 'body' ), 'debug'
+  return null
 
 
 #===========================================================================================================
 µ.DOM.ready ->
   log '^123-1^', "ready"
+  setup_debug_button()
   distributor = new µ.LINE.Distributor
     paragraph_selector:   'galley > p'
     iframe_selector:      'iframe'
@@ -21,13 +28,6 @@ globalThis.debug = console.debug
 
 
 
-###
-  button  = µ.DOM.select_first '#redraw'
-  µ.DOM.on button, 'click', ->
-    debug '^123-4^', "redraw"
-    draw_client_rectangles()
-  return null
-###
 
 
 

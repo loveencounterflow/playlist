@@ -16,7 +16,7 @@
 </head>
 
 
-<button id=redraw>REDRAW</button>
+<button id=debug>DEBUG</button>
 
 <iframe src='./demo-galley.html' scrolling=no></iframe>
 <iframe src='./demo-galley.html' scrolling=no></iframe>

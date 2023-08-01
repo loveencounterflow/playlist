@@ -84,7 +84,7 @@ galley > p::first-letter {
   /*padding:                0mm;*/
 }
 
-button#redraw {
+button#debug {
   position:               fixed;
   top:                    3mm;
   left:                   95mm;
