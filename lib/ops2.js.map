@@ -6,8 +6,8 @@
     "../src/ops2.coffee"
   ],
   "names": [],
-  "mappings": "AACA;EAAA;EAGA,UAAU,CAAC,GAAX,GAAiB,OAAO,CAAC;;EACzB,UAAU,CAAC,KAAX,GAAmB,OAAO,CAAC,MAJ3B;;;EAUA,CAAC,CAAC,GAAG,CAAC,KAAN,CAAY,QAAA,CAAA,CAAA;AACZ,QAAA;IAAE,GAAA,CAAI,SAAJ,EAAe,OAAf;IACA,WAAA,GAAc,IAAI,CAAC,CAAC,IAAI,CAAC,WAAX,CACZ;MAAA,kBAAA,EAAsB,YAAtB;MACA,eAAA,EAAsB;IADtB,CADY;IAGd,WAAW,CAAC,gBAAZ,CAAA;AACA,WAAO;EANG,CAAZ;;EAVA;;;;;;;AAAA",
+  "mappings": "AACA;EAAA;EAGA,UAAU,CAAC,GAAX,GAAiB,OAAO,CAAC;;EACzB,UAAU,CAAC,KAAX,GAAmB,OAAO,CAAC,MAJ3B;;;EAUA,CAAC,CAAC,GAAG,CAAC,KAAN,CAAY,MAAA,QAAA,CAAA,CAAA;AACZ,QAAA;IAAE,GAAA,CAAI,SAAJ,EAAe,OAAf;IACA,WAAA,GAAc,IAAI,CAAC,CAAC,IAAI,CAAC,WAAX,CACZ;MAAA,kBAAA,EAAsB,YAAtB;MACA,eAAA,EAAsB;IADtB,CADY;IAGd,GAAA,CAAI,SAAJ,EAAe,uBAAf;IACA,MAAM,WAAW,CAAC,gBAAZ,CAAA;IACN,GAAA,CAAI,SAAJ,EAAe,yBAAf;AACA,WAAO;EARG,CAAZ;;EAVA;;;;;;;AAAA",
   "sourcesContent": [
-    "\n'use strict'\n\n\nglobalThis.log = console.log\nglobalThis.debug = console.debug\n\n\n\n\n#===========================================================================================================\nµ.DOM.ready ->\n  log '^123-8^', \"ready\"\n  distributor = new µ.LINE.Distributor\n    paragraph_selector:   'galley > p'\n    iframe_selector:      'iframe'\n  distributor.distribute_lines()\n  return null\n\n\n\n###\n  button  = µ.DOM.select_first '#redraw'\n  µ.DOM.on button, 'click', ->\n    debug '^123-14^', \"redraw\"\n    draw_client_rectangles()\n  return null\n###\n\n\n\n"
+    "\n'use strict'\n\n\nglobalThis.log = console.log\nglobalThis.debug = console.debug\n\n\n\n\n#===========================================================================================================\nµ.DOM.ready ->\n  log '^123-1^', \"ready\"\n  distributor = new µ.LINE.Distributor\n    paragraph_selector:   'galley > p'\n    iframe_selector:      'iframe'\n  log '^123-2^', \"distributing lines...\"\n  await distributor.distribute_lines()\n  log '^123-3^', \"distributing lines done\"\n  return null\n\n\n\n###\n  button  = µ.DOM.select_first '#redraw'\n  µ.DOM.on button, 'click', ->\n    debug '^123-4^', \"redraw\"\n    draw_client_rectangles()\n  return null\n###\n\n\n\n"
   ]
 }
