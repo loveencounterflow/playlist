@@ -18,14 +18,15 @@
 
 <button id=debug>DEBUG</button>
 
-<iframe src='./demo-galley.html' scrolling=no></iframe>
-<iframe src='./demo-galley.html' scrolling=no></iframe>
-<iframe src='./demo-galley.html' scrolling=no></iframe>
-<iframe src='./demo-galley.html' scrolling=no></iframe>
-<iframe src='./demo-galley.html' scrolling=no></iframe>
-<iframe src='./demo-galley.html' scrolling=no></iframe>
-<iframe src='./demo-galley.html' scrolling=no></iframe>
-<iframe src='./demo-galley.html' scrolling=no></iframe>
+
+<frameholder><iframe src='./demo-galley.html' scrolling=no></iframe></frameholder>
+<frameholder><iframe src='./demo-galley.html' scrolling=no></iframe></frameholder>
+<frameholder><iframe src='./demo-galley.html' scrolling=no></iframe></frameholder>
+<frameholder><iframe src='./demo-galley.html' scrolling=no></iframe></frameholder>
+<frameholder><iframe src='./demo-galley.html' scrolling=no></iframe></frameholder>
+<frameholder><iframe src='./demo-galley.html' scrolling=no></iframe></frameholder>
+<frameholder><iframe src='./demo-galley.html' scrolling=no></iframe></frameholder>
+<frameholder><iframe src='./demo-galley.html' scrolling=no></iframe></frameholder>
 
 <script src='/browserified/mudom.js'></script>
 <script src='./mudom2.js'></script>

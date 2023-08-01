@@ -52,20 +52,27 @@ html, body {
   /*font-size:              6mm;*/
 }
 
+frameholder {
+  display:                block;
+  float:                  left;
+  margin:                 2.5mm;
+  padding:                2mm;
+  border:                 1px solid black;
+  border-radius:          2mm; }
+
 galley {
   display:                block;
-  outline:                3px dotted red;
   position:               relative;
   /*overflow-y:             scroll;*/
-  overflow-y:             visible;
   margin:                 0mm;
   width:                  var(--column-width);
-  /*margin-top:             10mm;*/
-  /*margin-bottom:          10mm;*/
   margin-bottom:          var(--column-height); /* should be calculated as max of all column heights */
   margin-top:             var(--column-height); /* should be calculated as max of all column heights */
   page-break-inside:      avoid;
   /*columns:                3;*/ }
+
+.debug galley {
+  outline:                3px dotted red; }
 
 galley > p {
   text-align:             justify;
@@ -91,11 +98,10 @@ button#debug {
 }
 
 iframe {
-  margin:                 2.5mm;
+  margin:                 0mm;
   width:                  80mm;
   height:                 53mm;
-  overflow:               hidden;
-  scrollbar-width:        none; }
+  overflow:               hidden; }
 
 iframe::-webkit-scrollbar {
   width:                  0;
