@@ -84,45 +84,6 @@ galley > p::first-letter {
   /*padding:                0mm;*/
 }
 
-.header {
-  display:                none;
-  background-color:       lightblue;
-  width:                  100%;
-  position:               fixed;
-  top:                    0mm; }
-
-.footer {
-  display:                none;
-  background-color:       lightblue;
-  width:                  100%;
-  position:               fixed;
-  bottom:                 0; }
-
-.µ-clientrec {
-  position:               absolute;
-  margin:                 0;
-  padding:                0;
-  outline:                1px solid red;
-  background-color:       rgba(255,255,0,0.4);
-  mix-blend-mode:         multiply;
-  pointer-events:         none; }
-
-.µ-clientrec::first-letter {
-  /* ### TAINT consider to use scopes instead of `!important` */
-  font-size:              100% !important;
-  color:                  black !important; }
-
-div::nth-line(2) { color: red; }
-
-.µ-clientrec.above {
-  background-color:       rgba(0,255,0,0.5); }
-
-.µ-clientrec.below {
-  background-color:       rgba(255,0,255,0.5); }
-
-/*.µ-clientrec.ref-rectangle {
-  background-color:       rgba(255,150,15,0.5); }
-*/
 button#redraw {
   position:               fixed;
   top:                    3mm;
