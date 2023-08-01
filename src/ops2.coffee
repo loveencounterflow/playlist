@@ -11,9 +11,7 @@ setup_debug_button = ( distributor ) ->
   return unless ( button = µ.DOM.select_first 'button#debug', null )?
   µ.DOM.on button, 'click', ->
     µ.DOM.toggle_class ( µ.DOM.select_first 'body' ), 'debug'
-    ### TAINT convert to regular iterator ###
-    ø_iframe = distributor.new_iframe_walker()
-    while ø_iframe.step()?
+    for ø_iframe from distributor.new_iframe_walker()
       galley_µ = ø_iframe.window.µ
       galley_µ.DOM.toggle_class ( galley_µ.DOM.select_first 'body' ), 'debug'
   return null
