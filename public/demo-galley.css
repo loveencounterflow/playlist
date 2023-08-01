@@ -95,26 +95,32 @@ iframe {
   width:                  80mm;
   height:                 53mm;
   overflow:               hidden;
-  scrollbar-width:        none;
-  outline:                1px dotted red; }
+  scrollbar-width:        none; }
 
 iframe::-webkit-scrollbar {
   width:                  0;
   display:                none; }
 
+.debug iframe {
+  outline:                1px dotted red; }
+
+/* ### TAINT use explicit class for debugging line box (as for cover) */
 .box {
-  background-color:       rgba( 255, 248, 0, 0.2 );
-/*  outline:                1px solid rgba( 255, 0, 0, 0.2 );
-  outline-offset :        0px;*/
-  outline:                1px solid rgba( 255, 0, 0, 0.2 );
-  mix-blend-mode:         multiply;
+  background-color:       transparent;
   pointer-events:         none;
   position:               absolute; }
 
+.debug .box {
+  background-color:       rgba( 255, 248, 0, 0.2 );
+  outline:                1px solid rgba( 255, 0, 0, 0.2 );
+  mix-blend-mode:         multiply; }
+
 .box.cover {
-  background-color:       rgba( 255, 0, 0, 0.2 );
-/*  outline:                1px solid rgba( 255, 0, 0, 0.2 );
-  outline-offset :        0px;*/
-  mix-blend-mode:         normal;
+  background-color:       white;
   pointer-events:         none;
   position:               absolute; }
+
+.debug .box.cover {
+  background-color:       rgba( 255, 0, 0, 0.2 );
+  mix-blend-mode:         multiply; }
+
