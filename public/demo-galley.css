@@ -32,7 +32,7 @@
   --link-color:           var(--marker-color);
   --warn-color:           hotpink;
   --column-width:         80mm; /* ### TAINT calculate from page size */
-  --column-height:        80mm;
+  --column-height:        53mm;
   font-family:            var(--root-font-family);
   font-size:              var(--root-font-size);
   line-height-step:       var(--grid-size);
@@ -51,6 +51,16 @@ html, body {
   /*overflow:               hidden;*/
   /*font-size:              6mm;*/
 }
+
+pl-page {
+  display:                block;
+  width:                  calc( 2 * var(--column-width) + 20mm );
+  height:                 calc( var(--column-height ) + 10mm ); }
+
+.debug pl-page {
+  outline:                2px dashed lightblue; }
+
+pl-page.template {}
 
 pl-frameholder {
   display:                block;
@@ -100,7 +110,7 @@ button#debug {
 iframe {
   margin:                 0mm;
   width:                  80mm;
-  height:                 53mm;
+  height:                 var(--column-height);
   overflow:               hidden; }
 
 iframe::-webkit-scrollbar {
