@@ -135,7 +135,7 @@ demo = -> new Promise ( resolve, reject ) =>
     root:           './public'
     host:           '0.0.0.0'
     https:          true
-    wait:           0.5 # s
+    wait:           1000 # ms
   new FiveServer().start cfg
   watcher           = new My_watcher create_pipeline()
   watcher.add_path PATH.join G.project_path, 'pages/**/*.md'
