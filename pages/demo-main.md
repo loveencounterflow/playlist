@@ -23,6 +23,11 @@
 <pl-frameholder><iframe src='./demo-galley.html'></iframe></pl-frameholder>
 </pl-page>
 
+<pl-page>
+<pl-frameholder><iframe src='./demo-galley.html'></iframe></pl-frameholder>
+<pl-frameholder><iframe src='./demo-galley.html'></iframe></pl-frameholder>
+</pl-page>
+
 <script src='/browserified/mudom.js'></script>
 <script src='./mudom2.js'></script>
 <script src='./ops2.js'></script>

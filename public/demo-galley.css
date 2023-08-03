@@ -61,6 +61,11 @@ pl-page {
   outline:                2px dashed lightblue; }
 
 pl-page.template {}
+pl-page:not(.template) {}
+
+@media print {
+  pl-page.template {
+    display: none !important; } }
 
 pl-frameholder {
   display:                block;
