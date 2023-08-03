@@ -19,14 +19,14 @@
 <button id=debug>DEBUG</button>
 
 
-<frameholder><iframe src='./demo-galley.html' scrolling=no></iframe></frameholder>
-<frameholder><iframe src='./demo-galley.html' scrolling=no></iframe></frameholder>
-<frameholder><iframe src='./demo-galley.html' scrolling=no></iframe></frameholder>
-<frameholder><iframe src='./demo-galley.html' scrolling=no></iframe></frameholder>
-<frameholder><iframe src='./demo-galley.html' scrolling=no></iframe></frameholder>
-<frameholder><iframe src='./demo-galley.html' scrolling=no></iframe></frameholder>
-<frameholder><iframe src='./demo-galley.html' scrolling=no></iframe></frameholder>
-<frameholder><iframe src='./demo-galley.html' scrolling=no></iframe></frameholder>
+<pl-frameholder><iframe src='./demo-galley.html' scrolling=no></iframe></pl-frameholder>
+<pl-frameholder><iframe src='./demo-galley.html' scrolling=no></iframe></pl-frameholder>
+<pl-frameholder><iframe src='./demo-galley.html' scrolling=no></iframe></pl-frameholder>
+<pl-frameholder><iframe src='./demo-galley.html' scrolling=no></iframe></pl-frameholder>
+<pl-frameholder><iframe src='./demo-galley.html' scrolling=no></iframe></pl-frameholder>
+<pl-frameholder><iframe src='./demo-galley.html' scrolling=no></iframe></pl-frameholder>
+<pl-frameholder><iframe src='./demo-galley.html' scrolling=no></iframe></pl-frameholder>
+<pl-frameholder><iframe src='./demo-galley.html' scrolling=no></iframe></pl-frameholder>
 
 <script src='/browserified/mudom.js'></script>
 <script src='./mudom2.js'></script>
