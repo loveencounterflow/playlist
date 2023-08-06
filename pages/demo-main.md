@@ -16,8 +16,6 @@
 </head>
 
 
-<button id=debug>DEBUG</button>
-
 <pl-page class=template>
 <pl-frameholder><iframe src='./demo-galley.html'></iframe></pl-frameholder>
 <pl-frameholder><iframe src='./demo-galley.html'></iframe></pl-frameholder>
