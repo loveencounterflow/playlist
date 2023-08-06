@@ -20,12 +20,13 @@ setup_debug_button = ( distributor ) ->
 #===========================================================================================================
 µ.DOM.ready ->
   log '^123-1^', "ready"
-  # return null if      µ.LINE.Distributor.is_galley_document()
+  if ( not µ.DOM.page_is_inside_iframe() ) and ( µ.DOM.select_first 'galley', null )?
+    log '^123-1^', "galley page, not inside an iframe"
   return null unless  µ.LINE.Distributor.is_main_document()
   cfg =
     paragraph_selector:       'galley > p'
     iframe_selector:          'iframe'
-    inject_stylesheet_after:  'link[href$="reset.css"]'
+    insert_stylesheet_after:  'link[href$="reset.css"]'
   distributor = new µ.LINE.Distributor cfg
   setup_debug_button distributor
   log '^123-2^', "distributing lines..."
