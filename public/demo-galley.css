@@ -106,12 +106,6 @@ galley > p::first-letter {
   /*padding:                0mm;*/
 }
 
-button#debug {
-  position:               fixed;
-  top:                    3mm;
-  left:                   95mm;
-}
-
 iframe {
   margin:                 0mm;
   width:                  80mm;
