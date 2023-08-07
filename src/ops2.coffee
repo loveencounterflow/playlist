@@ -18,7 +18,10 @@ globalThis.debug = console.debug
       paragraph_selector:         'galley > p'
       insert_stylesheet_after:    'link[href$="reset.css"]'
       insert_debug_button:        true
-    log '^123-1^', new µ.LINE.Finder cfg
+    distributor = new µ.LINE.Distributor cfg
+    log '^123-2^', "marking lines..."
+    await distributor.mark_lines()
+    log '^123-3^', "marking lines done"
     return null
   #.........................................................................................................
   return null unless  µ.LINE.Distributor.is_main_document()
