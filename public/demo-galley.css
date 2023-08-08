@@ -75,7 +75,7 @@ pl-frameholder {
   border:                 1px solid black;
   border-radius:          2mm; }
 
-galley {
+mu-galley {
   display:                block;
   position:               relative;
   /*overflow-y:             scroll;*/
@@ -86,16 +86,16 @@ galley {
   page-break-inside:      avoid;
   /*columns:                3;*/ }
 
-.debug galley {
+.debug mu-galley {
   outline:                3px dotted red; }
 
-galley > p {
+mu-galley > p {
   text-align:             justify;
   text-justify:           inter-character;
   line-height-step:       calc( 1 * var(--root-font-size) );
   margin-bottom:          calc( 1 * var(--root-font-size) ); }
 
-galley > p::first-letter {
+mu-galley > p::first-letter {
   font-size:              200%;
   color:                  red; }
 

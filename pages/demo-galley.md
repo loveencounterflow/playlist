@@ -50,7 +50,7 @@ pusher {
 
 </head>
 
-<galley>
+<mu-galley>
 <pusher></pusher>
 <p>
 Alice was beginning to get very tired of sitting by her sister on the bank, and
@@ -129,7 +129,7 @@ or Australia?” (and she tried to curtsey as she spoke—fancy
 could manage it?) “And what an ignorant little girl she’ll think me
 for asking! No, it’ll never do to ask: perhaps I shall see it written up
 somewhere.”
-</p></galley>
+</p></mu-galley>
 
 
 <script src='/browserified/mudom.js'></script>
