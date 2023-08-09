@@ -11,7 +11,7 @@
 </head>
 
 <mu-galley>
-<mu-rightsaw></mu-rightsaw>
+<mu-rightcomb></mu-rightcomb>
 <p>
 Alice was beginning to get very tired of sitting by her sister on the bank, and
 of having nothing to do: once or twice she had peeped into the book her sister
