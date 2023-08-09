@@ -75,6 +75,27 @@ pl-frameholder {
   border:                 1px solid black;
   border-radius:          2mm; }
 
+mu-rightsaw {
+  display:                block;
+  float:                  right;
+  clear:                  both;
+  --path:
+    var(--column-width)   0mm,
+    calc( var(--column-width) - 10mm )  5mm,
+    calc( var(--column-width) - 10mm )  10mm,
+    calc( var(--column-width) - 10mm )  15mm,
+    calc( var(--column-width) - 15mm )  20mm,
+    calc( var(--column-width) - 10mm )  25mm,
+    calc( var(--column-width) - 10mm )  30mm,
+    calc( var(--column-width) - 10mm )  35mm,
+    var(--column-width)  40mm;
+  shape-outside:          polygon( var(--path) );
+  clip-path:              polygon( var(--path) );
+  background-color:       yellow;
+  height:                 80mm;
+  width:                  80mm;
+  outline:                1px dotted blue; }
+
 mu-galley {
   display:                block;
   position:               relative;
