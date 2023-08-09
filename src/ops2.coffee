@@ -5,7 +5,15 @@
 globalThis.log = console.log
 globalThis.debug = console.debug
 
+_Distributor = µ.LINE.Distributor
 
+µ.LINE.Distributor = class extends _Distributor
+
+  constructor: ( cfg ) ->
+    super cfg
+    @rightcomb = µ.DOM.parse_one '<mu-rightcomb></mu-rightcomb>'
+    log '^342234^', "Distributor", @rightcomb
+    return undefined
 
 
 #===========================================================================================================
