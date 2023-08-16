@@ -28,5 +28,6 @@
 
 <script src='/browserified/mudom.js'></script>
 <script src='./mudom2.js'></script>
+<script src='/browserified/linefinder.js'></script>
 <script src='./ops2.js'></script>
 
