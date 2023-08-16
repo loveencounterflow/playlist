@@ -91,7 +91,6 @@ somewhere.”
 </p></mu-galley>
 
 
-<script src='/browserified/mudom.js'></script>
-<script src='/browserified/linefinder.js'></script>
+<script src='/browserified/mudom+linefinder.js'></script>
 <script src='./ops2.js'></script>
 
