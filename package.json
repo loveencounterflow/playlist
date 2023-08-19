@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "lib/main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loveencounterflow/playlist.git"
+  },
   "scripts": {
     "serve": "nodexh lib/watcher.js",
     "test": "echo \"Error: no test specified\" && exit 1"
