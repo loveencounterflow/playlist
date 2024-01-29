@@ -122,7 +122,7 @@
 | The Rolling Stones          | [Paint It Black](https://www.youtube.com/watch?v=O4irXQhgMqg)                  | Official Lyric Video     |
 | Elvis Presley               | [Can't Help Falling In Love](https://www.youtube.com/watch?v=TlrNxJqODBc)      |                          |
 | Rio Reiser                  | [Für immer und dich](https://www.youtube.com/watch?v=1JEClMj2YIw)              | Live 1986                |
-|                             |                                                                                |                          |
+| Rita Pavone                 | [Heart](https://www.youtube.com/watch?v=QFUi5lAL9Sg)                           | 1966                     |
 |                             |                                                                                |                          |
 |                             |                                                                                |                          |
 |                             |                                                                                |                          |
